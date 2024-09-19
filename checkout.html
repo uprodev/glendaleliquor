@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Glendaleliquor</title>
+
+	
+	<!-- Main style -->
+	<link rel="stylesheet" href="css/normalize.css"/>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@300;400;500;600;700&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="fonts/FA5PRO-master/css/all.css"/>
+	<link rel="stylesheet" href="css/jquery.fancybox.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/nice-select.css"/>
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/ion.rangeSlider.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/intlTelInput.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/air-datepicker.css"/>
+	<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+	<link rel="stylesheet" type="text/css" href="css/responsive.css"/>
+	
+</head>
+<body>
+
+  <header>
+		<div class="top-line">
+			<div class="content-width">
+				<div class="logo-wrap">
+					<a href="index.html">
+						<img src="img/logo.svg" alt="">
+					</a>
+				</div>
+				<nav class="top-nav">
+					<ul>
+						<li><a href="#"><i class="fa-regular fa-arrow-right-to-arc"></i>LogIn</a></li>
+						<li><a href="#"><i class="fa-light fa-file-lines"></i>Blog</a></li>
+						<li><a href="#"><i class="fa-light fa-heart"></i>Favorites</a></li>
+						<li><a href="#"><i class="fa-light fa-basket-shopping"></i>Order <span>10</span></a></li>
+					</ul>
+					<div class="open-menu">
+						<a href="#">
+							<img src="img/menu.svg" alt="">
+						</a>
+					</div>
+				</nav>
+			</div>
+		</div>
+		<nav class="top-menu-wrap">
+			<div class="content-width">
+				<div class="search-wrap-mob">
+					<form action="#" class="form-search">
+						<label for="search-mob"></label>
+						<input type="search" name="search" id="search-mob" placeholder="Search">
+						<button class="btn" type="submit"><img src="img/find.svg" alt=""></button>
+					</form>
+				</div>
+				<ul class="top-menu">
+					<li>
+						<a href="#"><img src="img/icon-1-1.svg" alt=""><span>Spirits <span>Spirits</span></span></a>
+						<ul class="sub-menu">
+							<li><a href="#">Whiskey</a></li>
+							<li><a href="#">Vodka</a></li>
+							<li><a href="#">Rum</a></li>
+							<li><a href="#">Gin</a></li>
+							<li><a href="#">Tequila</a></li>
+							<li><a href="#">Brandy</a></li>
+							<li><a href="#"><b>See all</b></a></li>
+						</ul>
+					</li>
+					<li><a href="#"><img src="img/icon-1-2.svg" alt=""><span>Wine <span>Wine</span></span></a></li>
+					<li><a href="#"><img src="img/icon-1-3.svg" alt=""><span>New arrivals<span>New arrivals</span></span></a></li>
+					<li><a href="#"><img src="img/icon-1-4.svg" alt=""><span>Specials <span>Specials</span></span></a></li>
+					<li><a href="#"><img src="img/icon-1-5.svg" alt=""><span>Gift sets <span>Gift sets</span></span></a></li>
+					<li><a href="#"><img src="img/icon-1-6.svg" alt=""><span>Cocktail ingredients<span>Cocktail ingredients</span></span></a></li>
+					<li><a href="#"><img src="img/icon-1-7.svg" alt=""><span>Ready to drink<span>Ready to drink</span></span></a></li>
+					<li><a href="#"><img src="img/icon-1-8.svg" alt=""><span>Weddings & events<span>Weddings & events</span></span></a></li>
+				</ul>
+
+
+			</div>
+		</nav>
+  </header>
+
+	<div class="menu-responsive" id="menu-responsive" style="display: none">
+		<div class="top">
+			<div class="close-menu">
+				<a href="#"><i class="fal fa-times"></i></a>
+			</div>
+		</div>
+		<div class="wrap">
+			<div class="logo-wrap">
+				<a href="index.html">
+					<img src="img/logo.svg" alt="">
+				</a>
+			</div>
+			<nav class="mob-menu-wrap">
+				<ul class="mob-nav">
+					<li><a href="#"><i class="fa-regular fa-arrow-right-to-arc"></i>LogIn</a></li>
+					<li><a href="#"><i class="fa-light fa-file-lines"></i>Blog</a></li>
+					<li><a href="#"><i class="fa-light fa-heart"></i>Favorites</a></li>
+					<li><a href="#"><i class="fa-light fa-basket-shopping"></i>Order <span>10</span></a></li>
+				</ul>
+				<ul class="mob-menu">
+					<li>
+						<a href="#"><img src="img/icon-1-1.svg" alt="">Spirits</a>
+						<ul class="sub-menu">
+							<li><a href="#">Whiskey</a></li>
+							<li><a href="#">Vodka</a></li>
+							<li><a href="#">Rum</a></li>
+							<li><a href="#">Gin</a></li>
+							<li><a href="#">Tequila</a></li>
+							<li><a href="#">Brandy</a></li>
+							<li><a href="#"><b>See all</b></a></li>
+						</ul>
+					</li>
+					<li><a href="#"><img src="img/icon-1-2.svg" alt="">Wine</a></li>
+					<li><a href="#"><img src="img/icon-1-3.svg" alt="">New arrivals</a></li>
+					<li><a href="#"><img src="img/icon-1-4.svg" alt="">Specials</a></li>
+					<li><a href="#"><img src="img/icon-1-5.svg" alt="">Gift sets</a></li>
+					<li><a href="#"><img src="img/icon-1-6.svg" alt="">Cocktail ingredients</a></li>
+					<li><a href="#"><img src="img/icon-1-7.svg" alt="">Ready to drink</a></li>
+					<li><a href="#"><img src="img/icon-1-8.svg" alt="">Weddings & events</a></li>
+				</ul>
+			</nav>
+
+		</div>
+	</div>
+
+	<main>
+
+		<section class="checkout-block">
+			<div class="content-width">
+				<form action="#" class="default-form">
+					<div class="content">
+						<ul class="breadcrumb">
+							<li><a href="#"><i class="fa-light fa-chevron-left"></i>Your Cart</a></li>
+						</ul>
+						<h1>Checkout</h1>
+						<h6>Billing details</h6>
+
+						<div class="wrap">
+							<div class="input-wrap">
+								<label for="name">First name *</label>
+								<input type="text" name="name" id="name" required>
+							</div>
+							<div class="input-wrap">
+								<label for="last-name">Last name *</label>
+								<input type="text" name="last-name" id="last-name" required>
+							</div>
+							<div class="input-wrap input-wrap-full">
+								<label for="company">Company name (optional)</label>
+								<input type="text" name="company" id="company">
+							</div>
+							<div class="input-wrap input-wrap-full select-block">
+								<label class="form-label" for="select-1">Country/Region *</label>
+								<select id="select-1">
+									<option value="0">USA</option>
+									<option value="1">USA 1</option>
+									<option value="2">USA 2</option>
+									<option value="3">USA 3</option>
+								</select>
+							</div>
+							<div class="input-wrap input-wrap-full">
+								<label for="code">Post code *</label>
+								<input type="text" name="code" id="code" required>
+							</div>
+							<div class="input-wrap input-wrap-full">
+								<label for="address">Street address *</label>
+								<input type="text" name="address" id="address" required placeholder="House number and street name">
+							</div>
+							<div class="input-wrap input-wrap-full">
+								<label for="address2"></label>
+								<input type="text" name="address2" id="address2" placeholder="Apartment, suite, unit, etc. (optional)">
+							</div>
+							<div class="input-wrap input-wrap-full">
+								<label for="city">Town/City *</label>
+								<input type="text" name="city" id="city" required placeholder="House number and street name">
+							</div>
+							<div class="input-wrap input-wrap-full">
+								<label for="tel">Phone *</label>
+								<input type="text" name="tel" id="tel" required class="tel">
+							</div>
+							<div class="input-wrap input-wrap-full">
+								<label for="email">Email address *</label>
+								<input type="email" name="email" id="email" required>
+							</div>
+							<div class="input-wrap input-wrap-full">
+								<label for="message">Order notes (optional)</label>
+								<textarea name="message" id="message" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+							</div>
+							<div class="input-wrap-check input-wrap-full">
+								<input type="checkbox" id="check-1" name="check-1">
+								<label for="check-1">Create an account</label>
+							</div>
+							<div class="input-wrap-check input-wrap-full">
+								<input type="checkbox" id="check-2" name="check-2">
+								<label for="check-2">Delivar to a different address?</label>
+							</div>
+						</div>
+					</div>
+					<div class="aside">
+						<div class="title">
+							<h6>Order summary</h6>
+						</div>
+						<div class="item-wrap">
+							<p class="name">1 item</p>
+							<div class="item">
+								<figure>
+									<a href="#">
+										<img src="img/img-11.png" alt="">
+									</a>
+								</figure>
+								<div class="text">
+									<h6><a href="#">1 x 365 Gevorkian Strawberry Wine 750 ML</a></h6>
+									<p class="mob">1 item</p>
+								</div>
+								<div class="price">
+									<div class="col">
+										<p class="mob">Total (USD)</p>
+										<p>$15.99</p>
+									</div>
+									<p class="mob"><a href="#">Edit</a></p>
+								</div>
+							</div>
+						</div>
+
+						<div class="total-wrap">
+							<div class="total-item">
+								<p>Subtotal:</p>
+								<p>$15.99</p>
+							</div>
+							<div class="total-item">
+								<p>Shipping:</p>
+								<p>Free</p>
+							</div>
+							<div class="total-item">
+								<p>Default Tax Class</p>
+								<p>$0.00</p>
+							</div>
+							<div class="total-item">
+								<p>Promo/Gift Certificate</p>
+								<p></p>
+							</div>
+						</div>
+
+						<div class="total-line">
+							<p>Total (USD)</p>
+							<p>$15.99</p>
+						</div>
+
+						<div class="payment-wrap">
+							<p>Payment</p>
+							<div class="input-wrap input-wrap-radio">
+								<div class="wrap-radio">
+									<input type="radio" name="radio" id="radio-1" checked>
+									<label for="radio-1">Credit card
+										<img src="img/icon-9-1.svg" alt="">
+										<img src="img/icon-9-2.svg" alt="">
+										<img src="img/icon-9-3.svg" alt="">
+									</label>
+								</div>
+								<div class="wrap-active">
+									<div class="input-wrap">
+										<label for="card-1">Credit Card Number</label>
+										<input type="text" name="card-1" id="card-1" placeholder="">
+									</div>
+									<div class="input-wrap input-wrap-2">
+										<label for="card-2">Expiration</label>
+										<input type="text" name="card-2" id="card-2" placeholder="MM/YY">
+									</div>
+									<div class="input-wrap">
+										<label for="card-3">Name on Card</label>
+										<input type="text" name="card-3" id="card-3" placeholder="">
+									</div>
+									<div class="input-wrap input-wrap-2">
+										<label for="card-4">CVV</label>
+										<input type="text" name="card-4" id="card-4" placeholder="MM/YY">
+									</div>
+
+								</div>
+							</div>
+
+							<div class="input-wrap input-wrap-radio wrap-radio">
+								<input type="radio" name="radio" id="radio-2">
+								<label for="radio-2">Amazon Pay
+									<img src="img/icon-9-4.svg" alt="">
+								</label>
+							</div>
+						</div>
+						<div class="input-wrap-submit">
+							<button type="submit" class="btn-default btn-medium"><span>Place order</span></button>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</section>
+
+	</main>
+
+
+
+  <footer>
+		<div class="join">
+			<div class="content-width">
+				<div class="title">
+					<h4>Join our mailing list <sub>for special offers!</sub></h4>
+				</div>
+				<div class="form-wrap">
+					<form action="#" class="form-join">
+						<label for="email-join"><i class="fa-light fa-envelope"></i></label>
+						<input type="email" name="email-join" id="email-join" placeholder="Example@gmail.com">
+						<button type="submit" class="btn-default btn-small btn-white"><span>Join</span></button>
+					</form>
+				</div>
+			</div>
+		</div>
+    <div class="content-width">
+			<div class="content">
+				<div class="item item-1">
+					<h6>Contact Us</h6>
+					<ul class="menu">
+						<li>Buy LiquorOnline</li>
+						<li><a href="#">www.glendaleliquor.com</a></li>
+						<li>1309-1311 E. Colorado St.</li>
+						<li>Glendale, CA. 91205</li>
+						<li><a href="mailto:Glendaleliquor.info@gmail.com">Glendaleliquor.info@gmail.com</a></li>
+					</ul>
+				</div>
+
+				<div class="item item-2">
+					<h6>Accounts & Orders</h6>
+					<ul class="menu">
+						<li><a href="#">Wishlist</a></li>
+						<li><a href="#">Account</a></li>
+						<li><a href="#">Logout</a></li>
+						<li><a href="#">Order Status</a></li>
+						<li><a href="#">Shipping & Returns</a></li>
+					</ul>
+				</div>
+				<div class="item item-3">
+					<h6>Quick Links</h6>
+					<ul class="menu">
+						<li><a href="#">Information/Mailing List</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Order Status</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="#">Terms/Conditions</a></li>
+						<li><a href="#">Shipping Policy</a></li>
+						<li><a href="#">Find us</a></li>
+					</ul>
+				</div>
+				<div class="item item-4">
+					<h6>Recent Blog Posts</h6>
+					<ul class="menu">
+						<li>Ararat brandy</li>
+						<li>Armas wine, Armenia</li>
+						<li>Horse soldier straight bourbon whiskey</li>
+						<li>How to choose your favorite scotch whisky</li>
+					</ul>
+				</div>
+				<div class="item item-5">
+					<h6>Connect with Us:</h6>
+					<ul class="soc">
+						<li><a href="#"><img src="img/icon-3-1.svg" alt=""></a></li>
+						<li><a href="#"><img src="img/icon-3-2.svg" alt=""></a></li>
+					</ul>
+				</div>
+				<div class="item item-6">
+					<h6>Payment methods:</h6>
+					<ul class="pay">
+						<li><a href="#"><img src="img/icon-4-1.svg" alt=""></a></li>
+						<li><a href="#"><img src="img/icon-4-2.svg" alt=""></a></li>
+						<li><a href="#"><img src="img/icon-4-3.svg" alt=""></a></li>
+						<li><a href="#"><img src="img/icon-4-4.svg" alt=""></a></li>
+						<li><a href="#"><img src="img/icon-4-5.svg" alt=""></a></li>
+						<li><a href="#"><img src="img/icon-4-6.svg" alt=""></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="bottom">
+				<p>© 2024 Glendale Liquor Store</p>
+			</div>
+    </div>
+  </footer>
+
+
+  <script src="js/jquery.min.js"></script>
+	<script src="js/swiper.js"></script>
+	<script src="js/jquery.fancybox.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.sticky.js"></script>
+	<script src="js/ion.rangeSlider.min.js"></script>
+	<script src="js/intlTelInput.min.js"></script>
+	<script src="js/air-datepicker.js"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>

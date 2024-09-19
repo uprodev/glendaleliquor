@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Glendaleliquor</title>
+
+	
+	<!-- Main style -->
+	<link rel="stylesheet" href="css/normalize.css"/>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@300;400;500;600;700&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="fonts/FA5PRO-master/css/all.css"/>
+	<link rel="stylesheet" href="css/jquery.fancybox.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/nice-select.css"/>
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/ion.rangeSlider.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/intlTelInput.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/air-datepicker.css"/>
+	<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+	<link rel="stylesheet" type="text/css" href="css/responsive.css"/>
+	
+</head>
+<body>
+
+  <header>
+		<div class="top-line">
+			<div class="content-width">
+				<div class="logo-wrap">
+					<a href="index.html">
+						<img src="img/logo.svg" alt="">
+					</a>
+				</div>
+				<nav class="top-nav">
+					<ul>
+						<li><a href="#"><i class="fa-regular fa-arrow-right-to-arc"></i>LogIn</a></li>
+						<li><a href="#"><i class="fa-light fa-file-lines"></i>Blog</a></li>
+						<li><a href="#"><i class="fa-light fa-heart"></i>Favorites</a></li>
+						<li><a href="#"><i class="fa-light fa-basket-shopping"></i>Order <span>10</span></a></li>
+					</ul>
+					<div class="open-menu">
+						<a href="#">
+							<img src="img/menu.svg" alt="">
+						</a>
+					</div>
+				</nav>
+			</div>
+		</div>
+		<nav class="top-menu-wrap">
+			<div class="content-width">
+				<div class="search-wrap-mob">
+					<form action="#" class="form-search">
+						<label for="search-mob"></label>
+						<input type="search" name="search" id="search-mob" placeholder="Search">
+						<button class="btn" type="submit"><img src="img/find.svg" alt=""></button>
+					</form>
+				</div>
+				<ul class="top-menu">
+					<li>
+						<a href="#"><img src="img/icon-1-1.svg" alt=""><span>Spirits <span>Spirits</span></span></a>
+						<ul class="sub-menu">
+							<li><a href="#">Whiskey</a></li>
+							<li><a href="#">Vodka</a></li>
+							<li><a href="#">Rum</a></li>
+							<li><a href="#">Gin</a></li>
+							<li><a href="#">Tequila</a></li>
+							<li><a href="#">Brandy</a></li>
+							<li><a href="#"><b>See all</b></a></li>
+						</ul>
+					</li>
+					<li><a href="#"><img src="img/icon-1-2.svg" alt=""><span>Wine <span>Wine</span></span></a></li>
+					<li><a href="#"><img src="img/icon-1-3.svg" alt=""><span>New arrivals<span>New arrivals</span></span></a></li>
+					<li><a href="#"><img src="img/icon-1-4.svg" alt=""><span>Specials <span>Specials</span></span></a></li>
+					<li><a href="#"><img src="img/icon-1-5.svg" alt=""><span>Gift sets <span>Gift sets</span></span></a></li>
+					<li><a href="#"><img src="img/icon-1-6.svg" alt=""><span>Cocktail ingredients<span>Cocktail ingredients</span></span></a></li>
+					<li><a href="#"><img src="img/icon-1-7.svg" alt=""><span>Ready to drink<span>Ready to drink</span></span></a></li>
+					<li><a href="#"><img src="img/icon-1-8.svg" alt=""><span>Weddings & events<span>Weddings & events</span></span></a></li>
+				</ul>
+
+
+			</div>
+		</nav>
+  </header>
+
+	<div class="menu-responsive" id="menu-responsive" style="display: none">
+		<div class="top">
+			<div class="close-menu">
+				<a href="#"><i class="fal fa-times"></i></a>
+			</div>
+		</div>
+		<div class="wrap">
+			<div class="logo-wrap">
+				<a href="index.html">
+					<img src="img/logo.svg" alt="">
+				</a>
+			</div>
+			<nav class="mob-menu-wrap">
+				<ul class="mob-nav">
+					<li><a href="#"><i class="fa-regular fa-arrow-right-to-arc"></i>LogIn</a></li>
+					<li><a href="#"><i class="fa-light fa-file-lines"></i>Blog</a></li>
+					<li><a href="#"><i class="fa-light fa-heart"></i>Favorites</a></li>
+					<li><a href="#"><i class="fa-light fa-basket-shopping"></i>Order <span>10</span></a></li>
+				</ul>
+				<ul class="mob-menu">
+					<li>
+						<a href="#"><img src="img/icon-1-1.svg" alt="">Spirits</a>
+						<ul class="sub-menu">
+							<li><a href="#">Whiskey</a></li>
+							<li><a href="#">Vodka</a></li>
+							<li><a href="#">Rum</a></li>
+							<li><a href="#">Gin</a></li>
+							<li><a href="#">Tequila</a></li>
+							<li><a href="#">Brandy</a></li>
+							<li><a href="#"><b>See all</b></a></li>
+						</ul>
+					</li>
+					<li><a href="#"><img src="img/icon-1-2.svg" alt="">Wine</a></li>
+					<li><a href="#"><img src="img/icon-1-3.svg" alt="">New arrivals</a></li>
+					<li><a href="#"><img src="img/icon-1-4.svg" alt="">Specials</a></li>
+					<li><a href="#"><img src="img/icon-1-5.svg" alt="">Gift sets</a></li>
+					<li><a href="#"><img src="img/icon-1-6.svg" alt="">Cocktail ingredients</a></li>
+					<li><a href="#"><img src="img/icon-1-7.svg" alt="">Ready to drink</a></li>
+					<li><a href="#"><img src="img/icon-1-8.svg" alt="">Weddings & events</a></li>
+				</ul>
+			</nav>
+
+		</div>
+	</div>
+
+	<main>
+
+		<section class="category">
+			<div class="content-width">
+				<div class="mob-cart">
+					<a href="#">
+						<img src="img/icon-8.svg" alt="">
+						<span>10</span>
+					</a>
+				</div>
+				<div class="title">
+					<h1>Armenian wines</h1>
+					<p>We have a wide selection of Armenian wines. Choose your favorite!</p>
+				</div>
+				<div class="form-wrap">
+					<div class="wrap">
+						<form action="#" class="form-select">
+							<div class="input-wrap">
+								<input type="checkbox" name="select" id="select-1" checked>
+								<label for="select-1">White Wines</label>
+							</div>
+							<div class="input-wrap">
+								<input type="checkbox" name="select" id="select-2">
+								<label for="select-2">Red Wines</label>
+							</div>
+							<div class="input-wrap">
+								<input type="checkbox" name="select" id="select-3">
+								<label for="select-3">Sparkling Wine</label>
+							</div>
+							<div class="input-wrap">
+								<input type="checkbox" name="select" id="select-4">
+								<label for="select-4">Rosé Wine</label>
+							</div>
+							<div class="input-wrap">
+								<input type="checkbox" name="select" id="select-5">
+								<label for="select-5">Dessert Wine</label>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<form action="#" class="select-line">
+					<div class="item item-1 select-block">
+						<label class="form-label" for="filter"></label>
+						<select id="filter">
+							<option value="0" disabled selected>Filter by</option>
+							<option value="1">Featured items</option>
+							<option value="2">Best selling</option>
+							<option value="3">A to Z</option>
+							<option value="4">Z to A</option>
+							<option value="5">By review</option>
+							<option value="6">Price: Ascending</option>
+							<option value="7">Price: Descending</option>
+						</select>
+					</div>
+					<div class="item item-2">
+						<label for="range-slider"><img src="img/icon-7.svg" alt="">Price</label>
+						<input type="text" class="range-slider" id="range-slider"  value="" />
+					</div>
+					<div class="item item-3 select-block">
+						<label class="form-label" for="filter-2"></label>
+						<select id="filter-2">
+							<option value="0" disabled selected>Sort by brand</option>
+							<option value="1">Featured items</option>
+							<option value="2">Best selling</option>
+							<option value="3">A to Z</option>
+							<option value="4">Z to A</option>
+							<option value="5">By review</option>
+							<option value="6">Price: Ascending</option>
+							<option value="7">Price: Descending</option>
+						</select>
+					</div>
+				</form>
+
+				<div class="products-content">
+					<div class="product-item">
+						<div class="like">
+							<a href="#"><i class="fa-light fa-heart"></i></a>
+						</div>
+						<figure>
+							<a href="#">
+								<img src="img/img-8-1.png" alt="">
+							</a>
+						</figure>
+						<div class="text">
+							<p class="info">Sku: 4850006410091</p>
+							<h6><a href="#">365 Gevorkian Blueberry Semi Sweet Wine 750 ML</a></h6>
+							<div class="stars-wrap">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-light fa-star"></i>
+							</div>
+							<div class="price-wrap">
+								<p class="price">$15.99</p>
+							</div>
+							<div class="btn-wrap">
+								<a href="#" class="btn-default btn-small"><span>Add to cart</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="product-item">
+						<div class="like">
+							<a href="#"><i class="fa-light fa-heart"></i></a>
+						</div>
+						<figure>
+							<a href="#">
+								<img src="img/img-8-2.png" alt="">
+							</a>
+						</figure>
+						<div class="text">
+							<p class="info">Sku: 085343005202</p>
+							<h6><a href="#">Matevosyan Pomegranate Semi Sweet Wine 750 ML</a></h6>
+							<div class="stars-wrap">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-light fa-star"></i>
+							</div>
+							<div class="price-wrap">
+								<p class="price">$15.99</p>
+							</div>
+							<div class="btn-wrap">
+								<a href="#" class="btn-default btn-small"><span>Add to cart</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="product-item">
+						<div class="like is-active">
+							<a href="#"><i class="fa-solid fa-heart"></i></a>
+						</div>
+						<figure>
+							<a href="#">
+								<img src="img/img-8-2.png" alt="">
+							</a>
+						</figure>
+						<div class="text">
+							<p class="info">Sku: 4850006410602</p>
+							<h6><a href="#">365 Gevorkian Apricot Semi Sweet Wine 750 ML</a></h6>
+							<div class="stars-wrap">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-light fa-star"></i>
+							</div>
+							<div class="price-wrap">
+								<p class="price">$15.99</p>
+							</div>
+							<div class="btn-wrap">
+								<a href="#" class="btn-default btn-small"><span>Add to cart</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="product-item">
+						<div class="like">
+							<a href="#"><i class="fa-light fa-heart"></i></a>
+						</div>
+						<div class="sale"><p>50% sale</p></div>
+						<figure>
+							<a href="#">
+								<img src="img/img-8-1.png" alt="">
+							</a>
+						</figure>
+						<div class="text">
+							<p class="info">Sku: 4850006410091</p>
+							<h6><a href="#">365 Gevorkian Apricot Semi Sweet Wine 750 ML</a></h6>
+							<div class="stars-wrap">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-light fa-star"></i>
+							</div>
+							<div class="price-wrap">
+								<p class="price price-new">$15.99</p>
+								<p class="price-old">$20.99</p>
+							</div>
+							<div class="btn-wrap">
+								<a href="#" class="btn-default btn-small"><span>Add to cart</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="product-item">
+						<div class="like">
+							<a href="#"><i class="fa-light fa-heart"></i></a>
+						</div>
+						<figure>
+							<a href="#">
+								<img src="img/img-8-4.png" alt="">
+							</a>
+						</figure>
+						<div class="text">
+							<p class="info">Sku: 4850006410077</p>
+							<h6><a href="#">365 Gevorkian Pomegranate Semi Sweet</a></h6>
+							<div class="stars-wrap">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-light fa-star"></i>
+							</div>
+							<div class="price-wrap">
+								<p class="price">$15.99</p>
+
+							</div>
+							<div class="btn-wrap">
+								<a href="#" class="btn-default btn-small"><span>Add to cart</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="product-item">
+						<div class="like">
+							<a href="#"><i class="fa-light fa-heart"></i></a>
+						</div>
+						<figure>
+							<a href="#">
+								<img src="img/img-8-5.png" alt="">
+							</a>
+						</figure>
+						<div class="text">
+							<p class="info">Sku: 4850024090268</p>
+							<h6><a href="#">365 Gevorkian Pomegranate Semi Sweet</a></h6>
+							<div class="stars-wrap">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-light fa-star"></i>
+							</div>
+							<div class="price-wrap">
+								<p class="price">$15.99</p>
+
+							</div>
+							<div class="btn-wrap">
+								<a href="#" class="btn-default btn-small"><span>Add to cart</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="product-item">
+						<div class="like">
+							<a href="#"><i class="fa-light fa-heart"></i></a>
+						</div>
+						<figure>
+							<a href="#">
+								<img src="img/img-8-6.png" alt="">
+							</a>
+						</figure>
+						<div class="text">
+							<p class="info">Sku: 4850024090268</p>
+							<h6><a href="#">365 Gevorkian Pomegranate Semi Sweet</a></h6>
+							<div class="stars-wrap">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-light fa-star"></i>
+							</div>
+							<div class="price-wrap">
+								<p class="price">$15.99</p>
+
+							</div>
+							<div class="btn-wrap">
+								<a href="#" class="btn-default btn-small"><span>Add to cart</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="product-item">
+						<div class="like">
+							<a href="#"><i class="fa-light fa-heart"></i></a>
+						</div>
+						<figure>
+							<a href="#">
+								<img src="img/img-8-7.png" alt="">
+							</a>
+						</figure>
+						<div class="text">
+							<p class="info">Sku: 4850024090268</p>
+							<h6><a href="#">365 Gevorkian Pomegranate Semi Sweet</a></h6>
+							<div class="stars-wrap">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-light fa-star"></i>
+							</div>
+							<div class="price-wrap">
+								<p class="price">$15.99</p>
+
+							</div>
+							<div class="btn-wrap">
+								<a href="#" class="btn-default btn-small"><span>Add to cart</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="product-item">
+						<div class="like">
+							<a href="#"><i class="fa-light fa-heart"></i></a>
+						</div>
+						<figure>
+							<a href="#">
+								<img src="img/img-8-8.png" alt="">
+							</a>
+						</figure>
+						<div class="text">
+							<p class="info">Sku: 4850024090268</p>
+							<h6><a href="#">365 Gevorkian Pomegranate Semi Sweet</a></h6>
+							<div class="stars-wrap">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-light fa-star"></i>
+							</div>
+							<div class="price-wrap">
+								<p class="price">$15.99</p>
+
+							</div>
+							<div class="btn-wrap">
+								<a href="#" class="btn-default btn-small"><span>Add to cart</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="product-item">
+						<div class="like">
+							<a href="#"><i class="fa-light fa-heart"></i></a>
+						</div>
+						<figure>
+							<a href="#">
+								<img src="img/img-8-9.png" alt="">
+							</a>
+						</figure>
+						<div class="text">
+							<p class="info">Sku: 4850024090268</p>
+							<h6><a href="#">365 Gevorkian Pomegranate Semi Sweet</a></h6>
+							<div class="stars-wrap">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-light fa-star"></i>
+							</div>
+							<div class="price-wrap">
+								<p class="price">$15.99</p>
+
+							</div>
+							<div class="btn-wrap">
+								<a href="#" class="btn-default btn-small"><span>Add to cart</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="product-item">
+						<div class="like">
+							<a href="#"><i class="fa-light fa-heart"></i></a>
+						</div>
+						<figure>
+							<a href="#">
+								<img src="img/img-8-10.png" alt="">
+							</a>
+						</figure>
+						<div class="text">
+							<p class="info">Sku: 4850024090268</p>
+							<h6><a href="#">365 Gevorkian Pomegranate Semi Sweet</a></h6>
+							<div class="stars-wrap">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-light fa-star"></i>
+							</div>
+							<div class="price-wrap">
+								<p class="price">$15.99</p>
+
+							</div>
+							<div class="btn-wrap">
+								<a href="#" class="btn-default btn-small"><span>Add to cart</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="product-item">
+						<div class="like">
+							<a href="#"><i class="fa-light fa-heart"></i></a>
+						</div>
+						<figure>
+							<a href="#">
+								<img src="img/img-8-11.png" alt="">
+							</a>
+						</figure>
+						<div class="text">
+							<p class="info">Sku: 4850024090268</p>
+							<h6><a href="#">365 Gevorkian Pomegranate Semi Sweet</a></h6>
+							<div class="stars-wrap">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-light fa-star"></i>
+							</div>
+							<div class="price-wrap">
+								<p class="price">$15.99</p>
+
+							</div>
+							<div class="btn-wrap">
+								<a href="#" class="btn-default btn-small"><span>Add to cart</span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="pagination-wrap">
+					<ul class="pagination">
+						<li><a href="#"><i class="fa-regular fa-chevron-left"></i>Back</a></li>
+						<li class="is-active">1</li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li class="hide-mobile"><a href="#">4</a></li>
+						<li class="hide-mobile"><a href="#">5</a></li>
+						<li class="hide-mobile"><a href="#">6</a></li>
+						<li class="hide-mobile"><a href="#">7</a></li>
+						<li class="hide-mobile"><a href="#">8</a></li>
+						<li><a href="#">...</a></li>
+						<li><a href="#">25</a></li>
+						<li><a href="#">Next<i class="fa-regular fa-chevron-right"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section class="item-2x">
+			<div class="content-width">
+				<div class="item item-1">
+					<div class="bg">
+						<img src="img/img-3-1.jpg" alt="">
+					</div>
+					<div class="wrap">
+						<div class="text">
+							<h3>New collection</h3>
+							<p>Check it out! Our new summer collection for 2024 is already in stock.</p>
+							<div class="link-wrap">
+								<a href="#" class="link"><i class="fa-light fa-location-arrow-up"></i>View all</a>
+							</div>
+						</div>
+						<div class="label">
+							<p>from $19.99</p>
+						</div>
+					</div>
+				</div>
+				<div class="item item-2">
+					<div class="bg">
+						<img src="img/img-3-2.jpg" alt="">
+					</div>
+					<div class="wrap">
+						<div class="text">
+							<h3>try it out!</h3>
+							<p>Your Destination for Quality Spirits and Fine Wines</p>
+							<div class="link-wrap">
+								<a href="#" class="link"><i class="fa-light fa-location-arrow-up"></i>View all</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+	</main>
+
+	<div class="scroll-up">
+		<a href="#"><i class="fa-light fa-chevron-up"></i></a>
+	</div>
+
+  <footer>
+		<div class="join">
+			<div class="content-width">
+				<div class="title">
+					<h4>Join our mailing list <sub>for special offers!</sub></h4>
+				</div>
+				<div class="form-wrap">
+					<form action="#" class="form-join">
+						<label for="email-join"><i class="fa-light fa-envelope"></i></label>
+						<input type="email" name="email-join" id="email-join" placeholder="Example@gmail.com">
+						<button type="submit" class="btn-default btn-small btn-white"><span>Join</span></button>
+					</form>
+				</div>
+			</div>
+		</div>
+    <div class="content-width">
+			<div class="content">
+				<div class="item item-1">
+					<h6>Contact Us</h6>
+					<ul class="menu">
+						<li>Buy LiquorOnline</li>
+						<li><a href="#">www.glendaleliquor.com</a></li>
+						<li>1309-1311 E. Colorado St.</li>
+						<li>Glendale, CA. 91205</li>
+						<li><a href="mailto:Glendaleliquor.info@gmail.com">Glendaleliquor.info@gmail.com</a></li>
+					</ul>
+				</div>
+
+				<div class="item item-2">
+					<h6>Accounts & Orders</h6>
+					<ul class="menu">
+						<li><a href="#">Wishlist</a></li>
+						<li><a href="#">Account</a></li>
+						<li><a href="#">Logout</a></li>
+						<li><a href="#">Order Status</a></li>
+						<li><a href="#">Shipping & Returns</a></li>
+					</ul>
+				</div>
+				<div class="item item-3">
+					<h6>Quick Links</h6>
+					<ul class="menu">
+						<li><a href="#">Information/Mailing List</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Order Status</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="#">Terms/Conditions</a></li>
+						<li><a href="#">Shipping Policy</a></li>
+						<li><a href="#">Find us</a></li>
+					</ul>
+				</div>
+				<div class="item item-4">
+					<h6>Recent Blog Posts</h6>
+					<ul class="menu">
+						<li>Ararat brandy</li>
+						<li>Armas wine, Armenia</li>
+						<li>Horse soldier straight bourbon whiskey</li>
+						<li>How to choose your favorite scotch whisky</li>
+					</ul>
+				</div>
+				<div class="item item-5">
+					<h6>Connect with Us:</h6>
+					<ul class="soc">
+						<li><a href="#"><img src="img/icon-3-1.svg" alt=""></a></li>
+						<li><a href="#"><img src="img/icon-3-2.svg" alt=""></a></li>
+					</ul>
+				</div>
+				<div class="item item-6">
+					<h6>Payment methods:</h6>
+					<ul class="pay">
+						<li><a href="#"><img src="img/icon-4-1.svg" alt=""></a></li>
+						<li><a href="#"><img src="img/icon-4-2.svg" alt=""></a></li>
+						<li><a href="#"><img src="img/icon-4-3.svg" alt=""></a></li>
+						<li><a href="#"><img src="img/icon-4-4.svg" alt=""></a></li>
+						<li><a href="#"><img src="img/icon-4-5.svg" alt=""></a></li>
+						<li><a href="#"><img src="img/icon-4-6.svg" alt=""></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="bottom">
+				<p>© 2024 Glendale Liquor Store</p>
+			</div>
+    </div>
+  </footer>
+
+
+  <script src="js/jquery.min.js"></script>
+	<script src="js/swiper.js"></script>
+	<script src="js/jquery.fancybox.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.sticky.js"></script>
+	<script src="js/ion.rangeSlider.min.js"></script>
+	<script src="js/intlTelInput.min.js"></script>
+	<script src="js/air-datepicker.js"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>
