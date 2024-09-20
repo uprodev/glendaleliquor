@@ -30,7 +30,7 @@
                 </ul>
                 <div class="open-menu">
                     <a href="#">
-                        <img src="img/menu.svg" alt="">
+                        <img src="<?= get_template_directory_uri();?>/img/menu.svg" alt="">
                     </a>
                 </div>
             </nav>
@@ -80,8 +80,11 @@
     </div>
     <div class="wrap">
         <div class="logo-wrap">
-            <a href="index.html">
-                <img src="img/logo.svg" alt="">
+            <a href="<?= get_home_url();?>">
+                <?php $logo = get_field('logo', 'options');
+                if($logo):?>
+                    <img src="<?= $logo['url'];?>" alt="<?= $logo['alt'];?>">
+                <?php endif;?>
             </a>
         </div>
         <nav class="mob-menu-wrap">
