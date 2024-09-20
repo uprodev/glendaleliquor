@@ -2,19 +2,7 @@
 
 $id = get_the_ID();
 
-?>
-
-<?php if( have_rows('heroes', $id) ): ?>
-
-    <?php while( have_rows('heroes', $id) ): the_row(); ?>
-
-        <?php get_template_part('templates/sections/heroes/' . get_row_layout()); ?>
-
-    <?php endwhile; ?>
-
-<?php endif; ?>
-
-<?php if( have_rows('content', $id) ): ?>
+if( have_rows('content', $id) ): ?>
 
     <?php while( have_rows('content', $id) ): the_row(); ?>
 
@@ -24,81 +12,7 @@ $id = get_the_ID();
 
 <?php endif; ?>
 
-<section class="home-banner">
-    <div class="slider-wrap">
-        <div class="swiper home-banner-slider">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="bg">
-                        <img src="img/bg-1.jpg" alt="">
-                    </div>
-                    <div class="content-width">
-                        <div class="content">
-                            <figure>
-                                <img src="img/img-1.png" alt="">
-                            </figure>
-                            <div class="text">
-                                <div class="wrap">
-                                    <h1>summer deals</h1>
-                                    <h6>25% off all wines & spirits</h6>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="btn-default"><span>Show more</span></a>
-                                    </div>
-                                    <p>*offer valid until 10.07.2024</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="bg">
-                        <img src="img/bg-1.jpg" alt="">
-                    </div>
-                    <div class="content-width">
-                        <div class="content">
-                            <figure>
-                                <img src="img/img-1.png" alt="">
-                            </figure>
-                            <div class="text">
-                                <div class="wrap">
-                                    <h2>summer deals</h2>
-                                    <h6>25% off all wines & spirits</h6>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="btn-default"><span>Show more</span></a>
-                                    </div>
-                                    <p>*offer valid until 10.07.2024</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="bg">
-                        <img src="img/bg-1.jpg" alt="">
-                    </div>
-                    <div class="content-width">
-                        <div class="content">
-                            <figure>
-                                <img src="img/img-1.png" alt="">
-                            </figure>
-                            <div class="text">
-                                <div class="wrap">
-                                    <h2>summer deals</h2>
-                                    <h6>25% off all wines & spirits</h6>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="btn-default"><span>Show more</span></a>
-                                    </div>
-                                    <p>*offer valid until 10.07.2024</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-pagination home-pagination"></div>
-        </div>
-    </div>
-</section>
+
 
 <section class="shop">
     <div class="bg">
