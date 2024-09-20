@@ -17,16 +17,27 @@
     <div class="top-line">
         <div class="content-width">
             <div class="logo-wrap">
-                <a href="index.html">
-                    <img src="img/logo.svg" alt="">
+                <a href="<?= get_home_url();?>">
+                    <?php $logo = get_field('logo', 'options');
+                    if($logo):?>
+                        <img src="<?= $logo['url'];?>" alt="<?= $logo['alt'];?>">
+                    <?php endif;?>
                 </a>
             </div>
             <nav class="top-nav">
                 <ul>
-                    <li><a href="#"><i class="fa-regular fa-arrow-right-to-arc"></i>LogIn</a></li>
+                    <li>
+                        <a href="<?= get_permalink(get_option( 'woocommerce_myaccount_page_id' ));?>"><i class="fa-regular fa-arrow-right-to-arc"></i>
+                            <?php if(is_user_logged_in()):?>
+                                My Account
+                            <?php else:?>
+                                LogIn
+                            <?php endif;?>
+                        </a>
+                    </li>
                     <li><a href="#"><i class="fa-light fa-file-lines"></i>Blog</a></li>
                     <li><a href="#"><i class="fa-light fa-heart"></i>Favorites</a></li>
-                    <li><a href="#"><i class="fa-light fa-basket-shopping"></i>Order <span>10</span></a></li>
+                    <li><a href="<?= wc_get_cart_url();?>"><i class="fa-light fa-basket-shopping"></i>Order <span><?= WC()->cart->get_cart_contents_count();?></span></a></li>
                 </ul>
                 <div class="open-menu">
                     <a href="#">
