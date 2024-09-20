@@ -2,6 +2,10 @@
 
 get_header(); 
 
-get_template_part('templates/flexible');
+if(is_cart() || is_checkout() || is_woocommerce()):
+    the_content();
+else:
+    get_template_part('templates/flexible');
+endif;
 
 get_footer();
