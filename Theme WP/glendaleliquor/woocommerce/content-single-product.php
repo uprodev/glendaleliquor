@@ -30,6 +30,11 @@ if ( post_password_required() ) {
 	echo get_the_password_form(); // WPCS: XSS ok.
 	return;
 }
+
+$sku = $product->get_sku();
+$short_description = wpautop($product->get_short_description());
+$description = wpautop($product->get_description());
+
 ?>
 <section class="product-detail">
     <div class="content-width">
@@ -52,7 +57,9 @@ if ( post_password_required() ) {
                 </div>
             </div>
             <div class="text">
+
                 <?php woocommerce_template_single_title();?>
+
                 <div class="swiper slider-img slider-img-2 img-mob">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
@@ -63,23 +70,31 @@ if ( post_password_required() ) {
                         </div>
                     </div>
                 </div>
-                <p>Indulge in the delightful taste of 365 Strawberry Semi-Sweet Wine, a perfect blend of natural strawberry flavors crafted into an exquisite semi-sweet wine. This wine is not only a treat for the palate but also a feast for the eyes, with its beautifully designed, strawberry-shaped bottle that makes it a standout addition to any collection or a unique gift.</p>
+
+                <?= $short_description;?>
+
                 <div class="info-block">
-                    <p>Sku: 4850006410091</p>
-                    <div class="stars-wrap">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-light fa-star"></i>
-                    </div>
-                    <div class="price">
-                        <p>$15.99</p>
-                    </div>
+
+                    <?= $sku?'<p>'.__('Sku:', 'glendaleliquor').' '.$sku.'</p>':'';?>
+
+                    <?php woocommerce_template_single_rating();?>
+
+                    <?php woocommerce_template_single_price();?>
+
                 </div>
 
                 <div class="btn-wrap">
-                    <a href="#" class="btn-default btn-medium"><span>Add to cart</span></a>
+                    <?php if ($product->is_in_stock()): ?>
+                        <a href="#" class="btn-default btn-medium add-cart" data-product_id="<?= get_the_ID();?>">
+                            <span data-txt="<?= __('Added to cart', 'glendaleliquor');?>">
+                                <?php if( in_array( get_the_ID(), array_column( WC()->cart->get_cart(), 'product_id' ) ) ) {
+                                    echo __('Added to cart', 'glendaleliquor');
+                                }else{
+                                    echo __('Add to cart', 'glendaleliquor');
+                                }?>
+                            </span>
+                        </a>
+                    <?php endif;?>
                     <a href="#" class="like">
                         <i class="fa-light fa-heart"></i>
                     </a>
@@ -89,20 +104,20 @@ if ( post_password_required() ) {
 
         <div class="tabs tabs-css">
             <ul class="tabs-menu">
-                <li class="is-active">Overview</li>
-                <li>Reviews</li>
+                <?php if($short_description):?>
+                    <li class="is-active"><?= __('Overview', 'glendaleliquor');?></li>
+                <?php endif;?>
+                <?php if($short_description):?>
+                    <li<?= !$short_description?' class="is-active"':'';?>><?= __('Reviews', 'glendaleliquor');?></li>
+                <?php endif;?>
             </ul>
 
             <div class="tab-content">
-                <div class="tab-item">
-                    <h6>Key Features:</h6>
-                    <ul>
-                        <li>Flavor Profile: A luscious semi-sweet taste with the vibrant, juicy essence of fresh strawberries.</li>
-                        <li>Packaging: Comes in an eye-catching strawberry-shaped bottle, enclosed in a stylish box, making it ideal for gifting or as a memorable keepsake.</li>
-                        <li>Natural Ingredients: Made from 100% natural fruit wine, ensuring a pure and authentic strawberry experience.</li>
-                    </ul>
-                    <p>Perfect for celebrating special moments or simply enjoying a refreshing drink, 365 Strawberry Semi-Sweet Wine is sure to delight wine enthusiasts and casual drinkers alike.</p>
-                </div>
+                <?php if($description):?>
+                    <div class="tab-item">
+                        <?= $description;?>
+                    </div>
+                <?php endif;?>
                 <div class="tab-item">
                     <div class="slider-wrap">
                         <div class="swiper testimonials-slider ">
@@ -184,37 +199,5 @@ if ( post_password_required() ) {
         </div>
     </div>
 </section>
-<div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 
-
-	<div class="summary entry-summary">
-		<?php
-		/**
-		 * Hook: woocommerce_single_product_summary.
-		 *
-		 * @hooked woocommerce_template_single_title - 5
-		 * @hooked woocommerce_template_single_rating - 10
-		 * @hooked woocommerce_template_single_price - 10
-		 * @hooked woocommerce_template_single_excerpt - 20
-		 * @hooked woocommerce_template_single_add_to_cart - 30
-		 * @hooked woocommerce_template_single_meta - 40
-		 * @hooked woocommerce_template_single_sharing - 50
-		 * @hooked WC_Structured_Data::generate_product_data() - 60
-		 */
-		do_action( 'woocommerce_single_product_summary' );
-		?>
-	</div>
-
-	<?php
-	/**
-	 * Hook: woocommerce_after_single_product_summary.
-	 *
-	 * @hooked woocommerce_output_product_data_tabs - 10
-	 * @hooked woocommerce_upsell_display - 15
-	 * @hooked woocommerce_output_related_products - 20
-	 */
-	do_action( 'woocommerce_after_single_product_summary' );
-	?>
-</div>
-
-<?php do_action( 'woocommerce_after_single_product' ); ?>
+<?php woocommerce_output_related_products();

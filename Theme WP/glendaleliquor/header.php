@@ -37,7 +37,7 @@
                     </li>
                     <li><a href="#"><i class="fa-light fa-file-lines"></i>Blog</a></li>
                     <li><a href="#"><i class="fa-light fa-heart"></i>Favorites</a></li>
-                    <li><a href="<?= wc_get_cart_url();?>"><i class="fa-light fa-basket-shopping"></i>Order <span><?= WC()->cart->get_cart_contents_count();?></span></a></li>
+                    <li><a href="<?= wc_get_cart_url();?>"><i class="fa-light fa-basket-shopping"></i><?= __('Order', 'glandeiquor');?> <span class="count-product"><?= WC()->cart->get_cart_contents_count();?></span></a></li>
                 </ul>
                 <div class="open-menu">
                     <a href="#">

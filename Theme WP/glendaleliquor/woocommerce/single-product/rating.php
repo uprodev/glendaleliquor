@@ -30,14 +30,13 @@ $review_count = $product->get_review_count();
 $average      = $product->get_average_rating();
 
 if ( $rating_count > 0 ) : ?>
-
-	<div class="woocommerce-product-rating">
-		<?php echo wc_get_rating_html( $average, $rating_count ); // WPCS: XSS ok. ?>
-		<?php if ( comments_open() ) : ?>
-			<?php //phpcs:disable ?>
-			<a href="#reviews" class="woocommerce-review-link" rel="nofollow">(<?php printf( _n( '%s customer review', '%s customer reviews', $review_count, 'woocommerce' ), '<span class="count">' . esc_html( $review_count ) . '</span>' ); ?>)</a>
-			<?php // phpcs:enable ?>
-		<?php endif ?>
-	</div>
+    <div class="stars-wrap">
+        <?php for( $i = 1; $i <= $rating_count; $i++ ):?>
+            <i class="fa-solid fa-star"></i>
+        <?php endfor;?>
+        <?php for( $i = 1; $i <= (5 - $rating_count); $i++ ):?>
+            <i class="fa-light fa-star"></i>
+        <?php endfor;?>
+    </div>
 
 <?php endif; ?>

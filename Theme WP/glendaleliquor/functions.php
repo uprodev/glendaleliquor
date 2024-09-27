@@ -6,10 +6,13 @@ include 'inc/extras.php';      // custom functions
 include 'classes/walker.php';  // walker nav menu
 include 'inc/register.php';    // custom ajax register and auth
 include 'inc/ajax-actions.php';// ajax actions
+include 'inc/woo.php';         // woocommerce actions
+
+
+add_theme_support( 'woocommerce');
 
 
 add_action('after_setup_theme', 'theme_register_nav_menu');
-
 
 function theme_register_nav_menu(){
 	register_nav_menus( array(
