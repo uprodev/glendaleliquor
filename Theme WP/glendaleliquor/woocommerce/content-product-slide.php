@@ -21,16 +21,13 @@ global $product;
 
 // Ensure visibility.
 if ( empty( $product ) || ! $product->is_visible() ) {
-	return;
+    return;
 }
 
 $sku = $product->get_sku();
 
 ?>
-<div class="product-item">
-    <div class="like">
-        <a href="#"><i class="fa-light fa-heart"></i></a>
-    </div>
+<div class="swiper-slide">
     <figure>
         <a href="<?php the_permalink();?>">
             <img src="<?php the_post_thumbnail_url();?>" alt="">
