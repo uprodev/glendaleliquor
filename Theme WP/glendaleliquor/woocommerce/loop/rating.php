@@ -25,4 +25,16 @@ if ( ! wc_review_ratings_enabled() ) {
 	return;
 }
 
-echo wc_get_rating_html( $product->get_average_rating() ); // WordPress.XSS.EscapeOutput.OutputNotEscaped.
+$rating_count = $product->get_rating_count();
+$review_count = $product->get_review_count();
+$average      = $product->get_average_rating();
+
+?>
+    <div class="stars-wrap">
+        <?php for( $i = 1; $i <= $rating_count; $i++ ):?>
+            <i class="fa-solid fa-star"></i>
+        <?php endfor;?>
+        <?php for( $i = 1; $i <= (5 - $rating_count); $i++ ):?>
+            <i class="fa-light fa-star"></i>
+        <?php endfor;?>
+    </div>
