@@ -1,39 +1,83 @@
 <?php
 
+$item_1 = get_sub_field('item_1');
+$item_2 = get_sub_field('item_2');
 
+$bg = $item_1['background'];
+$subtitle = $item_1['subtitle'];
+$title = $item_1['title'];
+$link = $item_1['link'];
+$price = $item_1['price'];
+
+$bg2 = $item_2['background'];
+$subtitle2 = $item_2['subtitle'];
+$title2 = $item_2['title'];
+$link2 = $item_2['link'];
+$price2 = $item_2['price'];
 
 ?>
 
 <section class="item-2x">
     <div class="content-width">
         <div class="item item-1">
-            <div class="bg">
-                <img src="img/img-3-1.jpg" alt="">
-            </div>
+            <?php if($bg):?>
+                <div class="bg">
+                    <img src="<?= $bg['url'];?>" alt="<?= $bg['alt'];?>">
+                </div>
+            <?php endif;?>
             <div class="wrap">
                 <div class="text">
-                    <h3>New collection</h3>
-                    <p>Check it out! Our new summer collection for 2024 is already in stock.</p>
-                    <div class="link-wrap">
-                        <a href="#" class="link"><i class="fa-light fa-location-arrow-up"></i>View all</a>
+                    <?php if($title):?>
+                        <h3><?= $title;?></h3>
+                    <?php endif;?>
+                    <?php if($subtitle):?>
+                        <p><?= $subtitle;?></p>
+                    <?php endif;?>
+                    <?php if( $link ):
+                        $link_url = $link['url'];
+                        $link_title = $link['title'];
+                        $link_target = $link['target'] ? $link['target'] : '_self';
+                        ?>
+                        <div class="link-wrap">
+                            <a class="link" href="<?= esc_url($link_url); ?>" target="<?= esc_attr($link_target); ?>"><i class="fa-light fa-location-arrow-up"></i><?= esc_html($link_title); ?></a>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <?php if($price):?>
+                    <div class="label">
+                        <p><?= $price;?></p>
                     </div>
-                </div>
-                <div class="label">
-                    <p>from $19.99</p>
-                </div>
+                <?php endif;?>
             </div>
         </div>
         <div class="item item-2">
-            <div class="bg">
-                <img src="img/img-3-2.jpg" alt="">
-            </div>
+            <?php if($bg2):?>
+                <div class="bg">
+                    <img src="<?= $bg2['url'];?>" alt="<?= $bg2['alt'];?>">
+                </div>
+            <?php endif;?>
             <div class="wrap">
                 <div class="text">
-                    <h3>try it out!</h3>
-                    <p>Your Destination for Quality Spirits and Fine Wines</p>
-                    <div class="link-wrap">
-                        <a href="#" class="link"><i class="fa-light fa-location-arrow-up"></i>View all</a>
-                    </div>
+                    <?php if($title2):?>
+                        <h3><?= $title2;?></h3>
+                    <?php endif;?>
+                    <?php if($subtitle2):?>
+                        <p><?= $subtitle2;?></p>
+                    <?php endif;?>
+                    <?php if( $link2 ):
+                        $link2_url = $link2['url'];
+                        $link2_title = $link2['title'];
+                        $link2_target = $link2['target'] ? $link2['target'] : '_self';
+                        ?>
+                        <div class="link-wrap">
+                            <a class="link" href="<?= esc_url($link2_url); ?>" target="<?= esc_attr($link2_target); ?>"><i class="fa-light fa-location-arrow-up"></i><?= esc_html($link2_title); ?></a>
+                        </div>
+                    <?php endif; ?>
+                    <?php if($price2):?>
+                        <div class="label">
+                            <p><?= $price2;?></p>
+                        </div>
+                    <?php endif;?>
                 </div>
             </div>
         </div>
