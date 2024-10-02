@@ -1,26 +1,35 @@
 <?php
 
-
+$title = get_sub_field('title');
+$hours_title = get_sub_field('hours_title');
+$hours = get_sub_field('hours');
+$location_title = get_sub_field('location_title');
+$location = get_sub_field('location');
 
 ?>
 
 <section class="map-section">
     <div class="content-width">
         <div class="text">
-            <h2>Find us</h2>
-            <div class="item">
-                <h6><i class="fa-light fa-clock"></i>Business Hours:</h6>
-                <p>Monday - Thursday: 9:00 a.m. - 10:00 p.m.</p>
-                <p>Friday - Saturday: 8:00 a.m. - 10:00 p.m.</p>
-                <p>Sunday: 9:00 a.m. - 9:00 p.m.</p>
-            </div>
-            <div class="item">
-                <h6><i class="fa-light fa-location-dot"></i>Location:</h6>
-                <p>Glendale Liquor <br>
-                    1311 E. Colorado St.<br>
-                    Glendale, CA 91205
-                </p>
-            </div>
+            <?php if($title):?>
+                <h2><?= $title;?></h2>
+            <?php endif;?>
+            <?php if($hours):?>
+                <div class="item">
+                    <?php if($hours_title):?>
+                        <h6><i class="fa-light fa-clock"></i><?= $hours_title;?></h6>
+                    <?php endif;?>
+                    <?= $hours;?>
+                </div>
+            <?php endif;?>
+            <?php if($location):?>
+                <div class="item">
+                    <?php if($location_title):?>
+                        <h6><i class="fa-light fa-location-dot"></i><?= $location_title;?></h6>
+                    <?php endif;?>
+                    <p><?= $location;?></p>
+                </div>
+            <?php endif;?>
         </div>
         <div class="map-wrap">
             <div id="map"></div>
