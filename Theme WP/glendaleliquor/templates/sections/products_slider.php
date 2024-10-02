@@ -3,6 +3,7 @@
 $title = get_field('title');
 $subtitle = get_sub_field('subtitle');
 $link = get_sub_field('link');
+$product_category = get_sub_field('product_category');
 
 ?>
 
@@ -37,6 +38,13 @@ $link = get_sub_field('link');
                     <?php $new = new WP_Query([
                         'post_type' => 'product',
                         'posts_per_page' => 7,
+                        'tax_query' => [
+                            [
+                                'taxonomy' => 'product_cat',
+                                'field' => 'id',
+                                'terms' => $product_category,
+                            ]
+                        ],
                     ]);
 
                     while ($new->have_posts()):$new->the_post();
