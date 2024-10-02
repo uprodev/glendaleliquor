@@ -1,6 +1,6 @@
 <?php
 
-$title = get_field('title');
+$title = get_sub_field('title');
 $subtitle = get_sub_field('subtitle');
 $link = get_sub_field('link');
 $product_category = get_sub_field('product_category');
