@@ -18,83 +18,28 @@ $button_text = get_sub_field('button_text');
                     <p><?= $subtitle;?></p>
                 <?php endif;?>
             </div>
-            <div class="nav-wrap">
-                <div class="testimonials-next btn"><i class="fa-regular fa-arrow-right"></i></div>
-                <div class="testimonials-prev btn"><i class="fa-regular fa-arrow-left"></i></div>
-            </div>
+            <?php if( $testimonials ): ?>
+                <div class="nav-wrap">
+                    <div class="testimonials-next btn"><i class="fa-regular fa-arrow-right"></i></div>
+                    <div class="testimonials-prev btn"><i class="fa-regular fa-arrow-left"></i></div>
+                </div>
+            <?php endif;?>
         </div>
-        <div class="slider-wrap">
-            <div class="swiper testimonials-slider ">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <h6>Outstanding Selection and Service</h6>
-                        <p>Glendale Liquor has an amazing selection of wines and spirits. The knowledgeable staff helped me find the perfect bottle. The store is well-organized and easy to navigate. I’ll definitely be back!</p>
-                        <div class="wrap">
-                            <div class="stars-wrap">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <div class="user">
-                                <div class="img">
-                                    <img src="img/img-6-1.jpg" alt="">
-                                </div>
-                                <div class="text">
-                                    <p class="name">Olivia Harper </p>
-                                    <p><i class="fa-regular fa-circle-check"></i> verifed  purchase</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <h6>Best Liquor Store in Town</h6>
-                        <p>My go-to spot for all beverage needs. Fantastic variety at great prices. The customer service is excellent, and the staff always provides great recommendations. Highly recommend!</p>
-                        <div class="wrap">
-                            <div class="stars-wrap">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <div class="user">
-                                <div class="img">
-                                    <img src="img/img-6-2.jpg" alt="">
-                                </div>
-                                <div class="text">
-                                    <p class="name">Liam Mitchell</p>
-                                    <p><i class="fa-regular fa-circle-check"></i> verifed  purchase</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <h6>Excellent Customer Experience</h6>
-                        <p>Every visit is a pleasure. Friendly team, expert advice, and a welcoming atmosphere. Convenient location and great selection. Five stars!</p>
-                        <div class="wrap">
-                            <div class="stars-wrap">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <div class="user">
-                                <div class="img">
-                                    <img src="img/img-6-3.jpg" alt="">
-                                </div>
-                                <div class="text">
-                                    <p class="name">Sophia Bennett</p>
-                                    <p><i class="fa-regular fa-circle-check"></i> verifed  purchase</p>
-                                </div>
-                            </div>
-                        </div>
+        <?php if( $testimonials ): ?>
+            <div class="slider-wrap">
+                <div class="swiper testimonials-slider ">
+                    <div class="swiper-wrapper">
+                        <?php foreach( $testimonials as $post):
+                            setup_postdata($post);
+
+                            get_template_part('parts/review');
+
+                        endforeach; wp_reset_postdata(); ?>
                     </div>
                 </div>
             </div>
-        </div>
+        <?php endif; ?>
+
         <div class="btn-wrap">
             <a href="#add-review" class="btn-default btn-medium fancybox"><span><?= $button_text;?></span></a>
         </div>
