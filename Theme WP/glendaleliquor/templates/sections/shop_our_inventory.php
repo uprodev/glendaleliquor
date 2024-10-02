@@ -15,11 +15,7 @@ $cats = get_sub_field('product_categories');
             <h2><?= $title;?></h2>
         <?php endif;?>
         <div class="search-wrap">
-            <form action="#" class="form-search">
-                <label for="search"></label>
-                <input type="search" name="search" id="search" placeholder="Search">
-                <button class="btn" type="submit"><img src="<?= get_template_directory_uri();?>/img/find.svg" alt=""></button>
-            </form>
+            <?= do_shortcode('[fibosearch]'); ?>
         </div>
         <?php if($cats):?>
             <div class="slider-wrap">
