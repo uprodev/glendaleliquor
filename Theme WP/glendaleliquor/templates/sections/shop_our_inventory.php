@@ -1,6 +1,6 @@
 <?php
 
-$title = get_field('title');
+$title = get_sub_field('title');
 $cats = get_sub_field('product_categories');
 
 ?>

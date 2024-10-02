@@ -1,7 +1,7 @@
 <?php
 
-$steps = get_field('steps');
-$bg = get_sub_field('background');
+$steps = get_sub_field('steps');
+$bg = get_sub_field('image');
 
 
 ?>
