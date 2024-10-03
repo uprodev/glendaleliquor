@@ -13,3 +13,21 @@ function add_points_widget_to_fragment( $fragments ) {
     return $fragments;
 }
 add_filter('add_to_cart_fragments', 'add_points_widget_to_fragment');
+
+
+/* Sale percent */
+
+function get_discount_percentage( $product ) {
+
+    $regular_price = $product->get_regular_price();
+
+    $sale_price = $product->get_sale_price();
+
+
+    if ( $sale_price && $regular_price > $sale_price ) {
+        $discount_percentage = round( ( ( $regular_price - $sale_price ) / $regular_price ) * 100 );
+        return $discount_percentage . '% ' . __("sale", "glendaleliquor");
+    }
+    
+    return '';
+}

@@ -25,13 +25,16 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 }
 
 $sku = $product->get_sku();
+$discount = get_discount_percentage( $product );
 
 ?>
 <div class="product-item">
     <div class="like">
         <a href="#"><i class="fa-light fa-heart"></i></a>
     </div>
-    <div class="sale"><p>50% sale</p></div>
+    <?php if ( $discount ) {
+        echo '<div class="sale"><p>' . $discount . '</p></div>';
+    }?>
     <figure>
         <a href="<?php the_permalink();?>">
             <img src="<?php the_post_thumbnail_url();?>" alt="">

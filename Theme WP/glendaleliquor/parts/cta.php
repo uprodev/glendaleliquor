@@ -1,7 +1,7 @@
 <?php
 
-$item_1 = get_sub_field('item_1', 'options');
-$item_2 = get_sub_field('item_2', 'options');
+$item_1 = get_field('item_1', 'options');
+$item_2 = get_field('item_2', 'options');
 
 $bg = $item_1['background'];
 $subtitle = $item_1['subtitle'];
@@ -22,7 +22,7 @@ $price2 = $item_2['price'];
         <div class="item item-1">
             <?php if($bg):?>
                 <div class="bg">
-                    <img src="<?= $bg['url'];?>" alt="<?= $bg['alt'];?>">
+                    <img src="<?= $bg;?>" alt="">
                 </div>
             <?php endif;?>
             <div class="wrap">
