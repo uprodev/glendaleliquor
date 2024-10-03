@@ -17,81 +17,136 @@
 
 defined( 'ABSPATH' ) || exit;
 
-get_header( 'shop' );
+get_header();
 
-/**
- * Hook: woocommerce_before_main_content.
- *
- * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
- * @hooked woocommerce_breadcrumb - 20
- * @hooked WC_Structured_Data::generate_website_data() - 30
- */
-do_action( 'woocommerce_before_main_content' );
-
-/**
- * Hook: woocommerce_shop_loop_header.
- *
- * @since 8.6.0
- *
- * @hooked woocommerce_product_taxonomy_archive_header - 10
- */
-do_action( 'woocommerce_shop_loop_header' );
-
-if ( woocommerce_product_loop() ) {
-
-	/**
-	 * Hook: woocommerce_before_shop_loop.
-	 *
-	 * @hooked woocommerce_output_all_notices - 10
-	 * @hooked woocommerce_result_count - 20
-	 * @hooked woocommerce_catalog_ordering - 30
-	 */
-	do_action( 'woocommerce_before_shop_loop' );
-
-	woocommerce_product_loop_start();
-
-	if ( wc_get_loop_prop( 'total' ) ) {
-		while ( have_posts() ) {
-			the_post();
-
-			/**
-			 * Hook: woocommerce_shop_loop.
-			 */
-			do_action( 'woocommerce_shop_loop' );
-
-			wc_get_template_part( 'content', 'product' );
-		}
-	}
-
-	woocommerce_product_loop_end();
-
-	/**
-	 * Hook: woocommerce_after_shop_loop.
-	 *
-	 * @hooked woocommerce_pagination - 10
-	 */
-	do_action( 'woocommerce_after_shop_loop' );
-} else {
-	/**
-	 * Hook: woocommerce_no_products_found.
-	 *
-	 * @hooked wc_no_products_found - 10
-	 */
-	do_action( 'woocommerce_no_products_found' );
+if(is_shop()){
+    $title = get_the_title(get_option( 'woocommerce_shop_page_id' ));
+}else{
+    $title = get_queried_object()->name;
 }
 
-/**
- * Hook: woocommerce_after_main_content.
- *
- * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
- */
-do_action( 'woocommerce_after_main_content' );
+?>
 
-/**
- * Hook: woocommerce_sidebar.
- *
- * @hooked woocommerce_get_sidebar - 10
- */
-do_action( 'woocommerce_sidebar' );
+    <section class="category">
+        <div class="content-width">
+            <div class="mob-cart">
+                <a href="#">
+                    <img src="img/icon-8.svg" alt="">
+                    <span>10</span>
+                </a>
+            </div>
+            <div class="title">
+                <h1><?= $title;?></h1>
+                <p>We have a wide selection of Armenian wines. Choose your favorite!</p>
+            </div>
+            <div class="form-wrap">
+                <div class="wrap">
+                    <form action="#" class="form-select">
+                        <div class="input-wrap">
+                            <input type="checkbox" name="select" id="select-1" checked>
+                            <label for="select-1">White Wines</label>
+                        </div>
+                        <div class="input-wrap">
+                            <input type="checkbox" name="select" id="select-2">
+                            <label for="select-2">Red Wines</label>
+                        </div>
+                        <div class="input-wrap">
+                            <input type="checkbox" name="select" id="select-3">
+                            <label for="select-3">Sparkling Wine</label>
+                        </div>
+                        <div class="input-wrap">
+                            <input type="checkbox" name="select" id="select-4">
+                            <label for="select-4">Rosé Wine</label>
+                        </div>
+                        <div class="input-wrap">
+                            <input type="checkbox" name="select" id="select-5">
+                            <label for="select-5">Dessert Wine</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
-get_footer( 'shop' );
+            <div class="select-line">
+
+                <?php woocommerce_catalog_ordering();?>
+                <div class="item item-2">
+                    <label for="range-slider"><img src="<?= get_template_directory_uri();?>/img/icon-7.svg" alt=""><?= __('Price', 'glendaleliquor');?></label>
+<!--                    <input type="text" class="range-slider" id="range-slider"  value="" />-->
+                    <?= do_shortcode('[br_filter_single filter_id=187]');?>
+
+                </div>
+                <div class="item item-3 select-block">
+                    <label class="form-label" for="filter-2"></label>
+                    <select id="filter-2">
+                        <option value="0" disabled selected>Sort by brand</option>
+                        <option value="1">Featured items</option>
+                        <option value="2">Best selling</option>
+                        <option value="3">A to Z</option>
+                        <option value="4">Z to A</option>
+                        <option value="5">By review</option>
+                        <option value="6">Price: Ascending</option>
+                        <option value="7">Price: Descending</option>
+                    </select>
+                </div>
+            </div>
+            <?php if ( woocommerce_product_loop() ) {?>
+                <div class="products-content">
+                    <?php if ( wc_get_loop_prop( 'total' ) ) {
+                        while ( have_posts() ) {
+                            the_post();
+
+                            /**
+                             * Hook: woocommerce_shop_loop.
+                             */
+                            do_action( 'woocommerce_shop_loop' );
+
+                            wc_get_template_part( 'content', 'product' );
+                        }
+                    }?>
+                </div>
+                <?php do_action( 'woocommerce_after_shop_loop' );?>
+            <?php }else{?>
+                <div class="products-content">
+                    <?php do_action( 'woocommerce_no_products_found' );?>
+                </div>
+            <?php }?>
+        </div>
+    </section>
+
+    <section class="item-2x">
+        <div class="content-width">
+            <div class="item item-1">
+                <div class="bg">
+                    <img src="img/img-3-1.jpg" alt="">
+                </div>
+                <div class="wrap">
+                    <div class="text">
+                        <h3>New collection</h3>
+                        <p>Check it out! Our new summer collection for 2024 is already in stock.</p>
+                        <div class="link-wrap">
+                            <a href="#" class="link"><i class="fa-light fa-location-arrow-up"></i>View all</a>
+                        </div>
+                    </div>
+                    <div class="label">
+                        <p>from $19.99</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item item-2">
+                <div class="bg">
+                    <img src="img/img-3-2.jpg" alt="">
+                </div>
+                <div class="wrap">
+                    <div class="text">
+                        <h3>try it out!</h3>
+                        <p>Your Destination for Quality Spirits and Fine Wines</p>
+                        <div class="link-wrap">
+                            <a href="#" class="link"><i class="fa-light fa-location-arrow-up"></i>View all</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<?php get_footer();

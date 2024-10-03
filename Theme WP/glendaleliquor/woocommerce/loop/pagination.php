@@ -27,25 +27,36 @@ $format  = isset( $format ) ? $format : '';
 if ( $total <= 1 ) {
 	return;
 }
-?>
-<nav class="woocommerce-pagination" aria-label="<?php esc_attr_e( 'Product Pagination', 'woocommerce' ); ?>">
-	<?php
-	echo paginate_links(
-		apply_filters(
-			'woocommerce_pagination_args',
-			array( // WPCS: XSS ok.
-				'base'      => $base,
-				'format'    => $format,
-				'add_args'  => false,
-				'current'   => max( 1, $current ),
-				'total'     => $total,
-				'prev_text' => is_rtl() ? '&rarr;' : '&larr;',
-				'next_text' => is_rtl() ? '&larr;' : '&rarr;',
-				'type'      => 'list',
-				'end_size'  => 3,
-				'mid_size'  => 3,
-			)
-		)
-	);
-	?>
-</nav>
+
+    $pagination_args = apply_filters('woocommerce_pagination_args', array(
+        'base'      => $base,
+        'format'    => $format,
+        'add_args'  => false,
+        'current'   => max( 1, $current ),
+        'total'     => $total,
+        'prev_text' => '<i class="fa-regular fa-chevron-left"></i>Back</a>',
+        'next_text' => 'Next<i class="fa-regular fa-chevron-right"></i>',
+        'type'      => 'array',
+        'end_size'  => 3,
+        'mid_size'  => 3,
+    ));
+
+    $pages = paginate_links($pagination_args);
+
+    if ($pages) {
+        echo '<div class="pagination-wrap"><ul class="pagination">';
+
+        foreach ($pages as $page) {
+            // Проверяем, является ли эта страница текущей
+            if (strpos($page, 'current') !== false) {
+                // Извлекаем просто номер страницы из тега
+                preg_match('/>([0-9]+)<\/span>/', $page, $matches);
+                if (isset($matches[1])) {
+                    echo '<li class="is-active">' . $matches[1] . '</li>'; // Выводим просто цифру без обертки
+                }
+            } else {
+                echo '<li>' . $page . '</li>';
+            }
+        }
+        echo '</ul></div>';
+    }
