@@ -28,6 +28,6 @@ function get_discount_percentage( $product ) {
         $discount_percentage = round( ( ( $regular_price - $sale_price ) / $regular_price ) * 100 );
         return $discount_percentage . '% ' . __("sale", "glendaleliquor");
     }
-    
+
     return '';
 }
