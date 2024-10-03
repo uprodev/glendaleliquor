@@ -7,7 +7,7 @@ $idt = get_queried_object_id();
 
 if(is_home()){
     $title = get_the_title($idb);
-    $excp = get_field('description');
+    $excp = get_field('description', $idb);
 }else{
     $title = get_queried_object()->name;
     $excp = get_queried_object()->description;
