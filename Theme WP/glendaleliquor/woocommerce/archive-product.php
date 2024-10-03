@@ -19,10 +19,14 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
+$ids = get_queried_object_id();
+
 if(is_shop()){
     $title = get_the_title(get_option( 'woocommerce_shop_page_id' ));
+    $content = '';
 }else{
     $title = get_queried_object()->name;
+    $content = get_queried_object()->description;
 }
 
 ?>
@@ -31,40 +35,41 @@ if(is_shop()){
         <div class="content-width">
             <div class="mob-cart">
                 <a href="#">
-                    <img src="img/icon-8.svg" alt="">
+                    <img src="<?= get_template_directory_uri();?>/img/icon-8.svg" alt="">
                     <span>10</span>
                 </a>
             </div>
             <div class="title">
                 <h1><?= $title;?></h1>
-                <p>We have a wide selection of Armenian wines. Choose your favorite!</p>
+                <?php if($content) {
+                    echo $content;
+                }?>
             </div>
-            <div class="form-wrap">
-                <div class="wrap">
-                    <form action="#" class="form-select">
-                        <div class="input-wrap">
-                            <input type="checkbox" name="select" id="select-1" checked>
-                            <label for="select-1">White Wines</label>
+
+            <?php if(is_product_category()):
+                $child = get_terms([
+                    'taxonomy' => 'product_cat',
+                    'hide_empty' => false,
+                    'parent' => $ids,
+                ]);
+
+                if($child):?>
+
+                    <div class="form-wrap">
+                        <div class="wrap">
+                            <form action="#" class="form-select">
+                                <?php foreach ($child as $item):?>
+                                    <div class="input-wrap">
+                                        <input type="checkbox" name="select" id="select-1" checked>
+                                        <label for="select-1"><?= $item->name;?></label>
+                                    </div>
+                                <?php endforeach;?>
+                            </form>
                         </div>
-                        <div class="input-wrap">
-                            <input type="checkbox" name="select" id="select-2">
-                            <label for="select-2">Red Wines</label>
-                        </div>
-                        <div class="input-wrap">
-                            <input type="checkbox" name="select" id="select-3">
-                            <label for="select-3">Sparkling Wine</label>
-                        </div>
-                        <div class="input-wrap">
-                            <input type="checkbox" name="select" id="select-4">
-                            <label for="select-4">Rosé Wine</label>
-                        </div>
-                        <div class="input-wrap">
-                            <input type="checkbox" name="select" id="select-5">
-                            <label for="select-5">Dessert Wine</label>
-                        </div>
-                    </form>
-                </div>
-            </div>
+                    </div>
+
+                <?php endif;?>
+            <?php endif;?>
 
             <div class="select-line">
 
