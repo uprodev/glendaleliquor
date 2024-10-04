@@ -13,6 +13,12 @@
 
 <body <?php body_class() ?>>
 
+<?php
+
+$idb = get_option('page_for_posts', true);
+
+?>
+
 <header>
     <div class="top-line">
         <div class="content-width">
@@ -29,14 +35,14 @@
                     <li>
                         <a href="<?= get_permalink(get_option( 'woocommerce_myaccount_page_id' ));?>"><i class="fa-regular fa-arrow-right-to-arc"></i>
                             <?php if(is_user_logged_in()):?>
-                                My Account
+                                <?= __('My Account', 'glendaleliquor');?>
                             <?php else:?>
-                                LogIn
+                                <?= __('LogIn', 'glendaleliquor');?>
                             <?php endif;?>
                         </a>
                     </li>
-                    <li><a href="#"><i class="fa-light fa-file-lines"></i>Blog</a></li>
-                    <li><a href="#"><i class="fa-light fa-heart"></i>Favorites</a></li>
+                    <li><a href="<?= get_permalink($idb);?>"><i class="fa-light fa-file-lines"></i><?= get_the_title($idb);?></a></li>
+                    <li><a href="#"><i class="fa-light fa-heart"></i><?= __('Favorites', 'glendaleliquor');?></a></li>
                     <li><a href="<?= wc_get_cart_url();?>"><i class="fa-light fa-basket-shopping"></i><?= __('Order', 'glandeiquor');?> <span class="count-product"><?= WC()->cart->get_cart_contents_count();?></span></a></li>
                 </ul>
                 <div class="open-menu">
@@ -73,8 +79,6 @@
                 <li><a href="#"><img src="img/icon-1-7.svg" alt=""><span>Ready to drink<span>Ready to drink</span></span></a></li>
                 <li><a href="#"><img src="img/icon-1-8.svg" alt=""><span>Weddings & events<span>Weddings & events</span></span></a></li>
             </ul>
-
-
         </div>
     </nav>
 </header>
@@ -96,10 +100,18 @@
         </div>
         <nav class="mob-menu-wrap">
             <ul class="mob-nav">
-                <li><a href="#"><i class="fa-regular fa-arrow-right-to-arc"></i>LogIn</a></li>
-                <li><a href="#"><i class="fa-light fa-file-lines"></i>Blog</a></li>
-                <li><a href="#"><i class="fa-light fa-heart"></i>Favorites</a></li>
-                <li><a href="#"><i class="fa-light fa-basket-shopping"></i>Order <span>10</span></a></li>
+                <li>
+                    <a href="<?= get_permalink(get_option( 'woocommerce_myaccount_page_id' ));?>"><i class="fa-regular fa-arrow-right-to-arc"></i>
+                        <?php if(is_user_logged_in()):?>
+                            <?= __('My Account', 'glendaleliquor');?>
+                        <?php else:?>
+                            <?= __('LogIn', 'glendaleliquor');?>
+                        <?php endif;?>
+                    </a>
+                </li>
+                <li><a href="<?= get_permalink($idb);?>"><i class="fa-light fa-file-lines"></i><?= get_the_title($idb);?></a></li>
+                <li><a href="#"><i class="fa-light fa-heart"></i><?= __('Favorites', 'glendaleliquor');?></a></li>
+                <li><a href="<?= wc_get_cart_url();?>"><i class="fa-light fa-basket-shopping"></i><?= __('Order', 'glandeiquor');?> <span class="count-product"><?= WC()->cart->get_cart_contents_count();?></span></a></li>
             </ul>
             <ul class="mob-menu">
                 <li>
