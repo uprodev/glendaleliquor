@@ -1,5 +1,11 @@
 </main>
 
+<?php if(is_product() || is_shop() || is_product_category()):?>
+    <div class="scroll-up">
+        <a href="#"><i class="fa-light fa-chevron-up"></i></a>
+    </div>
+<?php endif;?>
+
 <?php get_template_part('modals');?>
 
 <footer>
