@@ -58,27 +58,12 @@ $idb = get_option('page_for_posts', true);
             <div class="search-wrap-mob">
                 <?= do_shortcode('[fibosearch]'); ?>
             </div>
-            <ul class="top-menu">
-                <li>
-                    <a href="#"><img src="img/icon-1-1.svg" alt=""><span>Spirits <span>Spirits</span></span></a>
-                    <ul class="sub-menu">
-                        <li><a href="#">Whiskey</a></li>
-                        <li><a href="#">Vodka</a></li>
-                        <li><a href="#">Rum</a></li>
-                        <li><a href="#">Gin</a></li>
-                        <li><a href="#">Tequila</a></li>
-                        <li><a href="#">Brandy</a></li>
-                        <li><a href="#"><b>See all</b></a></li>
-                    </ul>
-                </li>
-                <li><a href="#"><img src="img/icon-1-2.svg" alt=""><span>Wine <span>Wine</span></span></a></li>
-                <li><a href="#"><img src="img/icon-1-3.svg" alt=""><span>New arrivals<span>New arrivals</span></span></a></li>
-                <li><a href="#"><img src="img/icon-1-4.svg" alt=""><span>Specials <span>Specials</span></span></a></li>
-                <li><a href="#"><img src="img/icon-1-5.svg" alt=""><span>Gift sets <span>Gift sets</span></span></a></li>
-                <li><a href="#"><img src="img/icon-1-6.svg" alt=""><span>Cocktail ingredients<span>Cocktail ingredients</span></span></a></li>
-                <li><a href="#"><img src="img/icon-1-7.svg" alt=""><span>Ready to drink<span>Ready to drink</span></span></a></li>
-                <li><a href="#"><img src="img/icon-1-8.svg" alt=""><span>Weddings & events<span>Weddings & events</span></span></a></li>
-            </ul>
+            <?php wp_nav_menu([
+                'theme_location' => 'main-menu',
+                'container' => false,
+                'menu_class' => 'top-menu',
+                'walker'  => new Header_Nav_Menu(),
+            ]);?>
         </div>
     </nav>
 </header>
@@ -113,27 +98,12 @@ $idb = get_option('page_for_posts', true);
                 <li><a href="#"><i class="fa-light fa-heart"></i><?= __('Favorites', 'glendaleliquor');?></a></li>
                 <li><a href="<?= wc_get_cart_url();?>"><i class="fa-light fa-basket-shopping"></i><?= __('Order', 'glandeiquor');?> <span class="count-product"><?= WC()->cart->get_cart_contents_count();?></span></a></li>
             </ul>
-            <ul class="mob-menu">
-                <li>
-                    <a href="#"><img src="img/icon-1-1.svg" alt="">Spirits</a>
-                    <ul class="sub-menu">
-                        <li><a href="#">Whiskey</a></li>
-                        <li><a href="#">Vodka</a></li>
-                        <li><a href="#">Rum</a></li>
-                        <li><a href="#">Gin</a></li>
-                        <li><a href="#">Tequila</a></li>
-                        <li><a href="#">Brandy</a></li>
-                        <li><a href="#"><b>See all</b></a></li>
-                    </ul>
-                </li>
-                <li><a href="#"><img src="img/icon-1-2.svg" alt="">Wine</a></li>
-                <li><a href="#"><img src="img/icon-1-3.svg" alt="">New arrivals</a></li>
-                <li><a href="#"><img src="img/icon-1-4.svg" alt="">Specials</a></li>
-                <li><a href="#"><img src="img/icon-1-5.svg" alt="">Gift sets</a></li>
-                <li><a href="#"><img src="img/icon-1-6.svg" alt="">Cocktail ingredients</a></li>
-                <li><a href="#"><img src="img/icon-1-7.svg" alt="">Ready to drink</a></li>
-                <li><a href="#"><img src="img/icon-1-8.svg" alt="">Weddings & events</a></li>
-            </ul>
+            <?php wp_nav_menu([
+                'theme_location' => 'main-menu',
+                'container' => false,
+                'menu_class' => 'mob-menu',
+                'walker'  => new Mob_Nav_Menu(),
+            ]);?>
         </nav>
 
     </div>
