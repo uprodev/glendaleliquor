@@ -25,13 +25,13 @@
                 <?php if(get_field('title_footer_contacts', 'options')):?>
                     <h6><?php the_field('title_footer_contacts', 'options');?></h6>
                 <?php endif;?>
-                <ul class="menu">
-                    <li>Buy LiquorOnline</li>
-                    <li><a href="#">www.glendaleliquor.com</a></li>
-                    <li>1309-1311 E. Colorado St.</li>
-                    <li>Glendale, CA. 91205</li>
-                    <li><a href="mailto:Glendaleliquor.info@gmail.com">Glendaleliquor.info@gmail.com</a></li>
-                </ul>
+                <?php if(get_field('contact_footer_items', 'options')):?>
+                    <ul class="menu">
+                        <?php foreach(get_field('contact_footer_items', 'options') as $item):?>
+                            <li><?= $item['item'];?></li>
+                        <?php endforeach;?>
+                    </ul>
+                <?php endif;?>
             </div>
 
             <div class="item item-2">
