@@ -6,6 +6,8 @@ Template Name: Flexible
 
 */
 
+get_header();
+
 $id = get_the_ID();
 
 if( have_rows('content', $id) ): ?>
@@ -17,3 +19,5 @@ if( have_rows('content', $id) ): ?>
     <?php endwhile; ?>
 
 <?php endif;
+
+get_footer();
