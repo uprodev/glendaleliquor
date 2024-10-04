@@ -35,7 +35,9 @@ if( function_exists('acf_add_options_page') ) {
 }
 
 function my_acf_init() {
-	acf_update_setting('google_api_key', 'AIzaSyAh1NE8kfXzx31UyPrwTCqwJdETUseulmI');
+    $api = get_field('google_map_api_key', 'options');
+
+	acf_update_setting('google_api_key', $api);
 }
 
 add_action('acf/init', 'my_acf_init');
