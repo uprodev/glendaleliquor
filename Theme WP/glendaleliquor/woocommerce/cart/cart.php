@@ -19,6 +19,76 @@ defined( 'ABSPATH' ) || exit;
 
 do_action( 'woocommerce_before_cart' ); ?>
 
+<section class="cart-block">
+    <div class="content-width">
+        <ul class="breadcrumb">
+            <li><a href="#"><i class="fa-light fa-chevron-left"></i>Back</a></li>
+        </ul>
+        <h1>Your Cart (2 Items)</h1>
+        <div class="content">
+            <div class="top-row">
+                <div class="data data-1">Item</div>
+                <div class="data data-2">Price</div>
+                <div class="data data-3">Quantity</div>
+                <div class="data data-4">Total</div>
+                <div class="data data-5"></div>
+            </div>
+            <div class="item-row">
+                <div class="data data-1">
+                    <figure>
+                        <a href="#">
+                            <img src="img/img-10.png" alt="">
+                        </a>
+                    </figure>
+                    <div class="text">
+                        <h6><a href="#">365 Gevorkian Strawberry Wine 750 ML</a></h6>
+                        <p>Gift Wrapping</p>
+                        <p><a href="#"><u>Add</u></a></p>
+                    </div>
+                </div>
+                <div class="data data-2">
+                    <p class="mob">Gift Wrapping</p>
+                    <p class="mob"><a href="#"><u>Add</u></a></p>
+                    <p class="price">$15.99</p>
+                </div>
+                <div class="data data-3">
+                    <div class="input-number ">
+                        <div class="btn-count btn-count-minus"><i class="fa fa-minus"></i></div>
+                        <input type="text" name="count" value="1" class="form-control"/>
+                        <div class="btn-count btn-count-plus"><i class="fa fa-plus"></i></div>
+                    </div>
+                </div>
+                <div class="data data-4">
+                    <p>$15.99</p>
+                </div>
+                <div class="data data-5">
+                    <a href="#" class="del"><i class="fa-solid fa-xmark"></i></a>
+                </div>
+            </div>
+            <div class="total-row-wrap">
+                <div class="total-row">
+                    <p>Subtotal:</p>
+                    <p>$15.99</p>
+                </div>
+                <div class="total-row">
+                    <p>Shipping:</p>
+                    <p><a href="#">Add info</a></p>
+                </div>
+                <div class="total-row">
+                    <p>Coupon Code:</p>
+                    <p><a href="#">Add coupon</a></p>
+                </div>
+                <div class="total-row total-row-b">
+                    <p>Grand total:</p>
+                    <p>$15.99</p>
+                </div>
+                <div class="total-row">
+                    <a href="#" class="btn-medium btn-default"><span>Checkout</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 	<?php do_action( 'woocommerce_before_cart_table' ); ?>
 
