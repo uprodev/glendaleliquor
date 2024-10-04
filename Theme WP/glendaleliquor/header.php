@@ -42,7 +42,7 @@ $idb = get_option('page_for_posts', true);
                         </a>
                     </li>
                     <li><a href="<?= get_permalink($idb);?>"><i class="fa-light fa-file-lines"></i><?= get_the_title($idb);?></a></li>
-                    <li><a href="#"><i class="fa-light fa-heart"></i><?= __('Favorites', 'glendaleliquor');?></a></li>
+                    <li><a href="<?= get_permalink(280);?>"><i class="fa-light fa-heart"></i><?= get_the_title(280);?></a></li>
                     <li><a href="<?= wc_get_cart_url();?>"><i class="fa-light fa-basket-shopping"></i><?= __('Order', 'glandeiquor');?> <span class="count-product"><?= WC()->cart->get_cart_contents_count();?></span></a></li>
                 </ul>
                 <div class="open-menu">
@@ -95,7 +95,7 @@ $idb = get_option('page_for_posts', true);
                     </a>
                 </li>
                 <li><a href="<?= get_permalink($idb);?>"><i class="fa-light fa-file-lines"></i><?= get_the_title($idb);?></a></li>
-                <li><a href="#"><i class="fa-light fa-heart"></i><?= __('Favorites', 'glendaleliquor');?></a></li>
+                <li><a href="<?= get_permalink(280);?>"><i class="fa-light fa-heart"></i><?= get_the_title(280);?></a></li>
                 <li><a href="<?= wc_get_cart_url();?>"><i class="fa-light fa-basket-shopping"></i><?= __('Order', 'glandeiquor');?> <span class="count-product"><?= WC()->cart->get_cart_contents_count();?></span></a></li>
             </ul>
             <?php wp_nav_menu([
