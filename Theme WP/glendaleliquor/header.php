@@ -50,11 +50,7 @@
     <nav class="top-menu-wrap">
         <div class="content-width">
             <div class="search-wrap-mob">
-                <form action="#" class="form-search">
-                    <label for="search-mob"></label>
-                    <input type="search" name="search" id="search-mob" placeholder="Search">
-                    <button class="btn" type="submit"><img src="img/find.svg" alt=""></button>
-                </form>
+                <?= do_shortcode('[fibosearch]'); ?>
             </div>
             <ul class="top-menu">
                 <li>
