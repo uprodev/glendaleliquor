@@ -6,21 +6,25 @@
     <div class="join">
         <div class="content-width">
             <div class="title">
-                <h4>Join our mailing list <sub>for special offers!</sub></h4>
+                <?php if(get_field('title_join_form', 'options')):?>
+                    <h4><?php the_field('title_join_form', 'options');?></h4>
+                <?php endif;?>
             </div>
             <div class="form-wrap">
-                <form action="#" class="form-join">
-                    <label for="email-join"><i class="fa-light fa-envelope"></i></label>
-                    <input type="email" name="email-join" id="email-join" placeholder="Example@gmail.com">
-                    <button type="submit" class="btn-default btn-small btn-white"><span>Join</span></button>
-                </form>
+                <?php if(get_field('join_form', 'options')):?>
+                    <div class="form-join">
+                        <?= do_shortcode('[contact-form-7 id="'.get_field('join_form', 'options').'"]');?>
+                    </div>
+                <?php endif;?>
             </div>
         </div>
     </div>
     <div class="content-width">
         <div class="content">
             <div class="item item-1">
-                <h6>Contact Us</h6>
+                <?php if(get_field('title_footer_contacts', 'options')):?>
+                    <h6><?php the_field('title_footer_contacts', 'options');?></h6>
+                <?php endif;?>
                 <ul class="menu">
                     <li>Buy LiquorOnline</li>
                     <li><a href="#">www.glendaleliquor.com</a></li>
@@ -31,35 +35,34 @@
             </div>
 
             <div class="item item-2">
-                <h6>Accounts & Orders</h6>
-                <ul class="menu">
-                    <li><a href="#">Wishlist</a></li>
-                    <li><a href="#">Account</a></li>
-                    <li><a href="#">Logout</a></li>
-                    <li><a href="#">Order Status</a></li>
-                    <li><a href="#">Shipping & Returns</a></li>
-                </ul>
+                <?php if(get_field('title_footer_menu_1', 'options')):?>
+                    <h6><?php the_field('title_footer_menu_1', 'options');?></h6>
+                <?php endif;?>
+                <?php wp_nav_menu([
+                    'theme_location' => 'footer-menu1',
+                    'container' => false,
+                    'menu_class' => 'menu',
+                ]);?>
             </div>
             <div class="item item-3">
-                <h6>Quick Links</h6>
-                <ul class="menu">
-                    <li><a href="#">Information/Mailing List</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Order Status</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms/Conditions</a></li>
-                    <li><a href="#">Shipping Policy</a></li>
-                    <li><a href="#">Find us</a></li>
-                </ul>
+                <?php if(get_field('title_footer_menu_2', 'options')):?>
+                    <h6><?php the_field('title_footer_menu_2', 'options');?></h6>
+                <?php endif;?>
+                <?php wp_nav_menu([
+                    'theme_location' => 'footer-menu2',
+                    'container' => false,
+                    'menu_class' => 'menu',
+                ]);?>
             </div>
             <div class="item item-4">
-                <h6>Recent Blog Posts</h6>
-                <ul class="menu">
-                    <li>Ararat brandy</li>
-                    <li>Armas wine, Armenia</li>
-                    <li>Horse soldier straight bourbon whiskey</li>
-                    <li>How to choose your favorite scotch whisky</li>
-                </ul>
+                <?php if(get_field('title_footer_menu_3', 'options')):?>
+                    <h6><?php the_field('title_footer_menu_3', 'options');?></h6>
+                <?php endif;?>
+                <?php wp_nav_menu([
+                    'theme_location' => 'footer-menu3',
+                    'container' => false,
+                    'menu_class' => 'menu',
+                ]);?>
             </div>
             <div class="item item-5">
                 <h6>Connect with Us:</h6>
