@@ -1,5 +1,7 @@
 <?php
 
+/* Fragments */
+
 function add_points_widget_to_fragment( $fragments ) {
 
     $fragments['.count-product'] =  '<span class="count-product">'.  WC()->cart->get_cart_contents_count() . '</span>';

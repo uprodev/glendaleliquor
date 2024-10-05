@@ -261,21 +261,10 @@ jQuery(document).ready(function ($) {
 
   })
 
-  //input +/-
-  $(".btn-count-plus").click(function () {
-    var e = $(this).parent().find("input");
-    return e.val(parseInt(e.val()) + 1), e.change(), !1
-  }), $(".btn-count-minus").click(function () {
-    var e = $(this).parent().find("input"), t = parseInt(e.val()) - 1;
-    return t = t < 1 ? 1 : t, e.val(t), e.change(), !1
-  });
 
 
-  //delete item
-  $(document).on('click', '.del', function (e){
-    e.preventDefault();
-    $(this).closest('.item-row').hide();
-  })
+
+
 
   if($('.tel').length > 0){
     var input = document.querySelector(".tel");
