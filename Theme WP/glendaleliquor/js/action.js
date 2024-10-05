@@ -82,7 +82,7 @@ jQuery(document).ready(function ($) {
         let counter = $(this).closest('.input-number');
         let quantity = counter.find('.qty');
         let value = parseInt(quantity.val());
-        
+
         if (value > 0) {
             quantity.val(value - 1);
         }

@@ -24,9 +24,6 @@ function add_scripts() {
     wp_enqueue_script( 'wc-cart-fragments' );
 
     wp_enqueue_script( 'fancyboxjs', get_template_directory_uri() . '/js/jquery.fancybox.min.js', array('jquery'), false, true);
-    wp_enqueue_script( 'dropzone', 'https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js', array('jquery'), false, true);
-    wp_enqueue_script('jqueryvalidation',  'https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js', array(), false, 1);
-    wp_enqueue_script( 'maskjs', get_template_directory_uri() . '/js/jquery.mask.js', array('jquery'), false, true);
     wp_enqueue_script( 'swiperjs', get_template_directory_uri() . '/js/swiper.js', array('jquery'), false, true);
     wp_enqueue_script( 'select', get_template_directory_uri() . '/js/jquery.nice-select.min.js', array('jquery'), rand(1111, 9999), true);
     wp_enqueue_script( 'sticky', get_template_directory_uri() . '/js/jquery.sticky.js', array('jquery'), rand(1111, 9999), true);

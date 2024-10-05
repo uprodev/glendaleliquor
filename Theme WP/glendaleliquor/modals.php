@@ -41,15 +41,15 @@
             <div class="input-wrap input-wrap-full input-wrap-stars">
                 <div>
                     <input type="radio" id="star-1" name="star">
-                    <label for="star-1"><img src="img/star-full.svg" alt=""></label>
+                    <label for="star-1"><img src="<?= get_template_directory_uri();?>/img/star-full.svg" alt=""></label>
                     <input type="radio" id="star-2" name="star">
-                    <label for="star-2"><img src="img/star.svg" alt=""></label>
+                    <label for="star-2"><img src="<?= get_template_directory_uri();?>/img/star.svg" alt=""></label>
                     <input type="radio" id="star-3" name="star">
-                    <label for="star-3"><img src="img/star.svg" alt=""></label>
+                    <label for="star-3"><img src="<?= get_template_directory_uri();?>/img/star.svg" alt=""></label>
                     <input type="radio" id="star-4" name="star">
-                    <label for="star-4"><img src="img/star.svg" alt=""></label>
+                    <label for="star-4"><img src="<?= get_template_directory_uri();?>/img/star.svg" alt=""></label>
                     <input type="radio" id="star-5" name="star">
-                    <label for="star-5"><img src="img/star.svg" alt=""></label>
+                    <label for="star-5"><img src="<?= get_template_directory_uri();?>/img/star.svg" alt=""></label>
                 </div>
             </div>
             <div class="input-wrap-submit">

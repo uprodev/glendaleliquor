@@ -22,7 +22,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 <section class="cart-block">
     <div class="content-width">
         <ul class="breadcrumb">
-            <li><a href="#"><i class="fa-light fa-chevron-left"></i><?= __('Back', 'glendaleliquor');?></a></li>
+            <li><a href="javascript:window.history.back()"><i class="fa-light fa-chevron-left"></i><?= __('Back', 'glendaleliquor');?></a></li>
         </ul>
 
         <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
