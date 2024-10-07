@@ -33,3 +33,17 @@ function get_discount_percentage( $product ) {
 
     return '';
 }
+
+
+//add_filter( 'woocommerce_form_field', 'custom_woocommerce_form_field', 10, 4 );
+function custom_woocommerce_form_field( $field, $key, $args, $value ) {
+
+    if ( strpos( $field, 'form-row' ) !== false ) {
+
+        $field = str_replace( '<p class="form-row', '<div class="input-wrap', $field );
+
+        $field = str_replace( '</p>', '</div>', $field );
+    }
+
+    return $field;
+}

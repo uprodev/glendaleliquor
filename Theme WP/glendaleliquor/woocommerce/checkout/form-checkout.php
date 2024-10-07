@@ -36,67 +36,9 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                     <li><a href="<?= wc_get_cart_url();?>"><i class="fa-light fa-chevron-left"></i><?= get_the_title(get_option( 'woocommerce_cart_page_id' ));?></a></li>
                 </ul>
                 <h1><?php the_title();?></h1>
-                <h6>Billing details</h6>
 
-                <div class="wrap">
-                    <div class="input-wrap">
-                        <label for="name">First name *</label>
-                        <input type="text" name="name" id="name" required>
-                    </div>
-                    <div class="input-wrap">
-                        <label for="last-name">Last name *</label>
-                        <input type="text" name="last-name" id="last-name" required>
-                    </div>
-                    <div class="input-wrap input-wrap-full">
-                        <label for="company">Company name (optional)</label>
-                        <input type="text" name="company" id="company">
-                    </div>
-                    <div class="input-wrap input-wrap-full select-block">
-                        <label class="form-label" for="select-1">Country/Region *</label>
-                        <select id="select-1">
-                            <option value="0">USA</option>
-                            <option value="1">USA 1</option>
-                            <option value="2">USA 2</option>
-                            <option value="3">USA 3</option>
-                        </select>
-                    </div>
-                    <div class="input-wrap input-wrap-full">
-                        <label for="code">Post code *</label>
-                        <input type="text" name="code" id="code" required>
-                    </div>
-                    <div class="input-wrap input-wrap-full">
-                        <label for="address">Street address *</label>
-                        <input type="text" name="address" id="address" required placeholder="House number and street name">
-                    </div>
-                    <div class="input-wrap input-wrap-full">
-                        <label for="address2"></label>
-                        <input type="text" name="address2" id="address2" placeholder="Apartment, suite, unit, etc. (optional)">
-                    </div>
-                    <div class="input-wrap input-wrap-full">
-                        <label for="city">Town/City *</label>
-                        <input type="text" name="city" id="city" required placeholder="House number and street name">
-                    </div>
-                    <div class="input-wrap input-wrap-full">
-                        <label for="tel">Phone *</label>
-                        <input type="text" name="tel" id="tel" required class="tel">
-                    </div>
-                    <div class="input-wrap input-wrap-full">
-                        <label for="email">Email address *</label>
-                        <input type="email" name="email" id="email" required>
-                    </div>
-                    <div class="input-wrap input-wrap-full">
-                        <label for="message">Order notes (optional)</label>
-                        <textarea name="message" id="message" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
-                    </div>
-                    <div class="input-wrap-check input-wrap-full">
-                        <input type="checkbox" id="check-1" name="check-1">
-                        <label for="check-1">Create an account</label>
-                    </div>
-                    <div class="input-wrap-check input-wrap-full">
-                        <input type="checkbox" id="check-2" name="check-2">
-                        <label for="check-2">Delivar to a different address?</label>
-                    </div>
-                </div>
+                <?php do_action( 'woocommerce_checkout_billing' ); ?>
+
             </div>
             <div class="aside">
                 <div class="title">
