@@ -2,3 +2,135 @@
 Theme Name: glendaleliquor
 Description: Theme WP for Glendaleliquor
 */
+
+.irs--flat .irs-handle{
+    width: 16px;
+    height: 16px;
+    border-radius:100%;
+    border: 4px solid #fff;
+    background-color: white;
+    border-radius: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 255, 0.3);
+    background: #fff;
+    top: 19px;
+}
+.home-banner-slider .text>*{
+    position: relative;
+    z-index: 10;
+}
+
+.dgwt-wcas-style-pirx .dgwt-wcas-sf-wrapp{
+    background: transparent;
+
+}
+.dgwt-wcas-style-pirx .dgwt-wcas-sf-wrapp input[type=search].dgwt-wcas-search-input{
+    border: none!important;
+    border-radius: 0;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #000!important;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 0 0 35px;
+    font-size: 18px;
+    font-weight: 400;
+    background: transparent!important;
+}
+.dgwt-wcas-style-pirx .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit{
+    top: 9px;
+    left: 9px
+}
+
+.form-join form{
+    display: flex;
+    width: 100%;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.form-join .wpcf7-form-control-wrap{
+    width: calc(100% - 130px);
+}
+.form-join .wpcf7-form-control-wrap input{
+    width: 100%;
+}
+.irs--flat .irs-bar{
+    background: #b49571;
+    border-radius: 4px 0 0 4px;
+    height: 4px;
+}
+.irs--flat .irs-handle>i:first-child{
+    display: none;
+}
+.irs--flat .irs-line{
+    height: 4px;
+}
+
+.irs--flat .irs-from, .irs--flat .irs-to, .irs--flat .irs-single{
+    background: transparent;
+    color: #000;
+    font-size: 12px;
+}
+
+.irs--flat .irs-from:before, .irs--flat .irs-to:before, .irs--flat .irs-single:before{
+    display: none;
+}
+
+.irs-from, .irs-to, .irs-single{
+    top: 40px;
+
+}
+
+.irs-max, .irs-min{
+    display: none!important;
+}
+
+.category .item-2 label{
+    margin-bottom: -20px;
+}
+
+.product-item .price-wrap .price ins .amount bdi{
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 22px;
+    color: #3ba52a;
+    margin-right: 12px;
+    text-decoration: none;
+}
+
+.product-item .price-wrap .price del .amount bdi{
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 16px;
+    -webkit-text-decoration-line: line-through;
+    text-decoration-line: line-through;
+    color: #6b6b6b;
+}
+
+.product-item .price-wrap .price{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
+.product-item .price-wrap .price del, .product-item .price-wrap .price ins{
+    text-decoration: none;
+}
+
+@media (max-width: 991px){
+    .category .item-1 {
+        width: 100%;
+    }
+    .woocommerce-ordering{
+        width: calc(50% - 20px);
+    }
+
+}
+
+

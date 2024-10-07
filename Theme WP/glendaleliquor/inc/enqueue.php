@@ -14,7 +14,7 @@ function add_styles() {
     wp_enqueue_style('air-datepicker', get_template_directory_uri().'/css/air-datepicker.css');
     wp_enqueue_style('styles', get_template_directory_uri().'/css/styles.css', array(), rand(1111, 9999));
     wp_enqueue_style('responsive', get_template_directory_uri().'/css/responsive.css', array(), rand(1111, 9999));
-    wp_enqueue_style( 'theme', get_stylesheet_uri() );
+    wp_enqueue_style( 'theme', get_stylesheet_uri(), array(), rand(1111, 9999) );
 
 }
 
