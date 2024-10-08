@@ -41,20 +41,19 @@ defined( 'ABSPATH' ) || exit;
 			woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
 		}
 		?>
+        <p class="input-wrap input-wrap-full notes" id="order_comments_field" data-priority=""><label for="order_comments" class="">Order notes&nbsp;<span class="optional">(optional)</span></label><span class="woocommerce-input-wrapper"><textarea name="order_comments" class="input-text " id="order_comments" placeholder="Notes about your order, e.g. special notes for delivery." rows="2" cols="5"></textarea></span></p>
 	</div>
 
 	<?php do_action( 'woocommerce_after_checkout_billing_form', $checkout ); ?>
 </div>
 
-<?php if ( ! is_user_logged_in() && $checkout->is_registration_enabled() ) : ?>
+<?php if ( ! is_user_logged_in() && !$checkout->is_registration_enabled() ) : ?>
 	<div class="woocommerce-account-fields">
 		<?php if ( ! $checkout->is_registration_required() ) : ?>
-
-			<p class="form-row form-row-wide create-account">
-				<label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
-					<input class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" id="createaccount" <?php checked( ( true === $checkout->get_value( 'createaccount' ) || ( true === apply_filters( 'woocommerce_create_account_default_checked', false ) ) ), true ); ?> type="checkbox" name="createaccount" value="1" /> <span><?php esc_html_e( 'Create an account?', 'woocommerce' ); ?></span>
-				</label>
-			</p>
+            <div class="input-wrap-check input-wrap-full">
+                <input class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" id="createaccount" <?php checked( ( true === $checkout->get_value( 'createaccount' ) || ( true === apply_filters( 'woocommerce_create_account_default_checked', false ) ) ), true ); ?> type="checkbox" name="createaccount" value="1" />
+                <label for="check-1"><?php esc_html_e( 'Create an account', 'woocommerce' ); ?></label>
+            </div>
 
 		<?php endif; ?>
 
@@ -72,5 +71,23 @@ defined( 'ABSPATH' ) || exit;
 		<?php endif; ?>
 
 		<?php do_action( 'woocommerce_after_checkout_registration_form', $checkout ); ?>
+
+        <div class="input-wrap-check input-wrap-full">
+            <input id="ship-to-different-address-checkbox" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" <?php checked( apply_filters( 'woocommerce_ship_to_different_address_checked', 'shipping' === get_option( 'woocommerce_ship_to_destination' ) ? 1 : 0 ), 1 ); ?> type="checkbox" name="ship_to_different_address" value="1" />
+            <label for="check-2">Delivery to a different address?</label>
+        </div>
+        <?php do_action( 'woocommerce_before_checkout_shipping_form', $checkout ); ?>
+
+        <div class="woocommerce-shipping-fields__field-wrapper">
+            <?php
+            $fields = $checkout->get_checkout_fields( 'shipping' );
+
+            foreach ( $fields as $key => $field ) {
+                woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
+            }
+            ?>
+        </div>
+
+        <?php do_action( 'woocommerce_after_checkout_shipping_form', $checkout ); ?>
 	</div>
 <?php endif; ?>

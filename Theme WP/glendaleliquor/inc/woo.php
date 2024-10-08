@@ -35,15 +35,61 @@ function get_discount_percentage( $product ) {
 }
 
 
-//add_filter( 'woocommerce_form_field', 'custom_woocommerce_form_field', 10, 4 );
-function custom_woocommerce_form_field( $field, $key, $args, $value ) {
+/* Checkout Fields */
+
+add_filter( 'woocommerce_form_field', 'custom_add_classes_to_form_rows', 10, 4 );
+function custom_add_classes_to_form_rows( $field, $key, $args, $value ) {
+
+    $specific_fields = array('billing_first_name', 'billing_last_name');
+    $select_fields = array('billing_country');
 
     if ( strpos( $field, 'form-row' ) !== false ) {
-
-        $field = str_replace( '<p class="form-row', '<div class="input-wrap', $field );
-
-        $field = str_replace( '</p>', '</div>', $field );
+        if ( in_array( $key, $specific_fields ) ) {
+            $field = str_replace( 'form-row', 'input-wrap', $field );
+        } elseif ( in_array( $key, $select_fields ) ) {
+            $field = str_replace( 'form-row', 'input-wrap input-wrap-full select-block', $field );
+        }
+        else {
+            $field = str_replace( 'form-row', 'input-wrap input-wrap-full', $field );
+        }
     }
 
     return $field;
 }
+
+add_filter( 'woocommerce_checkout_fields', 'custom_rearrange_checkout_fields' );
+function custom_rearrange_checkout_fields( $fields ) {
+
+    $new_order = array(
+        'billing_first_name',
+        'billing_last_name',
+        'billing_company',
+        'billing_country',
+        'billing_postcode',
+        'billing_address_1',
+        'billing_address_2',
+        'billing_city',
+        'billing_phone',
+        'billing_email',
+    );
+
+    $reordered_fields = array();
+    foreach ( $new_order as $field_key ) {
+        if ( isset( $fields['billing'][ $field_key ] ) ) {
+            $reordered_fields[ $field_key ] = $fields['billing'][ $field_key ];
+        }
+    }
+
+    $fields['billing'] = $reordered_fields;
+
+    return $fields;
+}
+
+add_filter( 'woocommerce_checkout_fields', 'custom_remove_checkout_fields' );
+function custom_remove_checkout_fields( $fields ) {
+
+    unset( $fields['billing']['billing_state'] );
+
+    return $fields;
+}
+

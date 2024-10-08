@@ -266,8 +266,8 @@ jQuery(document).ready(function ($) {
 
 
 
-  if($('.tel').length > 0){
-    var input = document.querySelector(".tel");
+  if($('#billing_phone').length > 0){
+    var input = document.querySelector("#billing_phone");
     window.intlTelInput(input, {
       //allowDropdown: true,
       //autoHideDialCode: true,
