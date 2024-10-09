@@ -23,6 +23,7 @@ function add_scripts() {
 
     wp_enqueue_script( 'wc-cart-fragments' );
 
+    wp_enqueue_script( 'cookie', get_template_directory_uri() . '/js/jquery.cookie.js', array('jquery'), rand(1111, 9999), false);
     wp_enqueue_script( 'fancyboxjs', get_template_directory_uri() . '/js/jquery.fancybox.min.js', array('jquery'), false, true);
     wp_enqueue_script( 'swiperjs', get_template_directory_uri() . '/js/swiper.js', array('jquery'), false, true);
     wp_enqueue_script( 'select', get_template_directory_uri() . '/js/jquery.nice-select.min.js', array('jquery'), rand(1111, 9999), true);
