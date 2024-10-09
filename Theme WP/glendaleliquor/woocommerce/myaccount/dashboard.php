@@ -26,8 +26,230 @@ $allowed_html = array(
 		'href' => array(),
 	),
 );
-?>
 
+
+    $user_id = get_current_user_id();
+    $favorites = get_field('fav', 'user_'.$user_id);
+    $favorites = $favorites ? $favorites : array();
+
+if (!is_array($favorites)) {
+    $favorites = $favorites ? explode(',', $favorites) : array();
+}
+
+?>
+    <div class="cabinet-item cabinet-item-1">
+        <ul class="breadcrumb">
+            <li><a href="#"><i class="fa-light fa-chevron-left"></i>Dashboard</a></li>
+        </ul>
+
+        <section class="products">
+            <div class="title-wrap">
+                <div class="title">
+                    <h1>Your favorites</h1>
+                    <p>You  have recently viewed these products</p>
+                </div>
+                <div class="nav-wrap">
+                    <div class="product-next-1 btn"><i class="fa-regular fa-arrow-right"></i></div>
+                    <div class="product-prev-1 btn"><i class="fa-regular fa-arrow-left"></i></div>
+                </div>
+            </div>
+            <div class="slider-wrap">
+                <div class="swiper product-slider product-slider-1">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-wrapper">
+                            <?php $new = new WP_Query([
+                                'post_type' => 'product',
+                                'posts_per_page' => -1,
+                                'post__in' => $favorites,
+                            ]);
+
+                            while ($new->have_posts()):$new->the_post();
+
+                                wc_get_template_part( 'content', 'product-slide' );
+
+                            endwhile; wp_reset_postdata();?>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="products">
+            <div class="title-wrap">
+                <div class="title">
+                    <h3>Your previous purchases</h3>
+                    <p>Nice choice! Would you like to enjoy these beverages again?</p>
+                </div>
+                <div class="nav-wrap">
+                    <div class="product-next-2 btn"><i class="fa-regular fa-arrow-right"></i></div>
+                    <div class="product-prev-2 btn"><i class="fa-regular fa-arrow-left"></i></div>
+                </div>
+            </div>
+            <div class="slider-wrap">
+                <div class="swiper product-slider product-slider-2">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <figure>
+                                <a href="#">
+                                    <img src="img/img-2-1.png" alt="">
+                                </a>
+                            </figure>
+                            <div class="text">
+                                <p class="info">Sku: 080432400630</p>
+                                <h6><a href="#">The Glenlivet 12 Years Old </a></h6>
+                                <div class="stars-wrap">
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                </div>
+                                <p class="price">$38.99</p>
+                                <div class="btn-wrap">
+                                    <a href="#" class="btn-default btn-small"><span>Order again</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure>
+                                <a href="#">
+                                    <img src="img/img-2-2.png" alt="">
+                                </a>
+                            </figure>
+                            <div class="text">
+                                <p class="info">SKU: 088110151058</p>
+                                <h6><a href="#">Hennessy VSOP Privilege Cognac 750 ML</a></h6>
+                                <div class="stars-wrap">
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                </div>
+                                <p class="price">$53.99</p>
+                                <div class="btn-wrap">
+                                    <a href="#" class="btn-default btn-small"><span>Order again</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure>
+                                <a href="#">
+                                    <img src="img/img-2-3.png" alt="">
+                                </a>
+                            </figure>
+                            <div class="text">
+                                <p class="info">SKU: 674545000322</p>
+                                <h6><a href="#">Don Julio 1942 Tequila 750 ML</a></h6>
+                                <div class="stars-wrap">
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                </div>
+                                <p class="price">$159.99</p>
+                                <div class="btn-wrap">
+                                    <a href="#" class="btn-default btn-small"><span>Order again</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure>
+                                <a href="#">
+                                    <img src="img/img-2-4.png" alt="">
+                                </a>
+                            </figure>
+                            <div class="text">
+                                <p class="info">Sku: 080432100783</p>
+                                <h6><a href="#">The Glenlivet 15 Year Old French Oak Reserve 750 ML</a></h6>
+                                <div class="stars-wrap">
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                </div>
+                                <p class="price">$74.99</p>
+                                <div class="btn-wrap">
+                                    <a href="#" class="btn-default btn-small"><span>Order again</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure>
+                                <a href="#">
+                                    <img src="img/img-2-4.png" alt="">
+                                </a>
+                            </figure>
+                            <div class="text">
+                                <p class="info">Sku: 080432100783</p>
+                                <h6><a href="#">The Glenlivet 15 Year Old French Oak Reserve 750 ML</a></h6>
+                                <div class="stars-wrap">
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                </div>
+                                <p class="price">$74.99</p>
+                                <div class="btn-wrap">
+                                    <a href="#" class="btn-default btn-small"><span>Order again</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure>
+                                <a href="#">
+                                    <img src="img/img-2-4.png" alt="">
+                                </a>
+                            </figure>
+                            <div class="text">
+                                <p class="info">Sku: 080432100783</p>
+                                <h6><a href="#">The Glenlivet 15 Year Old French Oak Reserve 750 ML</a></h6>
+                                <div class="stars-wrap">
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                </div>
+                                <p class="price">$74.99</p>
+                                <div class="btn-wrap">
+                                    <a href="#" class="btn-default btn-small"><span>Order again</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure>
+                                <a href="#">
+                                    <img src="img/img-2-4.png" alt="">
+                                </a>
+                            </figure>
+                            <div class="text">
+                                <p class="info">Sku: 080432100783</p>
+                                <h6><a href="#">The Glenlivet 15 Year Old French Oak Reserve 750 ML</a></h6>
+                                <div class="stars-wrap">
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                    <i class="fa-light fa-star"></i>
+                                </div>
+                                <p class="price">$74.99</p>
+                                <div class="btn-wrap">
+                                    <a href="#" class="btn-default btn-small"><span>Order again</span></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 <p>
 	<?php
 	printf(
