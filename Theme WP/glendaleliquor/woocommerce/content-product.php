@@ -23,14 +23,27 @@ global $product;
 if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
+$product_id = $product->get_id();
+
+if (is_user_logged_in()) {
+    $user_id = get_current_user_id();
+    $favorites = get_field('fav', 'user_'.$user_id);
+    $favorites = $favorites ? $favorites : array();
+} else {
+    $favorites = isset($_COOKIE['woocommerce_favorites']) ? json_decode(stripslashes($_COOKIE['woocommerce_favorites']), true) : array();
+}
+if (!is_array($favorites)) {
+    $favorites = $favorites ? explode(',', $favorites) : array();
+}
 
 $sku = $product->get_sku();
 $discount = get_discount_percentage( $product );
 
 ?>
 <div class="product-item">
-    <div class="like">
-        <a href="#"><i class="fa-light fa-heart"></i></a>
+
+    <div class="like <?= in_array($product_id, $favorites)?'is-active':'';?>">
+        <a href="#" class="add-to-favorites" data-product_id="<?= $product->get_id() ?>"><i class="fa-<?= in_array($product_id, $favorites)?'solid':'light';?> fa-heart"></i></a>
     </div>
     <?php if ( $discount ) {
         echo '<div class="sale"><p>' . $discount . '</p></div>';

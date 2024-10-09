@@ -135,66 +135,25 @@ jQuery(document).ready(function ($) {
      * favourites
      */
 
-    function onlyUnique(value, index, array) {
-        return array.indexOf(value) === index;
-    }
+    $(document).on('click', '.add-to-favorites', function (e) {
 
-    function getKeyByValue(object, value) {
-        return Object.keys(object).find(key => object[key] === value);
-    }
+        e.preventDefault();
 
+        let user_id = $(this).attr('data-user_id');
+        let product_id = $(this).attr('data-product_id');
 
-    let globalFav = globals.fav
+        $.ajax({
+            url: wc_add_to_cart_params.ajax_url,
+            type: 'POST',
+            data: {
+                action: 'add_to_fav',
+                product_id: product_id,
+            },
+            success: function(response) {
 
-    $(document).on('click', '.add_to_fav', function () {
+            }
+        });
 
-        $(this).toggleClass('active');
-
-        var user_id = $(this).attr('data-user_id');
-        var product_id = $(this).attr('data-product_id');
-        var liked = $(this).attr('data-liked');
-
-        if (user_id > 0) {
-            let fav = globalFav ? globalFav : [];
-        } else {
-            let fav = Cookies.get('fav') ? Cookies.get('fav') : [];
-        }
-
-        if (fav.length > 0) {
-            fav = fav.split('|');
-        }
-
-        fav = fav.filter(onlyUnique);
-
-        if (liked) {
-            let key = getKeyByValue(fav, product_id)
-            delete fav[key];
-
-        } else {
-            fav.push(product_id);
-            $(this).attr('data-liked', 1);
-        }
-
-        fav = fav.join('|');
-
-        Cookies.set('fav', fav);
-        globalFav = fav
-        if (user_id > 0) {
-
-            $.ajax({
-                type: 'POST',
-                url: wc_add_to_cart_params.ajax_url,
-
-                data: {
-                    action: 'add_to_fav',
-                    user_id: user_id,
-                    fav: fav
-                },
-                success: function (data) {
-
-                },
-            });
-        }
     });
 
 });

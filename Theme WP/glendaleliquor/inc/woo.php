@@ -94,4 +94,3 @@ function custom_remove_checkout_fields( $fields ) {
 }
 
 add_filter( 'woocommerce_enable_order_notes_field', '__return_false' );
-

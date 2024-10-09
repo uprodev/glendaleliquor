@@ -66,10 +66,48 @@ function qty_cart(){
 /* add to fav*/
 
 function add_to_fav() {
-    $user_id = $_POST['user_id'];
-    $fav = $_POST['fav'];
-    update_field('fav',$fav, 'user_'.$user_id);
+
+    $product_id = intval($_POST['product_id']);
+
+    if (is_user_logged_in()) {
+
+        $user_id = get_current_user_id();
+        $favorites = get_field('fav', 'user_' . $user_id);
+        if (!is_array($favorites)) {
+            $favorites = $favorites ? explode(',', $favorites) : array();
+        }
+
+        if (in_array($product_id, $favorites)) {
+            $favorites = array_diff($favorites, array($product_id));
+            $is_favorite = false;
+        } else {
+            $favorites[] = $product_id;
+            $is_favorite = true;
+        }
 
 
-    wp_die();
+        $favorites_str = implode(',', $favorites);
+
+        update_field('fav', $favorites_str, 'user_' . $user_id);
+
+    } else {
+        $favorites = isset($_COOKIE['woocommerce_favorites']) ? json_decode(stripslashes($_COOKIE['woocommerce_favorites']), true) : array();
+
+        if (in_array($product_id, $favorites)) {
+            $favorites = array_diff($favorites, array($product_id));
+            $is_favorite = false;
+        } else {
+            $favorites[] = $product_id;
+            $is_favorite = true;
+        }
+    }
+
+
+    setcookie('woocommerce_favorites', json_encode($favorites), time() + (86400 * 30), '/');
+
+    wp_send_json_success(array(
+        'is_favorite' => $is_favorite
+    ));
 }
+
+
