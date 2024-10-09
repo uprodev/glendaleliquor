@@ -119,4 +119,15 @@ jQuery(document).ready(function ($) {
         }, 100)
     })
 
+
+    /* create-register */
+
+    $(document).on('click', '.create-register', function(e){
+        e.preventDefault();
+
+        $('.right-create').hide();
+
+        $('.right-register').show();
+    })
+
 });
