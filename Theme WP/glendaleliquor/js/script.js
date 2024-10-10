@@ -5,6 +5,10 @@ jQuery(document).ready(function ($) {
     topSpacing:0
   });*/
 
+  $('.products').each(function(index) {
+    $(this).addClass('products-' + (index + 1));
+  });
+
   //slider
   var swiperHome = new Swiper(".home-banner-slider", {
     spaceBetween: 10,
@@ -62,12 +66,12 @@ jQuery(document).ready(function ($) {
   });
 
   //slider
-  var swiperProduct1 = new Swiper(".product-slider-1", {
+  var swiperProduct1 = new Swiper(".products-1 .product-slider-1", {
     slidesPerView: "auto",
     spaceBetween: 40,
     navigation: {
-      nextEl: ".product-next-1",
-      prevEl: ".product-prev-1",
+      nextEl: ".products-1 .product-next-1",
+      prevEl: ".products-1 .product-prev-1",
     },
     breakpoints: {
       320: {
@@ -80,12 +84,12 @@ jQuery(document).ready(function ($) {
   });
 
   //slider
-  var swiperProduct2 = new Swiper(".product-slider-2", {
+  var swiperProduct2 = new Swiper(".products-2 .product-slider-1", {
     slidesPerView: "auto",
     spaceBetween: 40,
     navigation: {
-      nextEl: ".product-next-2",
-      prevEl: ".product-prev-2",
+      nextEl: ".products-2 .product-next-1",
+      prevEl: ".products-2 .product-prev-1",
     },
     breakpoints: {
       320: {
@@ -98,12 +102,12 @@ jQuery(document).ready(function ($) {
   });
 
   //slider
-  var swiperProduct3 = new Swiper(".product-slider-3", {
+  var swiperProduct3 = new Swiper(".products-3 .product-slider-1", {
     slidesPerView: "auto",
     spaceBetween: 40,
     navigation: {
-      nextEl: ".product-next-3",
-      prevEl: ".product-prev-3",
+      nextEl: ".products-3 .product-next-1",
+      prevEl: ".products-3 .product-prev-1",
     },
     breakpoints: {
       320: {
@@ -169,6 +173,19 @@ jQuery(document).ready(function ($) {
       item.slideDown();
     }else{
       item.slideUp();
+    }
+  });
+
+
+
+  $(document).on('click', '.add-coupon', function (e){
+    e.preventDefault();
+
+    $(this).toggleClass('is-open');
+    if($(this).hasClass('is-open')){
+      $('.coupon').slideDown().addClass('is-open');
+    }else{
+      $('.coupon').slideUp().removeClass('is-open');
     }
   });
 
@@ -359,12 +376,12 @@ jQuery(document).ready(function ($) {
     $(this).closest('div').addClass("item-"+ item + "")
   });
 
-/*  $.fancybox.open( $('#confirm-popup'), {
-    touch:false,
-    autoFocus:false,
-    clickSlide : 'false',
-    clickOutside : 'false',
-  });*/
+  /*  $.fancybox.open( $('#confirm-popup'), {
+      touch:false,
+      autoFocus:false,
+      clickSlide : 'false',
+      clickOutside : 'false',
+    });*/
 
   //mob cabinet
   $(document).on('click', '.cabinet .breadcrumb a', function (e){

@@ -18,8 +18,10 @@ Description: Theme WP for Glendaleliquor
     height: 40px;
     line-height: 40px;
 }
-.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit:hover, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button:hover, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button:hover, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button: hover, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit:hover, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button: hover, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button: hover, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button: hover{
-    background: #b49571;
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit:hover, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button:hover, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button:hover, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button:hover, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit:hover, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button:hover, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button:hover, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button:hover{
+    background: #b49571!important;
+    background-color: #b49571!important;
+    color: #fff!important;
 }
 #add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment{
     border-radius: 0;
@@ -30,6 +32,9 @@ Description: Theme WP for Glendaleliquor
     display: none;
     justify-content: space-between;
     margin-top: 20px;
+}
+.coupon button{
+    float:right;
 }
 .coupon.is-active{
     display:flex;
@@ -176,7 +181,7 @@ abbr[title]{
     margin-bottom: -20px;
 }
 
-.product-item .price-wrap .price ins .amount bdi{
+.product-item .price-wrap .price ins .amount bdi, .product-slider .swiper-slide .price ins .amount bdi{
     font-size: 16px;
     font-weight: 800;
     line-height: 22px;
@@ -185,7 +190,7 @@ abbr[title]{
     text-decoration: none;
 }
 
-.product-item .price-wrap .price del .amount bdi{
+.product-item .price-wrap .price del .amount bdi, .product-slider .swiper-slide .price del .amount bdi{
     font-size: 12px;
     font-weight: 800;
     line-height: 16px;
@@ -194,13 +199,15 @@ abbr[title]{
     color: #6b6b6b;
 }
 
-.product-item .price-wrap .price{
+.product-item .price-wrap .price, .product-slider .swiper-slide .price{
     display: flex;
     flex-direction: row-reverse;
 }
 
-
-.product-item .price-wrap .price del, .product-item .price-wrap .price ins{
+.product-slider .swiper-slide .price{
+    justify-content: flex-end;
+}
+.product-item .price-wrap .price del, .product-item .price-wrap .price ins, .product-slider .swiper-slide .price del, .product-slider .swiper-slide .price ins{
     text-decoration: none;
 }
 
