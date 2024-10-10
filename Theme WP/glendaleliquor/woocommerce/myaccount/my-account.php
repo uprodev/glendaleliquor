@@ -32,7 +32,6 @@ defined( 'ABSPATH' ) || exit;
                 </div>
                 <div class="cabinet-item cabinet-item-2">
                     <?php wc_get_template( 'myaccount/orders.php' ); ?>
-
                 </div>
                 <div class="cabinet-item cabinet-item-3">
                     <?php wc_get_template( 'myaccount/my-address.php' ); ?>

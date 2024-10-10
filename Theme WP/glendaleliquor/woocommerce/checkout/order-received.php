@@ -19,7 +19,8 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-
+<section class="cabinet">
+    <div class="content-width">
 <p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">
 	<?php
 	/**
@@ -40,3 +41,5 @@ defined( 'ABSPATH' ) || exit;
 	echo $message;
 	?>
 </p>
+    </div>
+</section>

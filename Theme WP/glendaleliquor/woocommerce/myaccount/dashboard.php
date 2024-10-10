@@ -42,38 +42,39 @@ if (!is_array($favorites)) {
             <li><a href="#"><i class="fa-light fa-chevron-left"></i>Dashboard</a></li>
         </ul>
 
-        <section class="products">
-            <div class="title-wrap">
-                <div class="title">
-                    <h1>Your favorites</h1>
-                    <p>You  have recently viewed these products</p>
-                </div>
-                <div class="nav-wrap">
-                    <div class="product-next-1 btn"><i class="fa-regular fa-arrow-right"></i></div>
-                    <div class="product-prev-1 btn"><i class="fa-regular fa-arrow-left"></i></div>
-                </div>
-            </div>
-            <div class="slider-wrap">
-                <div class="swiper product-slider product-slider-1">
-                    <div class="swiper-wrapper">
-
-                        <?php $new = new WP_Query([
-                            'post_type' => 'product',
-                            'posts_per_page' => -1,
-                            'post__in' => $favorites,
-                        ]);
-
-                        while ($new->have_posts()):$new->the_post();
-
-                            wc_get_template_part( 'content', 'product-slide' );
-
-                        endwhile; wp_reset_postdata();?>
-
+        <?php if(!empty($favorites)):?>
+            <section class="products">
+                <div class="title-wrap">
+                    <div class="title">
+                        <h1>Your favorites</h1>
+                        <p>You  have recently viewed these products</p>
+                    </div>
+                    <div class="nav-wrap">
+                        <div class="product-next-1 btn"><i class="fa-regular fa-arrow-right"></i></div>
+                        <div class="product-prev-1 btn"><i class="fa-regular fa-arrow-left"></i></div>
                     </div>
                 </div>
-            </div>
-        </section>
+                <div class="slider-wrap">
+                    <div class="swiper product-slider product-slider-1">
+                        <div class="swiper-wrapper">
 
+                            <?php $new = new WP_Query([
+                                'post_type' => 'product',
+                                'posts_per_page' => -1,
+                                'post__in' => $favorites,
+                            ]);
+
+                            while ($new->have_posts()):$new->the_post();
+
+                                wc_get_template_part( 'content', 'product-slide' );
+
+                            endwhile; wp_reset_postdata();?>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <?php endif;?>
         <section class="products">
             <div class="title-wrap">
                 <div class="title">
