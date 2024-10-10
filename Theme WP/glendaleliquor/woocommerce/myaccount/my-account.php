@@ -27,14 +27,16 @@ defined( 'ABSPATH' ) || exit;
             </div>
 
             <div class="cabinet-content">
-                <?php
-                /**
-                 * My Account content.
-                 *
-                 * @since 2.6.0
-                 */
-                do_action( 'woocommerce_account_content' );
-                ?>
+                <div class="cabinet-item cabinet-item-1">
+                    <?php
+                    /**
+                     * My Account content.
+                     *
+                     * @since 2.6.0
+                     */
+                    do_action( 'woocommerce_account_content' );
+                    ?>
+                </div>
                 <div class="cabinet-item cabinet-item-2">
                     <ul class="breadcrumb">
                         <li><a href="#"><i class="fa-light fa-chevron-left"></i>Orders</a></li>
