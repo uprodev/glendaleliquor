@@ -24,7 +24,43 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 <?php if ( ! $load_address ) : ?>
 	<?php wc_get_template( 'myaccount/my-address.php' ); ?>
 <?php else : ?>
-
+    <div class="account-setting-wrap">
+        <ul class="breadcrumb">
+            <li><a href="#"><i class="fa-light fa-chevron-left"></i>Account Settings</a></li>
+        </ul>
+        <h2>Account Settings</h2>
+        <p>Manage your account settings</p>
+        <form action="#" class="default-form ">
+            <div class="input-wrap">
+                <label for="name">First name *</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div class="input-wrap">
+                <label for="last-name">Last name *</label>
+                <input type="text" name="last-name" id="last-name" required>
+            </div>
+            <div class="input-wrap input-wrap-full">
+                <label for="company">Company name (optional)</label>
+                <input type="text" name="company" id="company">
+            </div>
+            <div class="input-wrap input-wrap-full">
+                <label for="tel">Phone *</label>
+                <input type="text" name="tel" id="tel" required class="tel">
+            </div>
+            <div class="input-wrap input-wrap-full">
+                <label for="email">Email address *</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div class="input-wrap input-wrap-full password-checkbox">
+                <label for="password">Password *</label>
+                <input type="password" name="password" id="password" required>
+                <a href="#"><i class="fa-light fa-eye"></i></a>
+            </div>
+            <div class="input-wrap-submit">
+                <button type="submit" class="btn-default btn-small btn-gold"><span>Update details</span></button>
+            </div>
+        </form>
+    </div>
 	<form method="post">
 
 		<h2><?php echo apply_filters( 'woocommerce_my_account_edit_address_title', $page_title, $load_address ); ?></h2><?php // @codingStandardsIgnoreLine ?>

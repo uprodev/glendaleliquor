@@ -20,7 +20,123 @@
 defined( 'ABSPATH' ) || exit;
 
 do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
+<ul class="breadcrumb">
+    <li><a href="#"><i class="fa-light fa-chevron-left"></i>Orders</a></li>
+</ul>
+<h2>Your Orders</h2>
+<p>View and edit all your pending, delivered orders here.</p>
+<h6>In process</h6>
+<div class="order">
+    <div class="order-row order-row-head">
+        <div class="data data-1">
+            <h6>Order #030405</h6>
+        </div>
+        <div class="data data-2">
+            <p>Placed: Thu. 17th June 2024</p>
+            <a href="#" class="loc btn-default btn-small"><span><i class="fa-regular fa-location-crosshairs"></i>Track order</span></a>
+        </div>
+    </div>
+    <div class="order-row order-row-data">
+        <div class="data data-1">
+            <figure>
+                <a href="#">
+                    <img src="img/img-12.png" alt="">
+                </a>
+            </figure>
+        </div>
+        <div class="data data-2">
+            <div class="item item-1">
+                <h6><a href="#">365 Gevorkian <br>Strawberry Wine 750 ML</a></h6>
+                <p>Gift Wrapping</p>
+                <p><a href="#">Gift bag</a></p>
+            </div>
+            <div class="item item-2">
+                <p>Status</p>
+                <p class="color">In - Transit</p>
+            </div>
+            <div class="item item-3">
+                <h6>Delivery Expected by:</h6>
+                <h5>24 June 2024</h5>
+                <p>Penn Valley</p>
+                <p>California 95946, USA</p>
+            </div>
+        </div>
+    </div>
+    <div class="order-row order-bottom-row-mob">
+        <div class="data data-1">
+            <p>Paid using card ending with 3790</p>
+        </div>
+        <div class="data data-2">
+            <h6>Total: $53.99</h6>
+        </div>
+    </div>
+    <div class="order-row order-bottom-row">
+        <div class="data data-1">
+            <a href="#"><i class="fa-light fa-circle-xmark"></i>Cancel order</a>
+        </div>
+        <div class="data data-2">
+            <p>Paid using card ending with 3790</p>
+            <h6>Total: <span>$15.00</span></h6>
+            <a href="#" class="loc btn-default btn-small mob"><span><i class="fa-regular fa-location-crosshairs"></i>Track order</span></a>
+        </div>
+    </div>
+</div>
 
+<h6>Previous</h6>
+<div class="order order-complete">
+    <div class="order-row order-row-head">
+        <div class="data data-1">
+            <h6>Order #026784</h6>
+        </div>
+        <div class="data data-2">
+            <p>Placed: Thu. 29th May 2024</p>
+
+        </div>
+    </div>
+    <div class="order-row order-row-data">
+        <div class="data data-1">
+            <figure>
+                <a href="#">
+                    <img src="img/img-13.png" alt="">
+                </a>
+            </figure>
+        </div>
+        <div class="data data-2">
+            <div class="item item-1">
+                <h6><a href="#">Hennessy VSOP Privilege Cognac 750 ML</a></h6>
+                <p>Gift Wrapping</p>
+                <p><a href="#">No Wrapping</a></p>
+            </div>
+            <div class="item item-2">
+                <p>Status</p>
+                <p class="color green">Delivered</p>
+            </div>
+            <div class="item item-3">
+                <h6>Delivery Expected by:</h6>
+                <h5>30 May 2024</h5>
+                <p>Penn Valley</p>
+                <p>California 95946, USA</p>
+            </div>
+        </div>
+    </div>
+    <div class="order-row order-bottom-row-mob">
+        <div class="data data-1">
+            <p>Paid using card ending with 3790</p>
+        </div>
+        <div class="data data-2">
+            <h6>Total: $53.99</h6>
+        </div>
+    </div>
+    <div class="order-row order-bottom-row">
+        <div class="data data-1">
+            <a href="#" class="btn-default btn-small btn-gold"><span><i class="fa-light fa-rotate"></i>Order again</span></a>
+        </div>
+        <div class="data data-2">
+            <p>Paid using card ending with 3790</p>
+            <h6>Total: <span>$53.99</span></h6>
+        </div>
+    </div>
+</div>
 <?php if ( $has_orders ) : ?>
 
 	<table class="woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table">
