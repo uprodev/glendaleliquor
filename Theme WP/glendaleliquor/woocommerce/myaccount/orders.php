@@ -51,19 +51,40 @@ function display_orders( $orders, $status_label ) {
         foreach ( $orders as $order ) {
             echo '<div class="order">';
             echo '<div class="order-row order-row-head">
-        <div class="data data-1">
-            <h6>Order #'.$order->get_order_number().'</h6>
-        </div>
-        <div class="data data-2">
-            <p>Placed: '.wc_format_datetime( $order->get_date_created() ).'</p>
-            <a href="#" class="loc btn-default btn-small"><span><i class="fa-regular fa-location-crosshairs"></i>Track order</span></a>
-        </div>
-    </div>';
-            echo '<a href="' . esc_url( $order->get_view_order_url() ) . '">';
-            echo 'Заказ #' . $order->get_order_number();
-            echo '</a> - ';
-            echo wc_format_datetime( $order->get_date_created() );
-            echo ' - Статус: ' . wc_get_order_status_name( $order->get_status() );
+                <div class="data data-1">
+                    <h6>Order #'.$order->get_order_number().'</h6>
+                </div>
+                <div class="data data-2">
+                    <p>Placed: '.wc_format_datetime( $order->get_date_created() ).'</p>
+                    <a href="#" class="loc btn-default btn-small"><span><i class="fa-regular fa-location-crosshairs"></i>Track order</span></a>
+                </div>
+            </div>';
+            echo '<div class="order-row order-row-data">
+                <div class="data data-1">
+                    <figure>
+                        <a href="#">
+                            <img src="img/img-12.png" alt="">
+                        </a>
+                    </figure>
+                </div>
+                <div class="data data-2">
+                    <div class="item item-1">
+                        <h6><a href="#">365 Gevorkian <br>Strawberry Wine 750 ML</a></h6>
+                        <p>'. __('Gift Wrapping', 'glendaleliquor').'</p>
+                        <p><a href="#">'. __('Gift bag', 'glendaleliquor').'</a></p>
+                    </div>
+                    <div class="item item-2">
+                        <p>'. __('Status', 'glendaleliquor').'</p>
+                        <p class="color">'.wc_get_order_status_name( $order->get_status() ).'</p>
+                    </div>
+                    <div class="item item-3">
+                        <h6>'. __('Delivery Expected by:', 'glendaleliquor').'</h6>
+                        <h5>24 June 2024</h5>
+                        <p>Penn Valley</p>
+                        <p>California 95946, USA</p>
+                    </div>
+                </div>
+            </div>';
             echo '</div>';
         }
 
@@ -92,15 +113,7 @@ function display_orders( $orders, $status_label ) {
 
 
 <div class="order">
-    <div class="order-row order-row-head">
-        <div class="data data-1">
-            <h6>Order #030405</h6>
-        </div>
-        <div class="data data-2">
-            <p>Placed: Thu. 17th June 2024</p>
-            <a href="#" class="loc btn-default btn-small"><span><i class="fa-regular fa-location-crosshairs"></i>Track order</span></a>
-        </div>
-    </div>
+
     <div class="order-row order-row-data">
         <div class="data data-1">
             <figure>

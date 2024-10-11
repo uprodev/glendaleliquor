@@ -29,7 +29,7 @@ $rating_count = $product->get_rating_count();
 $review_count = $product->get_review_count();
 $average      = $product->get_average_rating();
 
-if ( $rating_count > 0 ) : ?>
+?>
     <div class="stars-wrap">
         <?php for( $i = 1; $i <= $rating_count; $i++ ):?>
             <i class="fa-solid fa-star"></i>
@@ -39,4 +39,3 @@ if ( $rating_count > 0 ) : ?>
         <?php endfor;?>
     </div>
 
-<?php endif; ?>
