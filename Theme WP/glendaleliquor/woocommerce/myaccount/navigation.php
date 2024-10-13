@@ -33,5 +33,4 @@ $i = 1;
         <?php $i++; endforeach; ?>
     </ul>
 
-
 <?php do_action( 'woocommerce_after_account_navigation' ); ?>

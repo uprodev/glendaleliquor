@@ -94,3 +94,27 @@ function custom_remove_checkout_fields( $fields ) {
 }
 
 add_filter( 'woocommerce_enable_order_notes_field', '__return_false' );
+
+
+/* Account Menu*/
+
+add_filter( 'woocommerce_account_menu_items', 'add_order_count_to_my_account_menu' );
+
+function add_order_count_to_my_account_menu( $items ) {
+
+    $statuses = array('wc-pending', 'wc-on-hold', 'wc-failed');
+    $args = array(
+        'status' => $statuses,
+        'return' => 'ids',
+    );
+
+    $orders = wc_get_orders( $args );
+    $count = count( $orders );
+
+
+    if ( isset( $items['orders'] ) && $count > 0 ) {
+        $items['orders'] = 'Orders(' . $count . ')';
+    }
+
+    return $items;
+}
