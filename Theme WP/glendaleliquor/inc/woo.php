@@ -118,3 +118,16 @@ function add_order_count_to_my_account_menu( $items ) {
 
     return $items;
 }
+
+
+add_action( 'woocommerce_save_account_details', 'save_custom_fields_in_account' );
+
+function save_custom_fields_in_account( $user_id ) {
+    if ( isset( $_POST['account_phone'] ) ) {
+        update_user_meta( $user_id, 'billing_phone', sanitize_text_field( $_POST['account_phone'] ) );
+    }
+
+    if ( isset( $_POST['account_company'] ) ) {
+        update_user_meta( $user_id, 'billing_company', sanitize_text_field( $_POST['account_company'] ) );
+    }
+}
