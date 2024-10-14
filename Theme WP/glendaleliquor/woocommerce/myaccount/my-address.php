@@ -144,4 +144,74 @@ $col    = 1;
 <?php if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) : ?>
 	</div>
 	<?php
-endif;
+endif;?>
+
+<div class="popup-form popup-default" id="address" style="display: none;">
+    <div class="main">
+        <h3>Edit address</h3>
+        <form action="#" class="default-form ">
+            <div class="input-wrap input-wrap-full">
+                <label for="email-popup-1">Email address *</label>
+                <input type="email" name="email-popup-1" id="email-popup-1" required>
+            </div>
+            <div class="input-wrap input-wrap-full">
+                <label for="address-popup-1">Address</label>
+                <input type="text" name="address-popup-1" id="address-popup-1" required>
+            </div>
+            <div class="input-wrap input-wrap-full">
+                <label for="number-popup-1">Apartment number</label>
+                <input type="text" name="number-popup-1" id="number-popup-1" required>
+            </div>
+            <div class="input-wrap input-wrap-full">
+                <label for="city-popup-1">City</label>
+                <input type="text" name="city-popup-1" id="city-popup-1" required>
+            </div>
+            <div class="input-wrap input-wrap-full">
+                <label for="code-popup-1">Post code</label>
+                <input type="text" name="code-popup-1" id="code-popup-1" required>
+            </div>
+            <div class="input-wrap input-wrap-full">
+                <label for="tel-1">Phone *</label>
+                <input type="text" name="tel-1" id="tel-1" required class="tel-1">
+            </div>
+            <div class="input-wrap-submit">
+                <button type="submit" class="btn-default btn-small btn-gold"><span>Save</span></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="popup-form popup-default" id="add" style="display: none;">
+    <div class="main">
+        <h3>Add address</h3>
+        <form action="#" class="default-form ">
+            <div class="input-wrap input-wrap-full">
+                <label for="email-popup-2">Email address *</label>
+                <input type="email" name="email-popup-2" id="email-popup-2" required>
+            </div>
+            <div class="input-wrap input-wrap-full">
+                <label for="address-popup-2">Address</label>
+                <input type="text" name="address-popup-2" id="address-popup-2" required>
+            </div>
+            <div class="input-wrap input-wrap-full">
+                <label for="number-popup-2">Apartment number</label>
+                <input type="text" name="number-popup-2" id="number-popup-2" required>
+            </div>
+            <div class="input-wrap input-wrap-full">
+                <label for="city-popup-2">City</label>
+                <input type="text" name="city-popup-2" id="city-popup-2" required>
+            </div>
+            <div class="input-wrap input-wrap-full">
+                <label for="code-popup-2">Post code</label>
+                <input type="text" name="code-popup-2" id="code-popup-2" required>
+            </div>
+            <div class="input-wrap input-wrap-full">
+                <label for="tel-2">Phone *</label>
+                <input type="text" name="tel-2" id="tel-2" required class="tel-2">
+            </div>
+            <div class="input-wrap-submit">
+                <button type="submit" class="btn-default btn-small btn-gold"><span>Update details</span></button>
+            </div>
+        </form>
+    </div>
+</div>

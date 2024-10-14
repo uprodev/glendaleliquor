@@ -54,8 +54,8 @@ $cats = get_terms([
                 endif;?>
 
             </div>
-            <div class="pagination-wrap">
                 <?php $args = array(
+                    'type'         => 'list',
                     'show_all'     => false,
                     'end_size'     => 1,
                     'mid_size'     => 1,
@@ -70,7 +70,6 @@ $cats = get_terms([
                 the_posts_pagination( $args );
 
                 ?>
-            </div>
         </div>
     </section>
 
