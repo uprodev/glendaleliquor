@@ -155,6 +155,24 @@ jQuery(document).ready(function ($) {
     }
   });
 
+  //slider
+  var swiperProductP = new Swiper(".products .product-slider-2", {
+    slidesPerView: "auto",
+    spaceBetween: 40,
+    navigation: {
+      nextEl: ".products .product-next-2",
+      prevEl: ".products .product-prev-2",
+    },
+    breakpoints: {
+      320: {
+        spaceBetween: 20,
+      },
+      576: {
+        spaceBetween: 40,
+      },
+    }
+  });
+
   //hover
   $(".item-3x .item").hover(function() {
     $(this).find('.hide').slideDown();
