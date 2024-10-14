@@ -17,13 +17,22 @@
 
 defined( 'ABSPATH' ) || exit;
 
-do_action( 'woocommerce_before_edit_account_form' ); ?>
+$id = get_option('woocommerce_myaccount_page_id');
+
+$title = get_field('settings_title', $id);
+$subtitle = get_field('settings_subtitle', $id);
+
+do_action( 'woocommerce_before_edit_account_form' );
+
+?>
+
 <div class="account-setting-wrap">
     <ul class="breadcrumb">
-        <li><a href="#"><i class="fa-light fa-chevron-left"></i>Account Settings</a></li>
+        <li><a href="#"><i class="fa-light fa-chevron-left"></i><?= __('Account Settings', 'glendaleliquor');?></a></li>
     </ul>
-    <h2>Account Settings</h2>
-    <p>Manage your account settings</p>
+    <h2><?= $title?$title:'Account Settings';?></h2>
+    <p><?= $subtitle?$subtitle:'Manage your account settings';?></p>
+
     <form class="woocommerce-EditAccountForm edit-account default-form" action="" method="post" <?php do_action( 'woocommerce_edit_account_form_tag' ); ?> >
 
         <?php do_action( 'woocommerce_edit_account_form_start' ); ?>
@@ -38,11 +47,11 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
         </div>
 
         <div class="input-wrap input-wrap-full">
-            <label for="account_company">Company name (optional)</label>
+            <label for="account_company"><?= __('Company name (optional)', 'glendaleliquor');?></label>
             <input type="text" name="account_company" id="account_company" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), 'billing_company', true ) ); ?>" />
         </div>
         <div class="input-wrap input-wrap-full">
-            <label for="account_phone">Phone *</label>
+            <label for="account_phone"><?= __('Phone *', 'glendaleliquor');?></label>
             <input type="tel" class="tel" name="account_phone" id="account_phone" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), 'billing_phone', true ) ); ?>">
         </div>
         <div class="input-wrap input-wrap-full">

@@ -21,6 +21,11 @@ defined( 'ABSPATH' ) || exit;
 
 $current_user_id = get_current_user_id();
 
+$id = get_option('woocommerce_myaccount_page_id');
+
+$title = get_field('orders_title', $id);
+$subtitle = get_field('orders_subtitle', $id);
+
 $customer_orders = wc_get_orders( array(
     'customer_id' => $current_user_id,
     'limit' => -1,
@@ -94,10 +99,12 @@ function display_orders( $orders, $status_label ) {
 ?>
 
 <ul class="breadcrumb">
-    <li><a href="#"><i class="fa-light fa-chevron-left"></i>Orders</a></li>
+    <li><a href="#"><i class="fa-light fa-chevron-left"></i><?= __('Orders', 'glendaleliquor');?></a></li>
 </ul>
-<h2>Your Orders</h2>
-<p>View and edit all your pending, delivered orders here.</p>
+
+<h2><?= $title?$title:'Your Orders';?></h2>
+<p><?= $subtitle?$subtitle:'View and edit all your pending, delivered orders here.';?></p>
+
 
 <?php
 
@@ -105,11 +112,6 @@ function display_orders( $orders, $status_label ) {
 
     display_orders( $completed_orders, 'Previous' );
 ?>
-
-
-
-
-
 
 
 <div class="order">

@@ -17,6 +17,12 @@
 
 defined( 'ABSPATH' ) || exit;
 
+
+$id = get_option('woocommerce_myaccount_page_id');
+
+$title = get_field('addresses_title', $id);
+$subtitle = get_field('addresses_subtitle', $id);
+
 $customer_id = get_current_user_id();
 
 if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
@@ -42,31 +48,32 @@ $oldcol = 1;
 $col    = 1;
 ?>
     <ul class="breadcrumb">
-        <li><a href="#"><i class="fa-light fa-chevron-left"></i>Addresses</a></li>
+        <li><a href="#"><i class="fa-light fa-chevron-left"></i><?= __('Addresses', 'glendaleliquor');?></a></li>
     </ul>
-    <h2>Addresses</h2>
-    <p>You  have added your addresses</p>
+    <h2><?= $title?$title:'Addresses';?></h2>
+    <p><?= $subtitle?$subtitle:'You  have added your addresses';?></p>
+
     <div class="btn-add-wrap">
-        <a href="#add" class="fancybox"><img src="img/icon-11.svg" alt=""></a>
+        <a href="#add" class="fancybox"><img src="<?= get_template_directory_uri();?>/img/icon-11.svg" alt=""></a>
     </div>
     <div class="address-wrap">
         <div class="address-item">
             <div class="wrap">
                 <p>example@gmail.com</p>
-                <p class="label-p">Address</p>
+                <p class="label-p"><?= __('Address', 'glendaleliquor');?></p>
                 <p>dfsdfsf</p>
-                <p class="label-p">Apartment number</p>
+                <p class="label-p"><?= __('Apartment number', 'glendaleliquor');?></p>
                 <p>45</p>
-                <p class="label-p">City</p>
+                <p class="label-p"><?= __('City', 'glendaleliquor');?></p>
                 <p>dfsdfsf</p>
-                <p class="label-p">Post code</p>
+                <p class="label-p"><?= __('Post code', 'glendaleliquor');?></p>
                 <p>dfsdfsf</p>
-                <p class="label-p">Phone</p>
+                <p class="label-p"><?= __('Phone', 'glendaleliquor');?></p>
                 <p>dfsdfsf</p>
             </div>
             <div class="btn-wrap">
-                <a href="#address" class="edit fancybox"><i class="fa-regular fa-pen-to-square"></i>Edit</a>
-                <a href="#" class="del "><i class="fa-light fa-trash"></i>Delete</a>
+                <a href="#address" class="edit fancybox"><i class="fa-regular fa-pen-to-square"></i><?= __('Edit', 'glendaleliquor');?></a>
+                <a href="#" class="del "><i class="fa-light fa-trash"></i><?= __('Delete', 'glendaleliquor');?></a>
             </div>
         </div>
         <div class="address-item">

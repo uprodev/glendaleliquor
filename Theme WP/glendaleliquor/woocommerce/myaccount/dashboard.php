@@ -36,24 +36,35 @@ if (!is_array($favorites)) {
     $favorites = $favorites ? explode(',', $favorites) : array();
 }
 
-    $customer_orders = wc_get_orders(array(
+$customer_orders = wc_get_orders(
+    array(
         'customer' => $user_id,
         'status' => array('wc-completed'),
         'limit' => -1
-    ));
+    )
+);
+
+$id = get_option('woocommerce_myaccount_page_id');
+
+$title = get_field('favorites_title', $id);
+$subtitle = get_field('favorites_subtitle', $id);
+$title_prev = get_field('previous_purchases_title', $id);
+$subtitle_prev = get_field('previous_purchases_subtitle', $id);
 
 ?>
 
         <ul class="breadcrumb">
-            <li><a href="#"><i class="fa-light fa-chevron-left"></i>Dashboard</a></li>
+            <li><a href="#"><i class="fa-light fa-chevron-left"></i><?= __('Dashboard', 'glendaleliquor');?></a></li>
         </ul>
 
         <?php if(!empty($favorites)):?>
             <section class="products">
                 <div class="title-wrap">
                     <div class="title">
-                        <h1>Your favorites</h1>
-                        <p>You  have recently viewed these products</p>
+
+                        <h1><?= $title?$title:'Your favorites';?></h1>
+                        <p><?= $subtitle?$subtitle:'You  have recently viewed these products';?></p>
+
                     </div>
                     <div class="nav-wrap">
                         <div class="product-next-1 btn"><i class="fa-regular fa-arrow-right"></i></div>
@@ -84,8 +95,8 @@ if (!is_array($favorites)) {
         <section class="products">
             <div class="title-wrap">
                 <div class="title">
-                    <h3>Your previous purchases</h3>
-                    <p>Nice choice! Would you like to enjoy these beverages again?</p>
+                    <h3><?= $title_prev?$title_prev:'Your previous purchases';?></h3>
+                    <p><?= $subtitle_prev?$subtitle_prev:'Nice choice! Would you like to enjoy these beverages again?';?></p>
                 </div>
                 <div class="nav-wrap">
                     <div class="product-next-2 btn"><i class="fa-regular fa-arrow-right"></i></div>
