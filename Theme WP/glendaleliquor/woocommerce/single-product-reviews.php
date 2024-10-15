@@ -50,12 +50,12 @@ if ( ! comments_open() ) {
 						'value'    => $commenter['comment_author'],
 						'required' => $name_email_required,
 					),
-					'email'  => array(
-						'label'    => __( 'Email', 'woocommerce' ),
-						'type'     => 'email',
-						'value'    => $commenter['comment_author_email'],
-						'required' => $name_email_required,
-					),
+//					'email'  => array(
+//						'label'    => __( 'Email', 'woocommerce' ),
+//						'type'     => 'email',
+//						'value'    => $commenter['comment_author_email'],
+//						'required' => $name_email_required,
+//					),
 				);
 
 				$comment_form['fields'] = array();
@@ -80,25 +80,27 @@ if ( ! comments_open() ) {
 					$comment_form['must_log_in'] = '<p class="must-log-in">' . sprintf( esc_html__( 'You must be %1$slogged in%2$s to post a review.', 'woocommerce' ), '<a href="' . esc_url( $account_page_url ) . '">', '</a>' ) . '</p>';
 				}
 
-				if ( wc_review_ratings_enabled() ) {
+                if ( wc_review_ratings_enabled() ) {
 
-					$comment_form['comment_field'] = '<div class="input-wrap input-wrap-full input-wrap-stars">
+                    $comment_form['comment_field'] = '<div class="input-wrap input-wrap-full input-wrap-stars">
                         <div>
-                            <input type="checkbox" id="star-1" name="rating">
+                            <input type="checkbox" id="star-1" name="rating" value="1">
                             <label for="star-1"><img src="'. get_template_directory_uri().'/img/star-full.svg" alt=""></label>
-                            <input type="checkbox" id="star-2" name="rating">
+                            <input type="checkbox" id="star-2" name="rating" value="2">
                             <label for="star-2"><img src="'. get_template_directory_uri().'/img/star.svg" alt=""></label>
-                            <input type="checkbox" id="star-3" name="rating">
+                            <input type="checkbox" id="star-3" name="rating" value="3">
                             <label for="star-3"><img src="'. get_template_directory_uri().'/img/star.svg" alt=""></label>
-                            <input type="checkbox" id="star-4" name="rating">
+                            <input type="checkbox" id="star-4" name="rating" value="4">
                             <label for="star-4"><img src="'. get_template_directory_uri().'/img/star.svg" alt=""></label>
-                            <input type="checkbox" id="star-5" name="rating">
+                            <input type="checkbox" id="star-5" name="rating" value="5">
                             <label for="star-5"><img src="'. get_template_directory_uri().'/img/star.svg" alt=""></label>
                         </div>
                     </div>';
-				}
+                }
 
 				$comment_form['comment_field'] .= '<div class="input-wrap input-wrap-full"><label for="comment">' . esc_html__( 'Your review', 'woocommerce' ) . '</label><textarea id="comment" name="comment"  placeholder="Notes about your order, e.g. special notes for delivery" cols="45" rows="8" required></textarea></div>';
+
+
 
 				comment_form( apply_filters( 'woocommerce_product_review_comment_form_args', $comment_form ) );
 				?>

@@ -154,10 +154,12 @@ add_action('comment_form_logged_in_after', 'custom_review_fields');
 add_action('comment_form_after_fields', 'custom_review_fields');
 
 function custom_review_fields() {
-    echo '<div class="input-wrap">
-        <label for="last_name_comment">Last name *</label>
-        <input type="text" name="last_name_comment" id="last_name_comment" required>
-    </div>';
+    if (!is_user_logged_in()) {
+        echo '<div class="input-wrap">
+            <label for="last_name_comment">Last name *</label>
+            <input type="text" name="last_name_comment" id="last_name_comment" required>
+        </div>';
+    }
     echo '<div class="input-wrap input-wrap-full">
         <label for="title">Title</label>
         <input type="text" name="title_comment" id="title_comment">
@@ -170,7 +172,6 @@ function custom_review_fields() {
         </select>
     </div>';
 }
-
 
 add_action('comment_post', 'save_custom_review_fields');
 function save_custom_review_fields($comment_id) {
@@ -229,3 +230,20 @@ function update_custom_review_fields($comment_id) {
     }
 }
 
+/* Order Fields */
+
+add_filter('comment_form_fields', 'custom_woocommerce_review_fields_order');
+
+function custom_woocommerce_review_fields_order($fields) {
+
+    $new_order = array();
+
+    $new_order['author'] = $fields['author'];
+    $new_order['last_name_comment'] = $fields['last_name_comment'];
+    $new_order['title_comment'] = $fields['title_comment'];
+    $new_order['sex_comment'] = $fields['sex_comment'];
+    $new_order['comment'] = $fields['comment'];
+    $new_order['rating'] = $fields['rating'];
+
+    return $new_order;
+}
