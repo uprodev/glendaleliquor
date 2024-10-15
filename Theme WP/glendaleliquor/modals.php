@@ -14,48 +14,9 @@
 <div class="popup-reviews popup-default" id="add-review" style="display: none;">
     <div class="main">
         <h3>Leave your review</h3>
-        <form action="#" class="default-form ">
-            <div class="input-wrap">
-                <label for="name">First name *</label>
-                <input type="text" name="name" id="name" required>
-            </div>
-            <div class="input-wrap">
-                <label for="last-name">Last name *</label>
-                <input type="text" name="last-name" id="last-name" required>
-            </div>
-            <div class="input-wrap input-wrap-full">
-                <label for="title">Title</label>
-                <input type="text" name="title" id="title">
-            </div>
-            <div class="input-wrap input-wrap-full select-block">
-                <label class="form-label" for="select-1">Sex</label>
-                <select id="select-1">
-                    <option value="0">Female</option>
-                    <option value="1">Male</option>
-                </select>
-            </div>
-            <div class="input-wrap input-wrap-full">
-                <label for="message">Your review</label>
-                <textarea name="message" id="message" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
-            </div>
-            <div class="input-wrap input-wrap-full input-wrap-stars">
-                <div>
-                    <input type="radio" id="star-1" name="star">
-                    <label for="star-1"><img src="<?= get_template_directory_uri();?>/img/star-full.svg" alt=""></label>
-                    <input type="radio" id="star-2" name="star">
-                    <label for="star-2"><img src="<?= get_template_directory_uri();?>/img/star.svg" alt=""></label>
-                    <input type="radio" id="star-3" name="star">
-                    <label for="star-3"><img src="<?= get_template_directory_uri();?>/img/star.svg" alt=""></label>
-                    <input type="radio" id="star-4" name="star">
-                    <label for="star-4"><img src="<?= get_template_directory_uri();?>/img/star.svg" alt=""></label>
-                    <input type="radio" id="star-5" name="star">
-                    <label for="star-5"><img src="<?= get_template_directory_uri();?>/img/star.svg" alt=""></label>
-                </div>
-            </div>
-            <div class="input-wrap-submit">
-                <button type="submit" class="btn-default btn-medium "><span>Send</span></button>
-            </div>
-        </form>
+        <?php if (comments_open()) {
+            comments_template('/woocommerce/single-product-reviews.php');
+        }?>
     </div>
 </div>
 

@@ -131,3 +131,101 @@ function save_custom_fields_in_account( $user_id ) {
         update_user_meta( $user_id, 'billing_company', sanitize_text_field( $_POST['account_company'] ) );
     }
 }
+
+/* Reviews */
+
+add_filter('comment_form_defaults', 'custom_comment_form_class');
+function custom_comment_form_class($args) {
+
+    $args['class_form'] = 'default-form';
+
+    return $args;
+}
+
+add_filter('comment_form_submit_button', 'custom_review_submit_button');
+function custom_review_submit_button($button) {
+    $button = '<div class="input-wrap-submit">
+        <button type="submit" class="btn-default btn-medium" id="submit-review" name="submit"><span>Send</span></button>
+            </div>';
+    return $button;
+}
+
+add_action('comment_form_logged_in_after', 'custom_review_fields');
+add_action('comment_form_after_fields', 'custom_review_fields');
+
+function custom_review_fields() {
+    echo '<div class="input-wrap">
+        <label for="last_name_comment">Last name *</label>
+        <input type="text" name="last_name_comment" id="last_name_comment" required>
+    </div>';
+    echo '<div class="input-wrap input-wrap-full">
+        <label for="title">Title</label>
+        <input type="text" name="title_comment" id="title_comment">
+    </div>';
+    echo '<div class="input-wrap input-wrap-full select-block">
+        <label class="form-label" for="sex_comment">Sex</label>
+        <select id="sex_comment" name="sex_comment">
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+        </select>
+    </div>';
+}
+
+
+add_action('comment_post', 'save_custom_review_fields');
+function save_custom_review_fields($comment_id) {
+    if (isset($_POST['sex_comment']) && $_POST['sex_comment'] !== '') {
+        add_comment_meta($comment_id, 'sex_comment', sanitize_text_field($_POST['sex_comment']), true);
+    }
+    if (isset($_POST['last_name_comment']) && $_POST['last_name_comment'] !== '') {
+        add_comment_meta($comment_id, 'last_name_comment', sanitize_text_field($_POST['last_name_comment']), true);
+    }
+    if (isset($_POST['title_comment']) && $_POST['title_comment'] !== '') {
+        add_comment_meta($comment_id, 'title_comment', sanitize_text_field($_POST['title_comment']), true);
+    }
+}
+
+add_action('add_meta_boxes_comment', 'add_custom_review_fields_meta_box');
+function add_custom_review_fields_meta_box() {
+    add_meta_box(
+        'title_custom_review_fields',
+        'Additional Info',
+        'display_custom_review_fields_meta_box',
+        'comment',
+        'normal',
+        'high'
+    );
+}
+
+function display_custom_review_fields_meta_box($comment) {
+    $title = get_comment_meta($comment->comment_ID, 'title_comment', true);
+    $sex = get_comment_meta($comment->comment_ID, 'sex_comment', true);
+    $last_name = get_comment_meta($comment->comment_ID, 'last_name_comment', true);
+
+    echo '<p><strong>Title Comment:</strong> ' . esc_html($title) . '</p>';
+    echo '<p><strong>Sex:</strong> ' . esc_html($sex) . '</p>';
+    echo '<p><strong>Last Name:</strong> ' . esc_html($last_name) . '</p>';
+}
+
+add_action('edit_comment', 'update_custom_review_fields');
+function update_custom_review_fields($comment_id) {
+
+    if (isset($_POST['title_comment']) && $_POST['title_comment'] !== '') {
+        update_comment_meta($comment_id, 'title_comment', sanitize_text_field($_POST['title_comment']));
+    } else {
+        delete_comment_meta($comment_id, 'title_comment');
+    }
+
+    if (isset($_POST['sex_comment']) && $_POST['sex_comment'] !== '') {
+        update_comment_meta($comment_id, 'sex_comment', sanitize_text_field($_POST['sex_comment']));
+    } else {
+        delete_comment_meta($comment_id, 'sex_comment');
+    }
+
+    if (isset($_POST['last_name_comment']) && $_POST['last_name_comment'] !== '') {
+        update_comment_meta($comment_id, 'last_name_comment', sanitize_text_field($_POST['last_name_comment']));
+    } else {
+        delete_comment_meta($comment_id, 'last_name_comment');
+    }
+}
+
