@@ -247,3 +247,27 @@ function custom_woocommerce_review_fields_order($fields) {
 
     return $new_order;
 }
+
+add_action( 'woocommerce_created_customer', 'auto_login_after_registration' );
+
+function auto_login_after_registration( $customer_id ) {
+
+    $user = get_user_by( 'ID', $customer_id );
+    $user_email = $user->user_email;
+    $user_password = $_POST['password'];
+
+    wp_clear_auth_cookie();
+    wp_set_current_user( $customer_id );
+    wp_set_auth_cookie( $customer_id );
+
+    wp_safe_redirect( wc_get_account_endpoint_url( 'dashboard' ) );
+    exit;
+}
+
+
+add_filter( 'woocommerce_login_redirect', 'custom_login_redirect', 10, 2 );
+
+function custom_login_redirect( $redirect, $user ) {
+
+    return wc_get_account_endpoint_url( 'dashboard' );
+}

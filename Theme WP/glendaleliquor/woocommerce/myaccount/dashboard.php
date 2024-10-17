@@ -92,60 +92,63 @@ $subtitle_prev = get_field('previous_purchases_subtitle', $id);
                 </div>
             </section>
         <?php endif;?>
-        <section class="products">
-            <div class="title-wrap">
-                <div class="title">
-                    <h3><?= $title_prev?$title_prev:'Your previous purchases';?></h3>
-                    <p><?= $subtitle_prev?$subtitle_prev:'Nice choice! Would you like to enjoy these beverages again?';?></p>
-                </div>
-                <div class="nav-wrap">
-                    <div class="product-next-2 btn"><i class="fa-regular fa-arrow-right"></i></div>
-                    <div class="product-prev-2 btn"><i class="fa-regular fa-arrow-left"></i></div>
-                </div>
-            </div>
-            <div class="slider-wrap">
-                <div class="swiper product-slider product-slider-2">
-                    <div class="swiper-wrapper">
 
-                        <?php foreach ($customer_orders as $order) {
-                            $items = $order->get_items();
-                            $ids = $order->get_ID();
-                            foreach ($items as $item) {
-                                $product = $item->get_product();
-
-                                if ($product) {
-                                    $id = $product->get_ID();
-                                    $sku = $product->get_sku();
-                                    $price = $product->get_price_html();
-                                    $rating_count = $product->get_rating_count();
-                                    ?>
-                                    <div class="swiper-slide">
-                                        <figure>
-                                            <a href="<?= get_permalink($id);?>">
-                                                <img src="<?= get_the_post_thumbnail_url($id);?>" alt="">
-                                            </a>
-                                        </figure>
-                                        <div class="text">
-                                            <p class="info">Sku: <?= $sku;?></p>
-                                            <h6><a href="<?= get_permalink($id);?>"><?= $product->get_name();?></a></h6>
-                                            <div class="stars-wrap">
-                                                <?php for( $i = 1; $i <= $rating_count; $i++ ):?>
-                                                    <i class="fa-solid fa-star"></i>
-                                                <?php endfor;?>
-                                                <?php for( $i = 1; $i <= (5 - $rating_count); $i++ ):?>
-                                                    <i class="fa-light fa-star"></i>
-                                                <?php endfor;?>
-                                            </div>
-                                            <p class="price"><?= $price;?></p>
-                                            <div class="btn-wrap">
-                                                <a href="<?php echo get_permalink( wc_get_page_id( 'shop' ) ) . '?order_id=' . $ids; ?>" class="btn-default btn-small"><span><?= __('Order again', 'glendaleliquor');?></span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php }
-                            }
-                        }?>
+        <?php if(!empty($customer_orders)):?>
+            <section class="products">
+                <div class="title-wrap">
+                    <div class="title">
+                        <h3><?= $title_prev?$title_prev:'Your previous purchases';?></h3>
+                        <p><?= $subtitle_prev?$subtitle_prev:'Nice choice! Would you like to enjoy these beverages again?';?></p>
+                    </div>
+                    <div class="nav-wrap">
+                        <div class="product-next-2 btn"><i class="fa-regular fa-arrow-right"></i></div>
+                        <div class="product-prev-2 btn"><i class="fa-regular fa-arrow-left"></i></div>
                     </div>
                 </div>
-            </div>
-        </section>
+                <div class="slider-wrap">
+                    <div class="swiper product-slider product-slider-2">
+                        <div class="swiper-wrapper">
+
+                            <?php foreach ($customer_orders as $order) {
+                                $items = $order->get_items();
+                                $ids = $order->get_ID();
+                                foreach ($items as $item) {
+                                    $product = $item->get_product();
+
+                                    if ($product) {
+                                        $id = $product->get_ID();
+                                        $sku = $product->get_sku();
+                                        $price = $product->get_price_html();
+                                        $rating_count = $product->get_rating_count();
+                                        ?>
+                                        <div class="swiper-slide">
+                                            <figure>
+                                                <a href="<?= get_permalink($id);?>">
+                                                    <img src="<?= get_the_post_thumbnail_url($id);?>" alt="">
+                                                </a>
+                                            </figure>
+                                            <div class="text">
+                                                <p class="info">Sku: <?= $sku;?></p>
+                                                <h6><a href="<?= get_permalink($id);?>"><?= $product->get_name();?></a></h6>
+                                                <div class="stars-wrap">
+                                                    <?php for( $i = 1; $i <= $rating_count; $i++ ):?>
+                                                        <i class="fa-solid fa-star"></i>
+                                                    <?php endfor;?>
+                                                    <?php for( $i = 1; $i <= (5 - $rating_count); $i++ ):?>
+                                                        <i class="fa-light fa-star"></i>
+                                                    <?php endfor;?>
+                                                </div>
+                                                <p class="price"><?= $price;?></p>
+                                                <div class="btn-wrap">
+                                                    <a href="<?php echo get_permalink( wc_get_page_id( 'shop' ) ) . '?order_id=' . $ids; ?>" class="btn-default btn-small"><span><?= __('Order again', 'glendaleliquor');?></span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php }
+                                }
+                            }?>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <?php endif;
