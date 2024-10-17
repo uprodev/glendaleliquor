@@ -248,6 +248,9 @@ function custom_woocommerce_review_fields_order($fields) {
     return $new_order;
 }
 
+
+/* Rigestered and Login */
+
 add_action( 'woocommerce_created_customer', 'auto_login_after_registration' );
 
 function auto_login_after_registration( $customer_id ) {
@@ -270,4 +273,45 @@ add_filter( 'woocommerce_login_redirect', 'custom_login_redirect', 10, 2 );
 function custom_login_redirect( $redirect, $user ) {
 
     return wc_get_account_endpoint_url( 'dashboard' );
+}
+
+
+add_action( 'init', 'save_custom_address_fields' );
+
+function save_custom_address_fields() {
+    if ( isset( $_POST['save_custom_address'] ) ) {
+
+        if ( ! wp_verify_nonce( $_POST['_wpnonce'], 'woocommerce-edit_address' ) ) {
+            return;
+        }
+
+        $current_user = wp_get_current_user();
+
+
+        if ( isset( $_POST['billing_email'] ) ) {
+            update_user_meta( $current_user->ID, 'billing_email', sanitize_email( $_POST['billing_email'] ) );
+        }
+
+        if ( isset( $_POST['billing_phone'] ) ) {
+            update_user_meta( $current_user->ID, 'billing_phone', sanitize_text_field( $_POST['billing_phone'] ) );
+        }
+
+        if ( isset( $_POST['billing_address_1'] ) ) {
+            update_user_meta( $current_user->ID, 'billing_address_1', sanitize_text_field( $_POST['billing_address_1'] ) );
+        }
+
+        if ( isset( $_POST['billing_address_2'] ) ) {
+            update_user_meta( $current_user->ID, 'billing_address_2', sanitize_text_field( $_POST['billing_address_2'] ) );
+        }
+
+        if ( isset( $_POST['billing_city'] ) ) {
+            update_user_meta( $current_user->ID, 'billing_city', sanitize_text_field( $_POST['billing_city'] ) );
+        }
+
+        if ( isset( $_POST['billing_postcode'] ) ) {
+            update_user_meta( $current_user->ID, 'billing_postcode', sanitize_text_field( $_POST['billing_postcode'] ) );
+        }
+
+        exit;
+    }
 }
