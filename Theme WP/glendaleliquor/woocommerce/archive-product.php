@@ -57,14 +57,13 @@ if(is_shop()){
 
                     <div class="form-wrap">
                         <div class="wrap">
-                            <form action="#" class="form-select">
+                            <div class="form-select">
                                 <?php foreach ($child as $item):?>
                                     <div class="input-wrap">
-                                        <input type="checkbox" name="select" id="select-1" checked>
-                                        <label for="select-1"><?= $item->name;?></label>
+                                        <a href="<?= get_permalink($item->term_id);?>" class="item_prod_cat"><?= $item->name;?></a>
                                     </div>
                                 <?php endforeach;?>
-                            </form>
+                            </div>
                         </div>
                     </div>
 

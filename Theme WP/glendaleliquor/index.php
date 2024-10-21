@@ -29,16 +29,15 @@ $cats = get_terms([
                     <p><?= $excp;?></p>
                 <?php endif;?>
                 <?php if($cats):?>
-                    <form action="#" class="form-blog">
+                    <div class="form-blog">
                         <div class="wrap">
                             <?php foreach($cats as $cat):?>
                                 <div class="input-wrap">
-                                    <input type="checkbox" name="select" id="select-<?= $cat->term_id;?>" <?= $cat->term_id==$idt?'checked':'';?>>
-                                    <label for="select-<?= $cat->term_id;?>"><?= $cat->name;?></label>
+                                    <a href="<?= get_permalink($cat->term_id);?>" class="blog-cat-link"><?= $cat->name;?></a>
                                 </div>
                             <?php endforeach;?>
                         </div>
-                    </form>
+                    </div>
                 <?php endif;?>
             </div>
             <div class="content">

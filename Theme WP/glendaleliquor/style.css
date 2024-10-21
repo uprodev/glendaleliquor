@@ -211,6 +211,73 @@ abbr[title]{
     text-decoration: none;
 }
 
+.pagination-wrap ul li span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #b49571;
+    color: #fff;
+}
+
+.form-blog .input-wrap a {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #b49571;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 400;
+    height: 60px;
+    color: #000;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease; }
+
+.form-blog .input-wrap .active{
+    background: #fff7ed;
+    color: #b49571;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+}
+
+.form-blog .input-wrap a:hover {
+    background: #fff7ed;
+    color: #b49571; }
+
+.form-select .input-wrap  a {
+    display: block;
+    width: 100%;
+    position: relative;
+    border: 1px solid #e4c59e;
+    background: #f4e2ca;
+    text-align: center;
+    height: 44px;
+    line-height: 42px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease; }
+
+.form-select .input-wrap  a:hover{
+    background: #d94b4e;
+    color: #fff;
+}
+
+.form-select .input-wrap .active{
+    background: #d94b4e;
+    color: #fff;
+}
+
 @media (max-width: 991px){
     .category .item-1 {
         width: 100%;
@@ -221,4 +288,26 @@ abbr[title]{
 
 }
 
+@media (max-width: 767px){
+    .form-select .input-wrap a {
+        font-size: 14px; }
+}
 
+@media (max-width: 575px){
+    .form-blog .input-wrap a {
+        font-size: 16px;
+        height: 44px;
+        padding: 0 15px;
+        white-space: nowrap; }
+
+    .form-select .input-wrap a {
+        white-space: nowrap;
+        padding: 0 15px;
+        min-width: -webkit-fit-content;
+        min-width: -moz-fit-content;
+        min-width: fit-content; }
+
+    .form-select .input-wrap a {
+        font-size: 16px;
+        padding: 0 33px; }
+}

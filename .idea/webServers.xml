@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="14a7caae-b338-4c81-9c30-f1a3729de39c" name="Glendaleliquor" url="https://glendaleliquor.wpenginepowered.com">
-        <fileTransfer accessType="SFTP" host="glendaleliquor.sftp.wpengine.com" port="2222" sshConfigId="bc30ab15-065c-4ead-b05c-5eda192b8db4" sshConfig="glendaleliquor-dev@glendaleliquor.sftp.wpengine.com:2222 password">
+      <webServer id="cc0e2c5b-d9b9-4351-94af-f790f6c63b15" name="Glendaleliquor" url="http://glendaleliquor.wpenginepowered.com">
+        <fileTransfer accessType="SFTP" host="glendaleliquor.sftp.wpengine.com" port="2222" sshConfigId="b6535298-b4ec-491e-aed5-43948b73939b" sshConfig="glendaleliquor-dev@glendaleliquor.sftp.wpengine.com:2222 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

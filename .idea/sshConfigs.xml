@@ -2,7 +2,7 @@
 <project version="4">
   <component name="SshConfigs">
     <configs>
-      <sshConfig authType="PASSWORD" host="glendaleliquor.sftp.wpengine.com" id="bc30ab15-065c-4ead-b05c-5eda192b8db4" port="2222" nameFormat="DESCRIPTIVE" username="glendaleliquor-dev" />
+      <sshConfig authType="PASSWORD" host="glendaleliquor.sftp.wpengine.com" id="b6535298-b4ec-491e-aed5-43948b73939b" port="2222" nameFormat="DESCRIPTIVE" username="glendaleliquor-dev" useOpenSSHConfig="true" />
     </configs>
   </component>
 </project>
