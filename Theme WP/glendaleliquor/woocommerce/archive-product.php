@@ -60,7 +60,7 @@ if(is_shop()){
                             <div class="form-select">
                                 <?php foreach ($child as $item):?>
                                     <div class="input-wrap">
-                                        <a href="<?= get_permalink($item->term_id);?>" class="item_prod_cat"><?= $item->name;?></a>
+                                        <a href="<?= get_term_link($item->term_id);?>" class="item_prod_cat<?= $item->term_id==$ids?' active':'';?>"><?= $item->name;?></a>
                                     </div>
                                 <?php endforeach;?>
                             </div>

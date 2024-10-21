@@ -33,7 +33,7 @@ $cats = get_terms([
                         <div class="wrap">
                             <?php foreach($cats as $cat):?>
                                 <div class="input-wrap">
-                                    <a href="<?= get_permalink($cat->term_id);?>" class="blog-cat-link"><?= $cat->name;?></a>
+                                    <a href="<?= get_term_link($cat->term_id);?>" class="blog-cat-link<?= $cat->term_id==$idt?' active':'';?>"><?= $cat->name;?></a>
                                 </div>
                             <?php endforeach;?>
                         </div>
