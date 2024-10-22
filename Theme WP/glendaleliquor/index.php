@@ -66,9 +66,7 @@ $cats = get_terms([
                     'class'        => 'pagination',
                 );
 
-                the_posts_pagination( $args );
-
-                ?>
+                the_posts_pagination( $args );?>
         </div>
     </section>
 

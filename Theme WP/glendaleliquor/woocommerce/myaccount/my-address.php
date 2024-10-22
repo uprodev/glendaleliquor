@@ -38,11 +38,11 @@ $billing_phone = get_user_meta( $customer_id, 'billing_phone', true );
         <li><a href="#"><i class="fa-light fa-chevron-left"></i><?= __('Addresses', 'glendaleliquor');?></a></li>
     </ul>
     <h2><?= $title?$title:'Addresses';?></h2>
-    <p><?= $subtitle?$subtitle:'You  have added your addresses';?></p>
+    <p><?= $subtitle?$subtitle:'You  have edited your addresses';?></p>
 
-    <div class="btn-add-wrap">
-        <a href="#add" class="fancybox"><img src="<?= get_template_directory_uri();?>/img/icon-11.svg" alt=""></a>
-    </div>
+<!--    <div class="btn-add-wrap">-->
+<!--        <a href="#add" class="fancybox"><img src="--><?php //= get_template_directory_uri();?><!--/img/icon-11.svg" alt=""></a>-->
+<!--    </div>-->
     <div class="address-wrap">
         <div class="address-item">
             <div class="wrap">
@@ -60,26 +60,7 @@ $billing_phone = get_user_meta( $customer_id, 'billing_phone', true );
             </div>
             <div class="btn-wrap">
                 <a href="#address" class="edit fancybox"><i class="fa-regular fa-pen-to-square"></i><?= __('Edit', 'glendaleliquor');?></a>
-                <a href="#" class="del "><i class="fa-light fa-trash"></i><?= __('Delete', 'glendaleliquor');?></a>
-            </div>
-        </div>
-        <div class="address-item">
-            <div class="wrap">
-                <p>example@gmail.com</p>
-                <p class="label-p">Address</p>
-                <p>dfsdfsf</p>
-                <p class="label-p">Apartment number</p>
-                <p>45</p>
-                <p class="label-p">City</p>
-                <p>dfsdfsf</p>
-                <p class="label-p">Post code</p>
-                <p>dfsdfsf</p>
-                <p class="label-p">Phone</p>
-                <p>dfsdfsf</p>
-            </div>
-            <div class="btn-wrap">
-                <a href="#address" class="edit fancybox"><i class="fa-regular fa-pen-to-square"></i>Edit</a>
-                <a href="#" class="del"><i class="fa-light fa-trash"></i>Delete</a>
+<!--                <a href="#" class="del "><i class="fa-light fa-trash"></i>--><?php //= __('Delete', 'glendaleliquor');?><!--</a>-->
             </div>
         </div>
     </div>
@@ -122,37 +103,4 @@ $billing_phone = get_user_meta( $customer_id, 'billing_phone', true );
     </div>
 </div>
 
-<div class="popup-form popup-default" id="add" style="display: none;">
-    <div class="main">
-        <h3>Add address</h3>
-        <form action="#" class="default-form ">
-            <div class="input-wrap input-wrap-full">
-                <label for="email-popup-2">Email address *</label>
-                <input type="email" name="email-popup-2" id="email-popup-2" required>
-            </div>
-            <div class="input-wrap input-wrap-full">
-                <label for="address-popup-2">Address</label>
-                <input type="text" name="address-popup-2" id="address-popup-2" required>
-            </div>
-            <div class="input-wrap input-wrap-full">
-                <label for="number-popup-2">Apartment number</label>
-                <input type="text" name="number-popup-2" id="number-popup-2" required>
-            </div>
-            <div class="input-wrap input-wrap-full">
-                <label for="city-popup-2">City</label>
-                <input type="text" name="city-popup-2" id="city-popup-2" required>
-            </div>
-            <div class="input-wrap input-wrap-full">
-                <label for="code-popup-2">Post code</label>
-                <input type="text" name="code-popup-2" id="code-popup-2" required>
-            </div>
-            <div class="input-wrap input-wrap-full">
-                <label for="tel-2">Phone *</label>
-                <input type="text" name="tel-2" id="tel-2" required class="tel-2">
-            </div>
-            <div class="input-wrap-submit">
-                <button type="submit" class="btn-default btn-small btn-gold"><span>Update details</span></button>
-            </div>
-        </form>
-    </div>
-</div>
+
