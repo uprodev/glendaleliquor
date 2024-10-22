@@ -220,6 +220,22 @@ jQuery(document).ready(function ($) {
     }, 100);
 
   });
+	
+	
+	  /* open order*/
+  $(document).on('click', '.cabinet .order-row-head .data-1', function (e){
+    e.preventDefault();
+	let item = $(this).closest('.order');
+	  
+	  item.toggleClass('is-open');
+	  if(item.hasClass('is-open')){
+		  item.find('.wrap-order').slideDown();
+	  }else{
+		  item.find('.wrap-order').slideUp();
+	  }
+  
+
+  });
 
   /*close mob menu*/
   $(document).on('click', '.close-menu a', function (e){
