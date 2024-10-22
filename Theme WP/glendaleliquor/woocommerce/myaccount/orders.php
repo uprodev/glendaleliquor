@@ -72,6 +72,7 @@ function display_orders( $orders, $status_label ) {
                 </div>
                 <div class="data data-2">
                     <p>Placed: ' . esc_html( $formatted_date ) . '</p>';
+            echo '<p class="color">' . wc_get_order_status_name($order_item->get_status()) . '</p>';
                     if($status_label !== 'Previous'){
                             echo '<a href="#" class="loc btn-default btn-small"><span><i class="fa-regular 
                             fa-location-crosshairs"></i>Track order</span></a>';
@@ -101,10 +102,6 @@ function display_orders( $orders, $status_label ) {
                             <h6><a href="'. $link .'">' . $product_name . '</a></h6>
                             <p>' . __('Gift Wrapping', 'glendaleliquor') . '</p>
                             <p><a href="#">' . __('Gift bag', 'glendaleliquor') . '</a></p>
-                        </div>
-                        <div class="item item-2">
-                            <p>' . __('Status', 'glendaleliquor') . '</p>
-                            <p class="color">' . wc_get_order_status_name($order_item->get_status()) . '</p>
                         </div>
                         <div class="item item-3">
                             <h6>' . __('Price', 'glendaleliquor') . '</h6>
