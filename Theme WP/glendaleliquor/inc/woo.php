@@ -332,8 +332,19 @@ function handle_order_cancel() {
             wc_add_notice( 'Unable to cancel the order.', 'error' );
         }
 
-        wp_redirect( wc_get_account_endpoint_url( 'orders' ) );
         exit;
     }
 }
 
+/* Order repeat */
+
+add_filter( 'woocommerce_valid_order_statuses_for_order_again', 'custom_valid_statuses_for_order_again' );
+
+function custom_valid_statuses_for_order_again( $statuses ) {
+
+    $statuses[] = 'cancelled';
+    $statuses[] = 'refunded';
+    $statuses[] = 'failed';
+
+    return $statuses;
+}

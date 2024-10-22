@@ -122,7 +122,7 @@ function display_orders( $orders, $status_label ) {
             <div class="order-row order-bottom-row">
                 <div class="data data-1">';
                     if($status_label === 'Previous'){
-                        echo '<a href="#" class="btn-default btn-small btn-gold"><span><i class="fa-light fa-rotate"></i>Order again</span></a>';
+                        echo woocommerce_order_again_button( $order );
                     }else{
                         echo '<a href="' . esc_url( wp_nonce_url( add_query_arg( 'cancel_order', $order_id ), 'woocommerce_cancel_order' ) ) . '"><i class="fa-light fa-circle-xmark"></i>Cancel order</a>';
                     }
@@ -130,9 +130,11 @@ function display_orders( $orders, $status_label ) {
                 echo '</div>
                 <div class="data data-2">
                     <p></p>
-                    <h6>Total: <span>$' . $order_total . '</span></h6>
-                    <a href="#" class="loc btn-default btn-small mob"><span><i class="fa-regular fa-location-crosshairs"></i>Track order</span></a>
-                </div>
+                    <h6>Total: <span>$' . $order_total . '</span></h6>';
+                    if($status_label !== 'Previous') {
+                        echo '<a href="#" class="loc btn-default btn-small mob"><span><i class="fa-regular fa-location-crosshairs"></i>Track order</span></a>';
+                    }
+                echo '</div>
                 </div>
                 </div>';
             echo '</div>';
