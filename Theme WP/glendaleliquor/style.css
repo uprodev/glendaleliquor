@@ -2,6 +2,66 @@
 Theme Name: glendaleliquor
 Description: Theme WP for Glendaleliquor
 */
+
+.cabinet .wrap-order{
+	display: none;
+}
+.cabinet .order-row-head{
+	margin: 0 0 -1px;
+}
+.cabinet .order-row-head .data-1{
+	cursor: pointer;
+	position: relative;
+}
+.cabinet .order-row-data .data-2 .item-3 p + h6{
+	margin-top: 30px;
+}
+.cabinet .order-row-data .data-2 .item-3 p{
+	color: #000;
+}
+
+.cabinet .order-row-head .data-2 .color{
+	line-height: 40px;
+	padding: 0 15px;
+	color:#fff;
+	background: #b49571;
+}
+.cabinet .order-row-data .data-2 .item-3 p .amount{
+	margin-bottom: 30px;
+	font-size: 16px;
+    font-weight: 800;
+    line-height: 22px;
+    color: #3ba52a;
+    margin-right: 12px;
+    text-decoration: none;
+}
+.cabinet .order-row-head .data-1:before{
+	border-bottom: 2px solid #000;
+    border-right: 2px solid #000;
+    content: '';
+    display: block;
+    height: 7px;
+    margin-top: -5px;
+    pointer-events: none;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    -webkit-transform-origin: 66% 66%;
+    -ms-transform-origin: 66% 66%;
+    transform-origin: 66% 66%;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+    width: 7px;
+}
+.cabinet .order.is-open .order-row-head .data-1:before{
+	 -webkit-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+   
 .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button{
     border-radius:0;
     display: inline-block;
@@ -278,6 +338,21 @@ abbr[title]{
     color: #fff;
 }
 
+@media (max-width: 1199px){
+	.cabinet .order-row-head .data-1{
+		width: 100%;
+		justify-content: flex-start;
+		padding-left: 40px;
+		margin-bottom: 5px;
+	}
+	.cabinet .order-row-head .data-2{
+		width: 100%;
+		padding-left: 10px;
+		
+    border-top: 1px solid #e4c59e;
+	}
+}
+
 @media (max-width: 991px){
     .category .item-1 {
         width: 100%;
@@ -285,7 +360,19 @@ abbr[title]{
     .woocommerce-ordering{
         width: calc(50% - 20px);
     }
-
+	.cabinet .order-row-data .data-2 .item-3{
+		width: 100%;
+		text-align: center;
+		
+	}
+	.cabinet .order-row-data .data-2 .item-1{
+		
+		
+	}
+	.cabinet .order-row-data{
+		border-bottom: 1px solid #e4c59e;
+		margin-bottom: -1px;
+	}
 }
 
 @media (max-width: 767px){
@@ -310,4 +397,8 @@ abbr[title]{
     .form-select .input-wrap a {
         font-size: 16px;
         padding: 0 33px; }
+	
+	    .cabinet .cabinet-menu-wrap h4 {
+        font-size: 28px;
+			line-height: 1.3;}
 }
