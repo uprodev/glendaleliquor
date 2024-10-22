@@ -315,3 +315,25 @@ function save_custom_address_fields() {
         exit;
     }
 }
+
+/*  Order Canceled */
+
+add_action( 'init', 'handle_order_cancel' );
+function handle_order_cancel() {
+    if ( isset( $_GET['cancel_order'] ) && isset( $_GET['_wpnonce'] ) && wp_verify_nonce( $_GET['_wpnonce'], 'woocommerce_cancel_order' ) ) {
+        $order_id = intval( $_GET['cancel_order'] );
+        $order = wc_get_order( $order_id );
+
+        if ( $order && $order->has_status( array( 'processing', 'on-hold' ) ) ) {
+            // Cancel the order
+            $order->update_status( 'cancelled', 'Order was cancelled by the customer.' );
+            wc_add_notice( 'Your order has been successfully cancelled.', 'success' );
+        } else {
+            wc_add_notice( 'Unable to cancel the order.', 'error' );
+        }
+
+        wp_redirect( wc_get_account_endpoint_url( 'orders' ) );
+        exit;
+    }
+}
+
