@@ -72,13 +72,14 @@ function display_orders( $orders, $status_label ) {
                 </div>
                 <div class="data data-2">
                     <p>Placed: ' . esc_html( $formatted_date ) . '</p>';
-            echo '<p class="color">' . wc_get_order_status_name($order_item->get_status()) . '</p>';
+                    echo '<p class="color">' . wc_get_order_status_name($order_item->get_status()) . '</p>';
                     if($status_label !== 'Previous'){
-                            echo '<a href="#" class="loc btn-default btn-small"><span><i class="fa-regular 
+                         echo '<a href="#" class="loc btn-default btn-small"><span><i class="fa-regular 
                             fa-location-crosshairs"></i>Track order</span></a>';
                     }
             echo '</div>
-            </div>';
+            </div>
+            <div class="wrap-order">';
             $items = $order->get_items();
             foreach ( $items as $item_id => $item ) {
                 $product_name = $item->get_name();
@@ -120,17 +121,18 @@ function display_orders( $orders, $status_label ) {
             </div>
             <div class="order-row order-bottom-row">
                 <div class="data data-1">';
-            if($status_label === 'Previous'){
-                echo '<a href="#" class="btn-default btn-small btn-gold"><span><i class="fa-light fa-rotate"></i>Order again</span></a>';
-            }else{
-                echo '<a href="#"><i class="fa-light fa-circle-xmark"></i>Cancel order</a>';
-            }
+                    if($status_label === 'Previous'){
+                        echo '<a href="#" class="btn-default btn-small btn-gold"><span><i class="fa-light fa-rotate"></i>Order again</span></a>';
+                    }else{
+                        echo '<a href="#"><i class="fa-light fa-circle-xmark"></i>Cancel order</a>';
+                    }
 
                 echo '</div>
                 <div class="data data-2">
                     <p></p>
                     <h6>Total: <span>$' . $order_total . '</span></h6>
                     <a href="#" class="loc btn-default btn-small mob"><span><i class="fa-regular fa-location-crosshairs"></i>Track order</span></a>
+                </div>
                 </div>
                 </div>';
             echo '</div>';
