@@ -65,6 +65,16 @@ function display_orders( $orders, $status_label ) {
             $order_total = $order_item->get_total();
             $order_date = $order_item->get_date_created();
             $formatted_date = $order_date->date_i18n( 'D. jS F Y' );
+            $tracking_number = get_post_meta( $order_id, 'tracking_number', true );
+            $meta_data = $order_item->get_meta_data();
+
+            if ( function_exists( 'ast_get_tracking_items' ) ) {
+
+                $tracking_items = ast_get_tracking_items($order_id);
+                $first_tracking = $tracking_items[0];
+                $tracking_url = isset( $first_tracking['formatted_tracking_link'] ) ? esc_url( $first_tracking['formatted_tracking_link'] ) : '';
+
+            }
             echo '<div class="order' . $st . '">';
             echo '<div class="order-row order-row-head">
                 <div class="data data-1">
@@ -74,8 +84,7 @@ function display_orders( $orders, $status_label ) {
                     <p>Placed: ' . esc_html( $formatted_date ) . '</p>';
                     echo '<p class="color">' . wc_get_order_status_name($order_item->get_status()) . '</p>';
                     if($status_label !== 'Previous'){
-                         echo '<a href="#" class="loc btn-default btn-small"><span><i class="fa-regular 
-                            fa-location-crosshairs"></i>Track order</span></a>';
+                        echo '<a href="'. $tracking_url.'" target="_blank" class="loc btn-default btn-small"><span><i class="fa-regular fa-location-crosshairs"></i>Track order</span></a>';
                     }
             echo '</div>
             </div>
