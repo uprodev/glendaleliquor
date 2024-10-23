@@ -276,6 +276,8 @@ function custom_login_redirect( $redirect, $user ) {
 }
 
 
+/* Edit Billing Address */
+
 add_action( 'init', 'save_custom_address_fields' );
 
 function save_custom_address_fields() {
@@ -312,9 +314,100 @@ function save_custom_address_fields() {
             update_user_meta( $current_user->ID, 'billing_postcode', sanitize_text_field( $_POST['billing_postcode'] ) );
         }
 
+        wp_redirect( wc_get_account_endpoint_url( 'my-account' ) );
         exit;
     }
 }
+
+
+/* Shipping address edit */
+
+add_action( 'wp', 'save_custom_shipping_address_fields' );
+
+
+/* Add New Shipping Field */
+
+add_action( 'woocommerce_admin_order_data_after_shipping_address', 'custom_admin_shipping_email_field' );
+
+function custom_admin_shipping_email_field( $order ) {
+
+    $shipping_email = get_post_meta( $order->get_id(), '_shipping_email', true );
+    ?>
+    <p class="form-field form-field-wide">
+        <label for="shipping_email"><?php _e( 'Shipping Email', 'woocommerce' ); ?>:</label>
+        <input type="email" name="shipping_email" id="shipping_email" value="<?php echo esc_attr( $shipping_email ); ?>" />
+    </p>
+    <?php
+}
+
+
+add_action( 'woocommerce_process_shop_order_meta', 'save_custom_shipping_email_field' );
+
+function save_custom_shipping_email_field( $order_id ) {
+    if ( isset( $_POST['shipping_email'] ) ) {
+        update_post_meta( $order_id, '_shipping_email', sanitize_email( $_POST['shipping_email'] ) );
+    }
+}
+
+
+add_filter( 'woocommerce_customer_meta_fields', 'custom_add_shipping_email_to_profile' );
+
+function custom_add_shipping_email_to_profile( $fields ) {
+
+    $fields['shipping']['fields']['shipping_email'] = array(
+        'label'       => __( 'Email', 'woocommerce' ),
+        'type'        => 'email',
+    );
+
+    return $fields;
+}
+
+
+add_action( 'personal_options_update', 'save_custom_shipping_email_field_in_profile' );
+add_action( 'edit_user_profile_update', 'save_custom_shipping_email_field_in_profile' );
+
+function save_custom_shipping_email_field_in_profile( $user_id ) {
+    if ( ! current_user_can( 'edit_user', $user_id ) ) {
+        return false;
+    }
+
+    if ( isset( $_POST['shipping_email'] ) ) {
+        update_user_meta( $user_id, 'shipping_email', sanitize_email( $_POST['shipping_email'] ) );
+    }
+}
+
+
+
+function save_custom_shipping_address_fields() {
+    if ( isset( $_POST['save_shipping_address'] ) ) {
+        $user_id = get_current_user_id();
+
+        if ( isset( $_POST['shipping_email'] ) ) {
+            update_user_meta( $user_id, 'shipping_email', sanitize_text_field( $_POST['shipping_email'] ) );
+        }
+        if ( isset( $_POST['shipping_phone'] ) ) {
+            update_user_meta( $user_id, 'shipping_phone', sanitize_text_field( $_POST['shipping_phone'] ) );
+        }
+        if ( isset( $_POST['shipping_address_1'] ) ) {
+            update_user_meta( $user_id, 'shipping_address_1', sanitize_text_field( $_POST['shipping_address_1'] ) );
+        }
+
+        if ( isset( $_POST['shipping_address_2'] ) ) {
+            update_user_meta( $user_id, 'shipping_address_2', sanitize_text_field( $_POST['shipping_address_2'] ) );
+        }
+
+        if ( isset( $_POST['shipping_city'] ) ) {
+            update_user_meta( $user_id, 'shipping_city', sanitize_text_field( $_POST['shipping_city'] ) );
+        }
+        if ( isset( $_POST['shipping_postcode'] ) ) {
+            update_user_meta( $user_id, 'shipping_postcode', sanitize_text_field( $_POST['shipping_postcode'] ) );
+        }
+
+        wp_redirect( wc_get_account_endpoint_url( 'my-account' ) );
+        exit;
+    }
+}
+
 
 /*  Order Canceled */
 

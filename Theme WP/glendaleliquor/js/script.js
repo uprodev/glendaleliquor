@@ -371,7 +371,33 @@ jQuery(document).ready(function ($) {
 
     });
   }
+  if($('.tel-shipp').length > 0){
+    let input = document.querySelector(".tel-shipp");
+    window.intlTelInput(input, {
+      //allowDropdown: true,
+      //autoHideDialCode: true,
+      // autoPlaceholder: "off",
+      // dropdownContainer: document.body,
+      // excludeCountries: ["ru"],
+      // formatOnDisplay: false,
+      /*    geoIpLookup: function(callback) {
+            $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+              var countryCode = (resp && resp.country) ? resp.country : "";
+              callback(countryCode);
+            });
+          },*/
+      // hiddenInput: "full_number",
+      //initialCountry: "auto",
+      localizedCountries: { 'ua': 'Ukraine' },
+      // nationalMode: false,
+      // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+      // placeholderNumberType: "MOBILE",
+      preferredCountries: ['us'],
+      InitialCountry: "",
+      separateDialCode: true,
 
+    });
+  }
   //show/hide password
   $(document).on('click', '.password-checkbox a', function(e){
     let item = $(this).closest('.input-wrap');
