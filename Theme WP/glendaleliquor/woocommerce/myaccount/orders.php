@@ -83,7 +83,7 @@ function display_orders( $orders, $status_label ) {
                 <div class="data data-2">
                     <p>Placed: ' . esc_html( $formatted_date ) . '</p>';
                     echo '<p class="color">' . wc_get_order_status_name($order_item->get_status()) . '</p>';
-                    if($status_label !== 'Previous'){
+                    if($status_label !== 'Previous' && $tracking_url){
                         echo '<a href="'. $tracking_url.'" target="_blank" class="loc btn-default btn-small"><span><i class="fa-regular fa-location-crosshairs"></i>Track order</span></a>';
                     }
             echo '</div>
