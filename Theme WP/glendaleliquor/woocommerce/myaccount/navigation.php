@@ -25,9 +25,9 @@ $i = 1;
 
     <ul class="cabinet-menu">
         <?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
-            <li class="<?php echo wc_get_account_menu_item_classes( $endpoint ); ?> <?= $i==1?'is-active':'';?>">
+            <li class="<?php echo wc_get_account_menu_item_classes( $endpoint ); ?> tab-<?= $i;?> <?= $i==1?'is-active':'';?>">
                 <a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>" <?php echo
-                wc_is_current_account_menu_item( $endpoint ) ? 'aria-current="page"' : ''; ?> class="tab-<?= $i;?>">
+                wc_is_current_account_menu_item( $endpoint ) ? 'aria-current="page"' : ''; ?>>
                     <img src="<?= get_template_directory_uri();?>/img/icon-10-<?= $i;?>.svg" alt=""><?php echo esc_html( $label ); ?>
                 </a>
             </li>
