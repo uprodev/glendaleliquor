@@ -3511,4 +3511,7 @@ input[type=password]::-ms-clear {
 footer .menu li a{
 	color: #000!important;
 }
+.product-item .info{
+	min-height: 16px;
+}
 /*# sourceMappingURL=styles.css.map */
