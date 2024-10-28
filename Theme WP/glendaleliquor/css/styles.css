@@ -3502,5 +3502,13 @@ input[type=password]::-ms-clear {
 	cursor: pointer;
 }
 /*-----------------------END-ARTICLE-PAGE------------------------------*/
-
+.default-form .password-checkbox a{
+	padding: 0 5px;
+}
+.woocommerce-ResetPassword p{
+	margin-bottom: 20px
+}
+footer .menu li a{
+	color: #000!important;
+}
 /*# sourceMappingURL=styles.css.map */
