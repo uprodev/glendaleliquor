@@ -419,6 +419,7 @@ jQuery(document).ready(function ($) {
     }
   });
 
+	$('.cabinet-menu li:last-child').addClass('logout');
   //tabs cabinet
   $(document).on('click', '.cabinet-menu li', function (e){
     let item = $(this).closest('li');
