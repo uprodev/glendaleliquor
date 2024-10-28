@@ -27,16 +27,16 @@ defined( 'ABSPATH' ) || exit;
             </div>
 
             <div class="cabinet-content">
-                <div class="cabinet-item cabinet-item-1">
+                <div class="cabinet-item cabinet-item-1" id="tab-1">
                     <?php do_action( 'woocommerce_account_content' );?>
                 </div>
-                <div class="cabinet-item cabinet-item-2">
+                <div class="cabinet-item cabinet-item-2" id="tab-2">
                     <?php wc_get_template( 'myaccount/orders.php' ); ?>
                 </div>
-                <div class="cabinet-item cabinet-item-3">
+                <div class="cabinet-item cabinet-item-3" id="tab-3">
                     <?php wc_get_template( 'myaccount/my-address.php' ); ?>
                 </div>
-                <div class="cabinet-item cabinet-item-4">
+                <div class="cabinet-item cabinet-item-4" id="tab-4">
                     <?php wc_get_template( 'myaccount/form-edit-account.php' ); ?>
                 </div>
 

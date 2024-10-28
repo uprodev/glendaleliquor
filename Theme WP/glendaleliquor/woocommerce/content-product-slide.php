@@ -34,7 +34,7 @@ $sku = $product->get_sku();
         </a>
     </figure>
     <div class="text">
-        <?= $sku?'<p class="info">'.__('Sku:', 'glendaleliquor').' '.$sku.'</p>':'';?>
+        <p class="info"><?= $sku?__('Sku:', 'glendaleliquor').' '.$sku:'';?></p>
 
         <h6><a href="<?php the_permalink();?>"><?php the_title();?></a></h6>
 
