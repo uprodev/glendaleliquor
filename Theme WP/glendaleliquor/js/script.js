@@ -5,6 +5,15 @@ jQuery(document).ready(function ($) {
     topSpacing:0
   });*/
 
+	var hash = $(location).attr('hash');
+  if(hash =="#tab-2"){
+    $('.cabinet .cabinet-menu li').removeClass('is-active');
+    $('.cabinet .cabinet-menu li:nth-child(2)').addClass('is-active');
+    $('.cabinet .cabinet-item').hide();
+    $('.cabinet .cabinet-item:nth-child(2)').show();
+
+  }
+
   $('.products').each(function(index) {
     $(this).addClass('products-' + (index + 1));
   });
