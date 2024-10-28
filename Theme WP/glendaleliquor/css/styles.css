@@ -3497,6 +3497,10 @@ input[type=password]::-ms-clear {
 	right: 10px;
 	background:#fff;
 }
+
+.btn-default{
+	cursor: pointer;
+}
 /*-----------------------END-ARTICLE-PAGE------------------------------*/
 
 /*# sourceMappingURL=styles.css.map */
