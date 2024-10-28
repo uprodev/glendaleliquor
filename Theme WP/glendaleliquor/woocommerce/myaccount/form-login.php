@@ -27,26 +27,31 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
             <div class="left">
                 <h1><?= get_field('login_title', 'options')?get_field('login_title', 'options'):__( 'Login', 'woocommerce' );?></h1>
                 <?= get_field('login_text', 'options')?'<p>' . get_field('login_text', 'options') . '</p>':'';?>
-                <form class="woocommerce-form woocommerce-form-login login default-form" method="post">
+                <form class="default-form woocommerce-form woocommerce-form-login login" method="post">
 
                     <?php do_action( 'woocommerce_login_form_start' ); ?>
 
-                    <div class="input-wrap input-wrap-full">
-                        <label for="username"><?= __('Email address *', 'glendaleliquor');?></label>
-                        <input type="text" class="woocommerce-Input woocommerce-Input--text" name="username" id="username" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" required aria-required="true" />
-                    </div>
-                    <div class="input-wrap input-wrap-full password-checkbox">
-                        <label for="password"><?= __('Password *', 'glendaleliquor');?></label>
+                    <p class="input-wrap input-wrap-full">
+                        <label for="username"><?php esc_html_e( 'Email address', 'woocommerce' ); ?>&nbsp;<span
+                                    class="required" aria-hidden="true">*</span></label>
+                        <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" required aria-required="true" /><?php // @codingStandardsIgnoreLine ?>
+                    </p>
+                    <p class="input-wrap input-wrap-full password-checkbox">
+                        <label for="password"><?php esc_html_e( 'Password', 'woocommerce' ); ?>&nbsp;<span class="required" aria-hidden="true">*</span><span class="screen-reader-text"><?php esc_html_e( 'Required', 'woocommerce' ); ?></span></label>
                         <input class="woocommerce-Input woocommerce-Input--text" type="password" name="password" id="password" autocomplete="current-password" required aria-required="true" />
                         <a href="#"><i class="fa-light fa-eye"></i></a>
-                    </div>
+                    </p>
 
                     <?php do_action( 'woocommerce_login_form' ); ?>
 
-                    <div class="input-wrap-submit">
-                        <button type="submit" class="btn-medium btn-default woocommerce-form-login__submit" name="login" value="<?php esc_attr_e( 'Log in', 'woocommerce' ); ?>"><span><?php esc_html_e( 'Login', 'woocommerce' ); ?></span></button>
+                    <p class="input-wrap-submit">
+
+                        <?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
+                        <button type="submit" class="btn-medium btn-default woocommerce-button button
+                        woocommerce-form-login__submit" name="login" value="<?php esc_attr_e( 'Log in', 'woocommerce'
+                        ); ?>"><span><?php esc_html_e( 'Login', 'woocommerce' ); ?></span></button>
                         <a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php esc_html_e( 'Forgot your password?', 'glendaleliquor' ); ?></a>
-                    </div>
+                    </p>
 
                     <?php do_action( 'woocommerce_login_form_end' ); ?>
 
