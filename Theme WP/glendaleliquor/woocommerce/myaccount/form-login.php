@@ -58,7 +58,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
                     <a href="#" class="btn-default btn-medium create-register"><span><?php esc_html_e( 'Create account', 'woocommerce' ); ?></span></a>
                 </div>
             </div>
-            <div class="right right-register">
+            <div class="right right-register" style="display:none;">
                 <h2><?= get_field('registration_title', 'options')?get_field('registration_title', 'options'):__( 'Register', 'woocommerce' );?></h2>
 
                 <form method="post" class="default-form woocommerce-form-register register" <?php do_action( 'woocommerce_register_form_tag' ); ?> >

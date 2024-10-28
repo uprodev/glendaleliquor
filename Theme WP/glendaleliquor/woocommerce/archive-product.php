@@ -75,22 +75,10 @@ if(is_shop()){
                 <?php woocommerce_catalog_ordering();?>
                 <div class="item item-2">
                     <label for="range-slider"><img src="<?= get_template_directory_uri();?>/img/icon-7.svg" alt=""><?= __('Price', 'glendaleliquor');?></label>
-<!--                    <input type="text" class="range-slider" id="range-slider"  value="" />-->
                     <?= do_shortcode('[br_filter_single filter_id=187]');?>
 
                 </div>
                 <div class="item item-3 select-block">
-                    <label class="form-label" for="filter-2"></label>
-                    <select id="filter-2">
-                        <option value="0" disabled selected>Sort by brand</option>
-                        <option value="1">Featured items</option>
-                        <option value="2">Best selling</option>
-                        <option value="3">A to Z</option>
-                        <option value="4">Z to A</option>
-                        <option value="5">By review</option>
-                        <option value="6">Price: Ascending</option>
-                        <option value="7">Price: Descending</option>
-                    </select>
                 </div>
             </div>
             <?php if ( woocommerce_product_loop() ) {?>
