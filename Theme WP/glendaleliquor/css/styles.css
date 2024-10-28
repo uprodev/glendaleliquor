@@ -3491,6 +3491,12 @@ input[type=password]::-ms-clear {
 .current-menu-item a {
   color: #ffd4a3 !important; }
 
+.default-form .password-checkbox a{
+	top: 32px;
+	transform: none;
+	right: 10px;
+	background:#fff;
+}
 /*-----------------------END-ARTICLE-PAGE------------------------------*/
 
 /*# sourceMappingURL=styles.css.map */
