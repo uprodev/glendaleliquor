@@ -329,26 +329,9 @@ jQuery(document).ready(function ($) {
   if($('#billing_phone').length > 0){
     let input = document.querySelector("#billing_phone");
     window.intlTelInput(input, {
-      //allowDropdown: true,
-      //autoHideDialCode: true,
-      // autoPlaceholder: "off",
-      // dropdownContainer: document.body,
-      // excludeCountries: ["ru"],
-      // formatOnDisplay: false,
-      /*    geoIpLookup: function(callback) {
-            $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-              var countryCode = (resp && resp.country) ? resp.country : "";
-              callback(countryCode);
-            });
-          },*/
-      // hiddenInput: "full_number",
-      //initialCountry: "auto",
-      localizedCountries: { 'ua': 'Ukraine' },
-      // nationalMode: false,
-      // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
-      // placeholderNumberType: "MOBILE",
-      preferredCountries: ['us'],
-      InitialCountry: "",
+      initialCountry: "us",
+      strictMode: true,
+      utilsScript: "/intl-tel-input/js/utils.js?1727952657388",
       separateDialCode: true,
 
     });
@@ -356,26 +339,19 @@ jQuery(document).ready(function ($) {
   if($('.tel').length > 0){
     let input = document.querySelector(".tel");
     window.intlTelInput(input, {
-      //allowDropdown: true,
-      //autoHideDialCode: true,
-      // autoPlaceholder: "off",
-      // dropdownContainer: document.body,
-      // excludeCountries: ["ru"],
-      // formatOnDisplay: false,
-      /*    geoIpLookup: function(callback) {
-            $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-              var countryCode = (resp && resp.country) ? resp.country : "";
-              callback(countryCode);
-            });
-          },*/
-      // hiddenInput: "full_number",
-      //initialCountry: "auto",
-      localizedCountries: { 'ua': 'Ukraine' },
-      // nationalMode: false,
-      // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
-      // placeholderNumberType: "MOBILE",
-      preferredCountries: ['us'],
-      InitialCountry: "",
+       initialCountry: "us",
+      strictMode: true,
+      utilsScript: "/intl-tel-input/js/utils.js?1727952657388",
+      separateDialCode: true,
+
+    });
+  }
+  if($('#account_phone').length > 0){
+    let input = document.querySelector("#account_phone");
+    window.intlTelInput(input, {
+      initialCountry: "us",
+      strictMode: true,
+      utilsScript: "/intl-tel-input/js/utils.js?1727952657388",
       separateDialCode: true,
 
     });
@@ -383,26 +359,9 @@ jQuery(document).ready(function ($) {
   if($('.tel-shipp').length > 0){
     let input = document.querySelector(".tel-shipp");
     window.intlTelInput(input, {
-      //allowDropdown: true,
-      //autoHideDialCode: true,
-      // autoPlaceholder: "off",
-      // dropdownContainer: document.body,
-      // excludeCountries: ["ru"],
-      // formatOnDisplay: false,
-      /*    geoIpLookup: function(callback) {
-            $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-              var countryCode = (resp && resp.country) ? resp.country : "";
-              callback(countryCode);
-            });
-          },*/
-      // hiddenInput: "full_number",
-      //initialCountry: "auto",
-      localizedCountries: { 'ua': 'Ukraine' },
-      // nationalMode: false,
-      // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
-      // placeholderNumberType: "MOBILE",
-      preferredCountries: ['us'],
-      InitialCountry: "",
+      initialCountry: "us",
+      strictMode: true,
+      utilsScript: "/intl-tel-input/js/utils.js?1727952657388",
       separateDialCode: true,
 
     });
