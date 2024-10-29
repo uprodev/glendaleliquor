@@ -98,26 +98,27 @@ add_filter( 'woocommerce_enable_order_notes_field', '__return_false' );
 
 /* Accounts */
 
-add_filter( 'woocommerce_account_menu_items', 'add_order_count_to_my_account_menu' );
+add_filter( 'woocommerce_account_menu_items', 'add_uncompleted_order_count_to_my_account_menu' );
 
-function add_order_count_to_my_account_menu( $items ) {
+function add_uncompleted_order_count_to_my_account_menu( $items ) {
+    $user_id = get_current_user_id();
 
-    $statuses = array('wc-pending', 'wc-on-hold', 'wc-failed');
-    $args = array(
-        'status' => $statuses,
-        'return' => 'ids',
-    );
+    $uncompleted_orders = wc_get_orders( array(
+        'customer_id' => $user_id,
+        'status'      => array( 'on-hold', 'pending', 'processing' ),
+        'return'      => 'ids',
+    ) );
 
-    $orders = wc_get_orders( $args );
-    $count = count( $orders );
+    $order_count = count( $uncompleted_orders );
 
-
-    if ( isset( $items['orders'] ) && $count > 0 ) {
-        $items['orders'] = 'Orders(' . $count . ')';
+    if ( isset( $items['orders'] ) ) {
+        $items['orders'] .= " ($order_count)";
     }
 
     return $items;
 }
+
+
 
 
 add_action( 'woocommerce_save_account_details', 'save_custom_fields_in_account' );
@@ -440,4 +441,14 @@ function custom_valid_statuses_for_order_again( $statuses ) {
     $statuses[] = 'failed';
 
     return $statuses;
+}
+
+
+add_filter( 'woocommerce_save_account_details_required_fields', 'custom_wc_remove_display_name_requirement' );
+
+function custom_wc_remove_display_name_requirement( $required_fields ) {
+    if ( isset( $required_fields['account_display_name'] ) ) {
+        unset( $required_fields['account_display_name'] );
+    }
+    return $required_fields;
 }
