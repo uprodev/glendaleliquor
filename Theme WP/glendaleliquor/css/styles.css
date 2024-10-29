@@ -3514,4 +3514,53 @@ footer .menu li a{
 .product-item .info{
 	min-height: 16px;
 }
+/******/
+.top-menu .sub-menu li a{
+	color: black!important;
+}
+.top-menu .sub-menu li a:hover {
+    color: #b49571!important;
+}
+header {
+    z-index: 9999;
+}
+.product-slider .swiper-slide .info{
+	min-height: 16px;
+}
+
+.join .wpcf7-not-valid-tip{
+	color: #ffb900;
+}
+
+.top-menu .current-menu-item>a {
+    color: transparent;
+}
+.top-menu > .current-menu-item > a img {
+    -webkit-filter: brightness(0) saturate(100%) invert(71%) sepia(9%) saturate(1267%) hue-rotate(352deg) brightness(86%) contrast(85%);
+    filter: brightness(0) saturate(100%) invert(71%) sepia(9%) saturate(1267%) hue-rotate(352deg) brightness(86%) contrast(85%);
+}
+.top-menu > .current-menu-item > a span span {
+    opacity: 1;
+}
+.btn-default{
+	padding-top:0!important;
+	padding-bottom: 0!important;
+}
+.cky-consent-bar .cky-banner-btn-close img {
+    height: 20px;
+	width: 20px;
+	transition: all .4s ease;
+}
+.cky-consent-bar .cky-banner-btn-close {
+    position: absolute;
+    right: 15px;
+	top: 15px;}
+.cky-consent-bar .cky-banner-btn-close:hover img{
+	transform: rotate(360deg);
+}
+.cky-notice-btn-wrapper {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    grid-gap: 15px;
+}
 /*# sourceMappingURL=styles.css.map */
