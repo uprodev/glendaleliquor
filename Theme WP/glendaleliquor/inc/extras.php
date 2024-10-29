@@ -59,3 +59,53 @@ function custom_paged(){
     }
 }
 
+
+add_filter( 'wpcf7_posted_data', 'save_posted_data' );
+
+function save_posted_data( $posted_data ) {
+    $form_id = $_POST['_wpcf7'];
+    $submission = WPCF7_Submission::get_instance();
+    if ($form_id == 376){
+
+        if (get_page_by_title($posted_data['title-review'], OBJECT, 'client')){
+
+            $ids = get_page_by_title($posted_data['title-review'], OBJECT, 'client');
+
+            $my_post = [
+                'ID' => $ids->ID,
+                'post_content' => $posted_data['textarea-815'],
+            ];
+
+            wp_update_post( wp_slash( $my_post ) );
+
+            $name = $posted_data['first-name'] . ' ' . $posted_data['last-name'];
+
+            update_field('name', $name, $ids->ID);
+            update_field('sex', $posted_data['sex'], $ids->ID);
+            update_field('rating', $posted_data['rating'], $ids->ID);
+
+        }else{
+
+            $args = array(
+                'post_type' => 'testimonials',
+                'post_status' => 'draft',
+                'post_title'=> $posted_data['title-review'] ,
+                'post_content'=> $posted_data['textarea-815'] ,
+            );
+
+            $post_id = wp_insert_post($args);
+
+            $name = $posted_data['first-name'] . ' ' . $posted_data['last-name'];
+
+            update_field('name', $name, $post_id);
+
+            update_field('rating', $posted_data['rating'], $post_id);
+
+            update_field('sex', $posted_data['sex'], $post_id);
+
+        }
+    }
+
+    return $posted_data;
+}
+

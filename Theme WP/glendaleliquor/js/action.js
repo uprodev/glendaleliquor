@@ -156,4 +156,18 @@ jQuery(document).ready(function ($) {
 
     });
 
+
+    /* reviews */
+
+    $(document).on('change', 'input[name="star"]', function(){
+        let val = $(this).val();
+
+        $('#rating').val(val);
+    });
+
+    /* scroll */
+
+    $(document).on('click', '.archive a.page-numbers', function (){
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    })
 });

@@ -54,7 +54,7 @@ $discount = get_discount_percentage( $product );
         </a>
     </figure>
     <div class="text">
-        <p class="info"><?= get_permalink(get_option( 'woocommerce_myaccount_page_id' ));?><?= $sku?__('Sku:', 'glendaleliquor').' '.$sku:'';?></p>
+        <p class="info"><?= $sku?__('Sku:', 'glendaleliquor').' '.$sku:'';?></p>
 
         <h6><a href="<?php the_permalink();?>"><?php the_title();?></a></h6>
 

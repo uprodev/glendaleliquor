@@ -14,9 +14,7 @@
 <div class="popup-reviews popup-default" id="add-review" style="display: none;">
     <div class="main">
         <h3>Leave your review</h3>
-        <?php if (comments_open()) {
-            comments_template('/woocommerce/single-product-reviews.php');
-        }?>
+        <?= do_shortcode('[contact-form-7 id="1fd24ba"]');?>
     </div>
 </div>
 

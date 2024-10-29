@@ -112,12 +112,10 @@ $comments = get_comments($args);
 
         <div class="tabs tabs-css">
             <ul class="tabs-menu">
-                <?php if($short_description):?>
+                <?php if($description):?>
                     <li class="is-active"><?= __('Overview', 'glendaleliquor');?></li>
                 <?php endif;?>
-                <?php if(count($comments) > 0):?>
-                    <li<?= !$short_description?' class="is-active"':'';?>><?= __('Reviews', 'glendaleliquor');?></li>
-                <?php endif;?>
+                <li><?= __('Reviews', 'glendaleliquor');?></li>
             </ul>
 
             <div class="tab-content">
@@ -127,8 +125,9 @@ $comments = get_comments($args);
                     </div>
                 <?php endif;?>
 
-                <?php if(count($comments) > 0):?>
-                    <div class="tab-item">
+
+                <div class="tab-item">
+                    <?php if(count($comments) > 0):?>
                         <div class="slider-wrap">
                             <div class="swiper testimonials-slider ">
                                 <div class="swiper-wrapper">
@@ -165,11 +164,12 @@ $comments = get_comments($args);
                                 </div>
                             </div>
                         </div>
-                        <div class="btn-wrap-all">
-                            <a href="#add-review" class="btn-default btn-medium fancybox"><span><?= __('Leave a review', 'glendaleliquor');?></span></a>
-                        </div>
+                    <?php endif;?>
+                    <div class="btn-wrap-all">
+                        <a href="#add-review" class="btn-default btn-medium fancybox"><span><?= __('Leave a review', 'glendaleliquor');?></span></a>
                     </div>
-                <?php endif;?>
+                </div>
+
 
             </div>
         </div>
