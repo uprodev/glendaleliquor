@@ -39,11 +39,15 @@ do_action( 'woocommerce_before_edit_account_form' );
 
         <div class="input-wrap">
             <label for="account_first_name"><?php esc_html_e( 'First name *', 'woocommerce' ); ?></label>
-            <input type="text" name="account_first_name" id="account_first_name" autocomplete="given-name" value="<?php echo esc_attr( $user->first_name ); ?>" />
+            <input type="text" name="account_first_name" id="account_first_name" autocomplete="given-name"
+                   value="<?php echo esc_attr( get_user_meta( get_current_user_id(), 'billing_first_name', true ) );
+            ?>" />
         </div>
         <div class="input-wrap">
             <label for="account_last_name"><?php esc_html_e( 'Last name *', 'woocommerce' ); ?></label>
-            <input type="text" name="account_last_name" id="account_last_name" autocomplete="family-name" value="<?php echo esc_attr( $user->last_name ); ?>" />
+            <input type="text" name="account_last_name" id="account_last_name" autocomplete="family-name"
+                   value="<?php echo esc_attr( get_user_meta( get_current_user_id(), 'billing_last_name', true ) );
+                   ?>" />
         </div>
 
         <div class="input-wrap input-wrap-full">
@@ -52,11 +56,12 @@ do_action( 'woocommerce_before_edit_account_form' );
         </div>
         <div class="input-wrap input-wrap-full">
             <label for="account_phone"><?= __('Phone *', 'glendaleliquor');?></label>
-            <input type="tel" class="tel" name="account_phone" id="account_phone" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), 'billing_phone', true ) ); ?>">
+            <input type="tel" class="tel-account" name="account_phone" id="account_phone" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), 'billing_phone', true ) ); ?>">
         </div>
         <div class="input-wrap input-wrap-full">
             <label for="account_email"><?php esc_html_e( 'Email *', 'woocommerce' ); ?></label>
-            <input type="email" name="account_email" id="account_email" autocomplete="email" value="<?php echo esc_attr( $user->user_email ); ?>" />
+            <input type="email" name="account_email" id="account_email" autocomplete="email" value="<?php echo
+            esc_attr( get_user_meta( get_current_user_id(), 'billing_email', true ) ); ?>" />
         </div>
         <div class="input-wrap input-wrap-full password-checkbox">
             <label for="password_current"><?php esc_html_e( 'Current password (leave blank to leave unchanged)', 'woocommerce' ); ?></label>

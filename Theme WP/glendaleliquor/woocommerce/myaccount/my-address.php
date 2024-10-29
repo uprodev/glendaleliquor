@@ -157,7 +157,8 @@ $shipping_phone = get_user_meta( $customer_id, 'shipping_phone', true );
             </div>
             <div class="input-wrap input-wrap-full">
                 <label for="shipping_phone">Phone *</label>
-                <input type="text" name="shipping_phone" id="shipping_phone" value="<?= $shipping_phone;?>" required class="tel-1 tel">
+                <input type="text" name="shipping_phone" id="shipping_phone" value="<?= $shipping_phone;?>" required
+                       class="tel-1 tel-shipp">
             </div>
             <div class="input-wrap-submit">
                 <button type="submit" class="btn-default btn-small btn-gold" name="save_shipping_address" value="<?php esc_attr_e( 'Save', 'woocommerce' ); ?>"><span><?php esc_html_e( 'Save', 'woocommerce' ); ?></span></button>

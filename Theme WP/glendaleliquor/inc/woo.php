@@ -404,7 +404,8 @@ function save_custom_shipping_address_fields() {
             update_user_meta( $user_id, 'shipping_postcode', sanitize_text_field( $_POST['shipping_postcode'] ) );
         }
 
-        wp_redirect( wc_get_account_endpoint_url( 'my-account' ) );
+        $redirect_url = home_url( '/' );
+        wp_safe_redirect( $redirect_url );
         exit;
     }
 }
