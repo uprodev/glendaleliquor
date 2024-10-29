@@ -331,6 +331,15 @@ jQuery(document).ready(function ($) {
       loadUtilsOnInit: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/utils.js",
       separateDialCode: true,
     });
+
+    const countryCode = $("#country_code").val();
+    if (countryCode) {
+      iti.setCountry(countryCode);
+    }
+    input.addEventListener("countrychange", function() {
+      const selectedCountryData = iti.getSelectedCountryData();
+      $("#country_code").val(selectedCountryData.iso2);
+    });
   }
   if($('.tel').length > 0){
     let input = document.querySelector(".tel");

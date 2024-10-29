@@ -41,6 +41,7 @@ defined( 'ABSPATH' ) || exit;
 			woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
 		}
 		?>
+        <input type="hidden" name="country_code" id="country_code" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), 'country_code', true ) ); ?>" />
         <p class="input-wrap input-wrap-full notes" id="order_comments_field" data-priority=""><label for="order_comments" class="">Order notes&nbsp;<span class="optional">(optional)</span></label><span class="woocommerce-input-wrapper"><textarea name="order_comments" class="input-text " id="order_comments" placeholder="Notes about your order, e.g. special notes for delivery." rows="2" cols="5"></textarea></span></p>
 	</div>
 

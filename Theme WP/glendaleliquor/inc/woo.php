@@ -347,10 +347,7 @@ function custom_admin_shipping_email_field( $order ) {
     </p>
     <p class="form-field form-field-wide">
         <label for="shipping_email"><?php _e( 'Shipping Country Code', 'woocommerce' ); ?>:</label>
-        <input type="email" name="shipp_country_code" id="shipp_country_code" value="<?php echo esc_attr(
-                $shipp_country_code
-        );
-        ?>" />
+        <input type="email" name="shipp_country_code" id="shipp_country_code" value="<?php echo esc_attr($shipp_country_code);?>" />
     </p>
     <?php
 }
@@ -375,7 +372,7 @@ function custom_add_shipping_email_to_profile( $fields ) {
     );
     $fields['shipping']['fields']['shipp_country_code'] = array(
         'label'       => __( 'Shipping Country Code', 'woocommerce' ),
-        'type'        => 'email',
+        'type'        => 'text',
     );
 
     return $fields;
@@ -393,8 +390,8 @@ function save_custom_shipping_email_field_in_profile( $user_id ) {
     if ( isset( $_POST['shipping_email'] ) ) {
         update_user_meta( $user_id, 'shipping_email', sanitize_email( $_POST['shipping_email'] ) );
     }
-    if ( isset( $_POST['shipping_email'] ) ) {
-        update_user_meta( $user_id, 'shipp_country_code', sanitize_country_code( $_POST['shipp_email'] ) );
+    if ( isset( $_POST['shipping_country_code'] ) ) {
+        update_user_meta( $user_id, 'shipp_country_code', sanitize_country_code( $_POST['shipp_country_code'] ) );
     }
 }
 
