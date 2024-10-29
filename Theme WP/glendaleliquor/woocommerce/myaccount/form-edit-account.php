@@ -78,6 +78,7 @@ do_action( 'woocommerce_before_edit_account_form' );
             <input type="password" name="password_2" id="password_2" autocomplete="off" />
             <a href="#"><i class="fa-light fa-eye"></i></a>
         </div>
+        <input type="hidden" name="country_code" id="country_code" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), 'country_code', true ) ); ?>" />
 
         <?php
         /**

@@ -323,47 +323,66 @@ jQuery(document).ready(function ($) {
 
 
 
-
-
-
   if($('#billing_phone').length > 0){
     let input = document.querySelector("#billing_phone");
-    window.intlTelInput(input, {
+    const iti = window.intlTelInput(input, {
       initialCountry: "us",
       strictMode: true,
-      utilsScript: "/intl-tel-input/js/utils.js?1727952657388",
+      loadUtilsOnInit: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/utils.js",
       separateDialCode: true,
-
     });
   }
   if($('.tel').length > 0){
     let input = document.querySelector(".tel");
-    window.intlTelInput(input, {
-       initialCountry: "us",
+    const iti = window.intlTelInput(input, {
+      initialCountry: "us",
       strictMode: true,
-      utilsScript: "/intl-tel-input/js/utils.js?1727952657388",
+      loadUtilsOnInit: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/utils.js",
       separateDialCode: true,
+    });
 
+    const countryCode = $("#country_code").val();
+    if (countryCode) {
+      iti.setCountry(countryCode);
+    }
+    input.addEventListener("countrychange", function() {
+      const selectedCountryData = iti.getSelectedCountryData();
+      $("#country_code").val(selectedCountryData.iso2);
     });
   }
   if($('#account_phone').length > 0){
     let input = document.querySelector("#account_phone");
-    window.intlTelInput(input, {
+    const iti = window.intlTelInput(input, {
       initialCountry: "us",
       strictMode: true,
-      utilsScript: "/intl-tel-input/js/utils.js?1727952657388",
+      loadUtilsOnInit: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/utils.js",
       separateDialCode: true,
-
+    });
+    const countryCode = $("#country_code").val();
+    if (countryCode) {
+      iti.setCountry(countryCode);
+    }
+    input.addEventListener("countrychange", function() {
+      const selectedCountryData = iti.getSelectedCountryData();
+      $("#country_code").val(selectedCountryData.iso2);
     });
   }
   if($('.tel-shipp').length > 0){
     let input = document.querySelector(".tel-shipp");
-    window.intlTelInput(input, {
+    const iti = window.intlTelInput(input, {
       initialCountry: "us",
       strictMode: true,
-      utilsScript: "/intl-tel-input/js/utils.js?1727952657388",
+      loadUtilsOnInit: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/utils.js",
       separateDialCode: true,
+    });
 
+    const countryCode = $("#shipp_country_code").val();
+    if (countryCode) {
+      iti.setCountry(countryCode);
+    }
+    input.addEventListener("countrychange", function() {
+      const selectedCountryData = iti.getSelectedCountryData();
+      $("#shipp_country_code").val(selectedCountryData.iso2);
     });
   }
   //show/hide password

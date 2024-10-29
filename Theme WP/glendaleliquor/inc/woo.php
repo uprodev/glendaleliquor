@@ -131,6 +131,11 @@ function save_custom_fields_in_account( $user_id ) {
     if ( isset( $_POST['account_company'] ) ) {
         update_user_meta( $user_id, 'billing_company', sanitize_text_field( $_POST['account_company'] ) );
     }
+
+    if (isset($_POST['country_code'])) {
+        update_user_meta($user_id, 'country_code', sanitize_text_field($_POST['country_code']));
+    }
+
 }
 
 /* Reviews */
@@ -315,7 +320,8 @@ function save_custom_address_fields() {
             update_user_meta( $current_user->ID, 'billing_postcode', sanitize_text_field( $_POST['billing_postcode'] ) );
         }
 
-        wp_redirect( wc_get_account_endpoint_url( 'my-account' ) );
+        wp_safe_redirect(esc_url(home_url('/my-account/#tab-3')));
+
         exit;
     }
 }
@@ -333,22 +339,30 @@ add_action( 'woocommerce_admin_order_data_after_shipping_address', 'custom_admin
 function custom_admin_shipping_email_field( $order ) {
 
     $shipping_email = get_post_meta( $order->get_id(), '_shipping_email', true );
+    $shipp_country_code = get_post_meta( $order->get_id(), '_shipp_country_code', true );
     ?>
     <p class="form-field form-field-wide">
         <label for="shipping_email"><?php _e( 'Shipping Email', 'woocommerce' ); ?>:</label>
         <input type="email" name="shipping_email" id="shipping_email" value="<?php echo esc_attr( $shipping_email ); ?>" />
     </p>
+    <p class="form-field form-field-wide">
+        <label for="shipping_email"><?php _e( 'Shipping Country Code', 'woocommerce' ); ?>:</label>
+        <input type="email" name="shipp_country_code" id="shipp_country_code" value="<?php echo esc_attr(
+                $shipp_country_code
+        );
+        ?>" />
+    </p>
     <?php
 }
 
 
-add_action( 'woocommerce_process_shop_order_meta', 'save_custom_shipping_email_field' );
-
-function save_custom_shipping_email_field( $order_id ) {
-    if ( isset( $_POST['shipping_email'] ) ) {
-        update_post_meta( $order_id, '_shipping_email', sanitize_email( $_POST['shipping_email'] ) );
-    }
-}
+//add_action( 'woocommerce_process_shop_order_meta', 'save_custom_shipping_email_field' );
+//
+//function save_custom_shipping_email_field( $order_id ) {
+//    if ( isset( $_POST['shipping_email'] ) ) {
+//        update_post_meta( $order_id, '_shipping_email', sanitize_email( $_POST['shipping_email'] ) );
+//    }
+//}
 
 
 add_filter( 'woocommerce_customer_meta_fields', 'custom_add_shipping_email_to_profile' );
@@ -357,6 +371,10 @@ function custom_add_shipping_email_to_profile( $fields ) {
 
     $fields['shipping']['fields']['shipping_email'] = array(
         'label'       => __( 'Email', 'woocommerce' ),
+        'type'        => 'email',
+    );
+    $fields['shipping']['fields']['shipp_country_code'] = array(
+        'label'       => __( 'Shipping Country Code', 'woocommerce' ),
         'type'        => 'email',
     );
 
@@ -374,6 +392,9 @@ function save_custom_shipping_email_field_in_profile( $user_id ) {
 
     if ( isset( $_POST['shipping_email'] ) ) {
         update_user_meta( $user_id, 'shipping_email', sanitize_email( $_POST['shipping_email'] ) );
+    }
+    if ( isset( $_POST['shipping_email'] ) ) {
+        update_user_meta( $user_id, 'shipp_country_code', sanitize_country_code( $_POST['shipp_email'] ) );
     }
 }
 
@@ -404,8 +425,12 @@ function save_custom_shipping_address_fields() {
             update_user_meta( $user_id, 'shipping_postcode', sanitize_text_field( $_POST['shipping_postcode'] ) );
         }
 
-        $redirect_url = home_url( '/' );
-        wp_safe_redirect( $redirect_url );
+        if (isset($_POST['shipp_country_code'])) {
+            update_user_meta($user_id, 'shipp_country_code', sanitize_text_field($_POST['shipp_country_code']));
+        }
+
+        wp_safe_redirect(esc_url(home_url('/my-account/#tab-3')));
+
         exit;
     }
 }
@@ -452,4 +477,30 @@ function custom_wc_remove_display_name_requirement( $required_fields ) {
         unset( $required_fields['account_display_name'] );
     }
     return $required_fields;
+}
+
+add_action('show_user_profile', 'show_custom_field_in_admin');
+add_action('edit_user_profile', 'show_custom_field_in_admin');
+function show_custom_field_in_admin($user) {
+    $country_code_value = get_user_meta($user->ID, 'country_code', true);
+    ?>
+    <h3>Country Code</h3>
+    <table class="form-table">
+        <tr>
+            <th><label for="country_code">Country Code</label></th>
+            <td>
+                <input type="text" name="country_code" id="country_code" value="<?php echo esc_attr($country_code_value);
+                ?>" class="regular-text" />
+            </td>
+        </tr>
+    </table>
+    <?php
+}
+
+add_action('personal_options_update', 'save_country_code_in_admin');
+add_action('edit_user_profile_update', 'save_country_code_in_admin');
+function save_country_code_in_admin($user_id) {
+    if (isset($_POST['country_code'])) {
+        update_user_meta($user_id, 'country_code', sanitize_text_field($_POST['country_code']));
+    }
 }

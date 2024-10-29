@@ -85,8 +85,7 @@ $shipping_phone = get_user_meta( $customer_id, 'shipping_phone', true );
                 <p><?= $shipping_phone;?></p>
             </div>
             <div class="btn-wrap">
-                <a href="#address-shipp" class="edit fancybox"><i class="fa-regular fa-pen-to-square"></i><?= __('Edit',
-                        'glendaleliquor');?></a>
+                <a href="#address-shipp" class="edit fancybox"><i class="fa-regular fa-pen-to-square"></i><?= __('Edit', 'glendaleliquor');?></a>
                 <!--                <a href="#" class="del "><i class="fa-light fa-trash"></i>--><?php //= __('Delete', 'glendaleliquor');?><!--</a>-->
             </div>
         </div>
@@ -121,6 +120,7 @@ $shipping_phone = get_user_meta( $customer_id, 'shipping_phone', true );
                 <label for="billing_phone">Phone *</label>
                 <input type="text" name="billing_phone" id="billing_phone" value="<?= $billing_phone;?>" required class="tel-1 tel">
             </div>
+            <input type="hidden" name="country_code" id="country_code" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), 'country_code', true ) ); ?>" />
             <div class="input-wrap-submit">
                 <button type="submit" class="btn-default btn-small btn-gold"  name="save_custom_address" value="<?php esc_attr_e( 'Save', 'woocommerce' ); ?>"><span><?php esc_html_e( 'Save', 'woocommerce' ); ?></span></button>
                 <?php wp_nonce_field( 'woocommerce-edit_address', 'woocommerce-edit-address-nonce' ); ?>
@@ -157,8 +157,8 @@ $shipping_phone = get_user_meta( $customer_id, 'shipping_phone', true );
             </div>
             <div class="input-wrap input-wrap-full">
                 <label for="shipping_phone">Phone *</label>
-                <input type="text" name="shipping_phone" id="shipping_phone" value="<?= $shipping_phone;?>" required
-                       class="tel-1 tel-shipp">
+                <input type="text" name="shipping_phone" id="shipping_phone" value="<?= $shipping_phone;?>" required class="tel-1 tel-shipp">
+                <input type="hidden" name="shipp_country_code" id="shipp_country_code" value="<?php echo esc_attr( get_user_meta( get_current_user_id(), 'shipp_country_code', true ) ); ?>" />
             </div>
             <div class="input-wrap-submit">
                 <button type="submit" class="btn-default btn-small btn-gold" name="save_shipping_address" value="<?php esc_attr_e( 'Save', 'woocommerce' ); ?>"><span><?php esc_html_e( 'Save', 'woocommerce' ); ?></span></button>
