@@ -192,7 +192,7 @@ jQuery(document).ready(function ($) {
 
 
   //sub-menu open/close - mob-menu
-  $(document).on('click', '.mob-menu li:first-child>a', function (e){
+   $(document).on('click', '.mob-menu .menu-item-has-children>a', function (e){
     e.preventDefault();
     let item = $(this).closest('li').find('.sub-menu');
     $(this).toggleClass('is-open');
