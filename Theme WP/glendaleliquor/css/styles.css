@@ -3563,4 +3563,9 @@ header {
     justify-content: space-between;
     grid-gap: 15px;
 }
+
+.product-item figure a{
+	display: block;
+	height: 100%;
+}
 /*# sourceMappingURL=styles.css.map */
