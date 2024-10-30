@@ -1793,6 +1793,12 @@
 	.product-item h6 {
     min-height: 66px;
 }
+		    .blog .top-line .content-width {
+        padding: 0 25px;
+    }
+	.blog .top-menu-wrap .content-width {
+        padding: 0 25px;
+    }
 }
 @media (max-width: 380px) {
   .category .product-item {
