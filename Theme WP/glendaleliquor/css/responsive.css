@@ -1749,7 +1749,11 @@
     overflow: hidden; }
 
   .cabinet.is-open .cabinet-content {
-    overflow: visible; } }
+    overflow: visible; } 
+	body.category{
+		overflow: visible;
+	}
+}
 @media (max-width: 380px) {
   .category .product-item {
     width: 100%; } }
