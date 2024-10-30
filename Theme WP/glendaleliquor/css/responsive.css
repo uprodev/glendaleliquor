@@ -1789,9 +1789,17 @@
 	body.category{
 		overflow: visible;
 	}
+
+	.product-item h6 {
+    min-height: 66px;
+}
 }
 @media (max-width: 380px) {
   .category .product-item {
-    width: 100%; } }
+    width: 100%; } 
+	.product-item h6 {
+    min-height: 0;
+}
+}
 
 /*# sourceMappingURL=responsive.css.map */
