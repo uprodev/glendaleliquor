@@ -272,6 +272,10 @@ jQuery(document).ready(function ($) {
   //select
   $('.select-block select').niceSelect();
 
+	$(document).ajaxComplete(function(){
+ 		$('.select-block select').niceSelect();
+    });
+
   //like
   $(document).on('click', '.like', function (e){
     e.preventDefault();
