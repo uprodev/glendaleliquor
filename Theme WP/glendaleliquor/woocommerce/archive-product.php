@@ -34,9 +34,9 @@ if(is_shop()){
     <section class="category">
         <div class="content-width">
             <div class="mob-cart">
-                <a href="#">
+                <a href="<?= wc_get_cart_url();?>">
                     <img src="<?= get_template_directory_uri();?>/img/icon-8.svg" alt="">
-                    <span>10</span>
+                    <span class="count-product"><?= WC()->cart->get_cart_contents_count();?></span>
                 </a>
             </div>
             <div class="title">

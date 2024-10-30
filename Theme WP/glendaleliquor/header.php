@@ -100,7 +100,7 @@ $idb = get_option('page_for_posts', true);
                 <li><a href="<?= get_permalink($idb);?>"><i class="fa-light fa-file-lines"></i><?= get_the_title($idb);?></a></li>
                 <li><a href="<?= get_permalink(get_option( 'woocommerce_myaccount_page_id' ));?>"><i
                                 class="fa-light fa-heart"></i><?= __('Favorites', 'glenadaleliquor');?></a></li>
-                <li><a href="<?= wc_get_cart_url();?>"><i class="fa-light fa-basket-shopping"></i><?= __('Order', 'glandeiquor');?> <span class="count-product 1"><?= WC()->cart->get_cart_contents_count();?></span></a></li>
+                <li><a href="<?= wc_get_cart_url();?>"><i class="fa-light fa-basket-shopping"></i><?= __('Order', 'glandeiquor');?> <span class="count-product"><?= WC()->cart->get_cart_contents_count();?></span></a></li>
             </ul>
             <?php wp_nav_menu([
                 'theme_location' => 'main-menu',
