@@ -1802,6 +1802,9 @@
 	body.blog{
 		overflow: visible;
 	}
+	    .woocommerce-ordering {
+        width: 100%;
+    }
 }
 @media (max-width: 380px) {
   .category .product-item {
