@@ -1799,6 +1799,9 @@
 	.blog .top-menu-wrap .content-width {
         padding: 0 25px;
     }
+	body.blog{
+		overflow: visible;
+	}
 }
 @media (max-width: 380px) {
   .category .product-item {
