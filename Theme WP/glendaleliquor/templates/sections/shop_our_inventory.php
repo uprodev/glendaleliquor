@@ -46,13 +46,22 @@ $cats = get_sub_field('product_categories');
                 </div>
                 <div class="swiper product-category-slider product-category-slider-2">
                     <div class="swiper-wrapper">
-                        <?php foreach ($cats as $cat):
+                        <?php
+                        $chunk_size = 4;
+                        $count = 0;
+                        $total_items = count($cats);
+
+                        foreach ($cats as $cat):
                             $term = get_term($cat);
                             $thumbnail_id = get_term_meta( $cat, 'thumbnail_id', true );
                             $image_url = wp_get_attachment_url( $thumbnail_id );
                             $hover = get_field('hover_image', 'product_cat_'.$cat);
+
+                            if ($count % $chunk_size === 0) {
+                                echo '<div class="swiper-slide">';
+                            }
                             ?>
-                            <div class="swiper-slide">
+
                                 <a href="<?= get_term_link($cat);?>">
                                     <figure>
                                         <?php if($image_url):?>
@@ -64,7 +73,10 @@ $cats = get_sub_field('product_categories');
                                     </figure>
                                     <p><?= $term->name;?></p>
                                 </a>
-                            </div>
+                            <?php $count++;
+                            if ($count % $chunk_size === 0 || $count === $total_items) {
+                                echo '</div>';
+                            }?>
                         <?php endforeach;?>
                     </div>
                     <div class="swiper-pagination product-category-pagination-2"></div>
