@@ -33,6 +33,42 @@
   .content-width, .top-line .content-width, .top-menu-wrap .content-width {
     width: 960px; }
 
+		.menu-item-has-children> a{
+		position: relative;
+	}
+	.menu-item-has-children>a:after{
+		border-bottom: 2px solid #000;
+    border-right: 2px solid #000;
+    content: '';
+    display: block;
+    height: 5px;
+    margin-top: -4px;
+    pointer-events: none;
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    -webkit-transform-origin: 66% 66%;
+    -ms-transform-origin: 66% 66%;
+    transform-origin: 66% 66%;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+    width: 5px;
+	}
+	
+	.menu-item-has-children>a.is-open:after{
+		-webkit-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+		border-bottom: 2px solid #b49571;
+    border-right: 2px solid #b49571;
+	}
+	.menu-responsive .mob-menu-wrap > ul .sub-menu{
+		padding-left: 20px;
+	}
+
   .top-line .top-nav ul {
     display: none; }
 
